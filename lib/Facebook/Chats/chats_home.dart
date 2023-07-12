@@ -8,6 +8,12 @@ class ChatsHome extends StatefulWidget {
 }
 
 class _ChatsHomeState extends State<ChatsHome> {
+  TextEditingController myText = TextEditingController();
+  var sendButton = true;
+  List like = [Icons.thumb_up_sharp];
+  List userMessage = [
+    'I am fine',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,57 +75,74 @@ class _ChatsHomeState extends State<ChatsHome> {
       body: Column(
         children: [
           Expanded(
-            child: Container(
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        const CircleAvatar(
-                          backgroundImage: AssetImage(
-                              'assets/facebook/friends/images/photo_7_2023-07-10_20-06-17.jpg'),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Container(
-                            height: MediaQuery.of(context).size.height * 0.05,
-                            width: MediaQuery.of(context).size.width * 0.30,
-                            decoration: BoxDecoration(
-                                color: Colors.grey.shade200,
-                                borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    topRight: Radius.circular(20),
-                                    bottomRight: Radius.circular(20))),
-                            child: Center(
-                                child: customText(text: "Hello How are you")))
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        const CircleAvatar(
-                          backgroundImage: AssetImage(
-                              'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Container(
-                            height: MediaQuery.of(context).size.height * 0.05,
-                            width: MediaQuery.of(context).size.width * 0.30,
-                            decoration: BoxDecoration(
-                                color: Colors.grey.shade200,
-                                borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    topRight: Radius.circular(20),
-                                    bottomRight: Radius.circular(20))),
-                            child: Center(child: customText(text: "I am Fine")))
-                      ],
-                    )
-                  ],
+            child: SingleChildScrollView(
+              child: Container(
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          const CircleAvatar(
+                            backgroundImage: AssetImage(
+                                'assets/facebook/friends/images/photo_7_2023-07-10_20-06-17.jpg'),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                              height: MediaQuery.of(context).size.height * 0.05,
+                              width: MediaQuery.of(context).size.width * 0.30,
+                              decoration: BoxDecoration(
+                                  color: Colors.grey.shade200,
+                                  borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      topRight: Radius.circular(20),
+                                      bottomRight: Radius.circular(20))),
+                              child: Center(
+                                  child: customText(text: "Hello How are you")))
+                        ],
+                      ),
+                      ...List.generate(
+                          userMessage.length,
+                          (index) => Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    const CircleAvatar(
+                                      backgroundImage: AssetImage(
+                                          'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Container(
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.05,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.30,
+                                        decoration: BoxDecoration(
+                                            color: Colors.grey.shade200,
+                                            borderRadius:
+                                                const BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(20),
+                                                    topRight:
+                                                        Radius.circular(20),
+                                                    bottomRight:
+                                                        Radius.circular(20))),
+                                        child: Center(
+                                            child: customText(
+                                                text: userMessage[index])))
+                                  ],
+                                ),
+                              ))
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -137,16 +160,52 @@ class _ChatsHomeState extends State<ChatsHome> {
                   height: 40,
                   width: 200,
                   child: TextField(
+                    controller: myText,
+                    onChanged: (value) {
+                      setState(() {});
+                      if (value.isNotEmpty) {
+                        sendButton = false;
+                      }
+                      if (value.isEmpty) {
+                        sendButton = true;
+                      }
+                    },
+                    onSubmitted: (value) {
+                      if (myText.text.isNotEmpty) {
+                        setState(() {
+                          userMessage.add(myText.text);
+                          myText.clear();
+                        });
+                      }
+                    },
+                    autofocus: sendButton,
                     decoration: InputDecoration(
                         hintText: "Aa",
-                        suffixIcon: customIcon(iconName: Icons.face),
+                        suffixIcon: sendButton == true
+                            ? customIcon(iconName: Icons.face)
+                            : IconButton(
+                                onPressed: () {
+                                  if (myText.text.isNotEmpty) {
+                                    setState(() {
+                                      userMessage.add(myText.text);
+                                      myText.clear();
+                                    });
+                                  } else {
+                                    null;
+                                  }
+                                },
+                                icon: customIcon(iconName: Icons.send)),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20)),
                         filled: true,
                         fillColor: Colors.grey.shade200),
                   ),
                 ),
-                customIcon(iconName: Icons.thumb_up_sharp)
+                IconButton(
+                    onPressed: () {
+                      Icon(like[0]);
+                    },
+                    icon: customIcon(iconName: Icons.thumb_up_sharp))
               ],
             ),
           )
