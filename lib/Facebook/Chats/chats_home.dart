@@ -10,7 +10,7 @@ class ChatsHome extends StatefulWidget {
 class _ChatsHomeState extends State<ChatsHome> {
   TextEditingController myText = TextEditingController();
   var sendButton = true;
-  List like = [Icons.thumb_up_sharp];
+  var likeButton = false;
   List userMessage = [
     'I am fine',
   ];
@@ -160,6 +160,7 @@ class _ChatsHomeState extends State<ChatsHome> {
                   height: 40,
                   width: 200,
                   child: TextField(
+                    maxLines: 5,
                     controller: myText,
                     onChanged: (value) {
                       setState(() {});
@@ -202,9 +203,7 @@ class _ChatsHomeState extends State<ChatsHome> {
                   ),
                 ),
                 IconButton(
-                    onPressed: () {
-                      Icon(like[0]);
-                    },
+                    onPressed: () {},
                     icon: customIcon(iconName: Icons.thumb_up_sharp))
               ],
             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../widget/customText.dart';
+import '../my_bottom_sheet.dart';
 
 class Settings extends StatelessWidget {
   Settings({super.key});
@@ -58,7 +59,11 @@ class Settings extends StatelessWidget {
           scrollDirection: Axis.vertical,
           children: [
             InkWell(
-              onTap: () {},
+              onTap: () {
+                showModalBottomSheet(
+                    context: context,
+                    builder: (BuildContext x) => const MyBottomSheet());
+              },
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.35,
                 width: double.infinity,

@@ -5,7 +5,12 @@ import 'package:flutter/material.dart';
 //
 class MyText extends StatelessWidget {
   const MyText(
-      {super.key, required this.text, this.color, this.fWeight, this.size});
+      {super.key,
+      required this.text,
+      this.align,
+      this.color,
+      this.fWeight,
+      this.size});
 
   final String text;
 
@@ -14,11 +19,12 @@ class MyText extends StatelessWidget {
   final fWeight;
 
   final size;
-
+  final align;
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
+      textAlign: align,
       style: TextStyle(
           color: color ?? Colors.black,
           fontWeight: fWeight ?? FontWeight.normal,
