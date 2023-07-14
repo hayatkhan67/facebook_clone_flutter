@@ -119,6 +119,8 @@ class _ChatsHomeState extends State<ChatsHome> {
                                       width: 10,
                                     ),
                                     Container(
+                                        // height: 20,
+                                        // width: 30,
                                         height:
                                             MediaQuery.of(context).size.height *
                                                 0.05,

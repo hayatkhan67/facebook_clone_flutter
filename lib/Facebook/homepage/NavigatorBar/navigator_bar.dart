@@ -33,6 +33,7 @@ class _MyNavigatorBarState extends State<MyNavigatorBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: NavigationBar(
+          height: 60,
           selectedIndex: currentIndex,
           onDestinationSelected: (value) {
             setState(() {
@@ -48,7 +49,7 @@ class _MyNavigatorBarState extends State<MyNavigatorBar> {
                 icon: Icon(Icons.person_2_outlined), label: 'Profile'),
             NavigationDestination(
                 icon: Icon(Icons.notifications_outlined),
-                label: 'Notifications'),
+                label: 'Notification'),
             NavigationDestination(icon: Icon(Icons.menu), label: 'Menu'),
           ]),
       body: facebookNavigation[currentIndex],

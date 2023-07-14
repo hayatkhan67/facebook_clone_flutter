@@ -65,7 +65,7 @@ class Settings extends StatelessWidget {
                     builder: (BuildContext x) => const MyBottomSheet());
               },
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.35,
+                height: MediaQuery.of(context).size.height * 0.40,
                 width: double.infinity,
                 color: Colors.white,
                 child: const Padding(

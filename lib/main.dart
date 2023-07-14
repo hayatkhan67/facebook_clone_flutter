@@ -1,10 +1,6 @@
-// import 'package:bano_qabil_project/Facebook/splash_screen.dart';
-import 'package:bano_qabil_project/Facebook/Chats/chats_home.dart';
-import 'package:bano_qabil_project/Facebook/Settings/settings.dart';
-import 'package:bano_qabil_project/Facebook/splash_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'Facebook/my_bottom_sheet.dart';
+import 'Facebook/homepage/NavigatorBar/navigator_bar.dart';
 
 // import 'Facebook/Chats/chats_home.dart';
 
@@ -28,7 +24,7 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
             iconTheme: IconThemeData(color: Colors.black)),
       ),
-      home: Settings(),
+      home: const MyNavigatorBar(),
       // home: const ForgetPassword(),
     );
   }
