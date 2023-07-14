@@ -16,7 +16,8 @@ class _UserNewsFeedState extends State<UserNewsFeed> {
   List<NewsFeed> newsfeed = [
     NewsFeed(
         image: 'assets/facebook/friends/images/photo_1_2023-07-10_20-06-17.jpg',
-        text: 'New Pic'),
+        text: 'New Pic',
+        like: Icons.thumb_up_alt),
     NewsFeed(
         image: 'assets/facebook/friends/images/photo_2_2023-07-10_20-06-17.jpg',
         text: '2020'),
@@ -30,6 +31,13 @@ class _UserNewsFeedState extends State<UserNewsFeed> {
         image: 'assets/facebook/friends/images/photo_5_2023-07-10_20-06-17.jpg',
         text: 'New Pic'),
   ];
+  List postLike = const [
+    " Icons.thumb_up_alt",
+    " Icons.thumb_up_alt",
+    " Icons.thumb_up_alt",
+    " Icons.thumb_up_alt",
+    " Icons.thumb_up_alt",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,8 +50,8 @@ class _UserNewsFeedState extends State<UserNewsFeed> {
           children: [
             Container(
                 constraints:
-                    const BoxConstraints(minHeight: 350, maxHeight: 450),
-                height: 450,
+                    const BoxConstraints(minHeight: 350, maxHeight: 550),
+                height: 550,
                 width: double.infinity,
                 color: Colors.white,
                 child: Column(
@@ -102,14 +110,21 @@ class _UserNewsFeedState extends State<UserNewsFeed> {
                                   onPressed: () {
                                     setState(() {
                                       liked = !liked;
+                                      if (liked) {
+                                        newsfeed[index].like =
+                                            Icons.thumb_up_alt;
+                                      } else {
+                                        newsfeed.remove(newsfeed[index].like);
+                                        // newsfeed[index].like =
+                                        //     Icons.thumb_up_alt_outlined;
+                                      }
                                     });
                                   },
-                                  icon: liked == false
-                                      ? const Icon(Icons.thumb_up_alt_outlined)
-                                      : const Icon(
-                                          Icons.thumb_up_alt,
-                                          color: Colors.blue,
-                                        )),
+                                  icon: Icon(
+                                    newsfeed[index].like ??
+                                        Icons.thumb_up_alt_outlined,
+                                    color: Colors.blue,
+                                  )),
                               const SizedBox(
                                 width: 10,
                               ),
