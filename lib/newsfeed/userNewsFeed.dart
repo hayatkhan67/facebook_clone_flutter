@@ -2,7 +2,7 @@ import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'newsfeed_modelclass.dart';
+import '../Facebook/model class/newsfeed_modelclass.dart';
 
 class UserNewsFeed extends StatefulWidget {
   const UserNewsFeed({super.key});
@@ -31,13 +31,7 @@ class _UserNewsFeedState extends State<UserNewsFeed> {
         image: 'assets/facebook/friends/images/photo_5_2023-07-10_20-06-17.jpg',
         text: 'New Pic'),
   ];
-  List postLike = const [
-    " Icons.thumb_up_alt",
-    " Icons.thumb_up_alt",
-    " Icons.thumb_up_alt",
-    " Icons.thumb_up_alt",
-    " Icons.thumb_up_alt",
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,9 +108,8 @@ class _UserNewsFeedState extends State<UserNewsFeed> {
                                         newsfeed[index].like =
                                             Icons.thumb_up_alt;
                                       } else {
-                                        newsfeed.remove(newsfeed[index].like);
-                                        // newsfeed[index].like =
-                                        //     Icons.thumb_up_alt_outlined;
+                                        newsfeed[index].like =
+                                            Icons.thumb_up_alt_outlined;
                                       }
                                     });
                                   },
