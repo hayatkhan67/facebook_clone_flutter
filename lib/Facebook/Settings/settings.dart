@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../widget/customText.dart';
-import '../my_bottom_sheet.dart';
+import 'my_bottom_sheet.dart';
 
 class Settings extends StatelessWidget {
   Settings({super.key});

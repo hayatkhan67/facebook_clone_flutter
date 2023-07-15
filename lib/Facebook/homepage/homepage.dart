@@ -4,6 +4,7 @@ import 'package:bano_qabil_project/newsfeed/userNewsFeed.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../widget/customText.dart';
 import 'create_story/create_story.dart';
 import 'music.dart';
 
@@ -74,10 +75,9 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                children: [
-                  InkWell(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: ListTile(
+                  leading: InkWell(
                     onTap: () {
                       Navigator.push(
                           context,
@@ -87,26 +87,47 @@ class _HomePageState extends State<HomePage> {
                     },
                     child: const CircleAvatar(
                       backgroundImage: AssetImage(
-                          'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
+                          "assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg"),
                     ),
                   ),
-                  TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'What\'s on your mind?',
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.w400),
-                      )),
-                  const Expanded(
-                    child: SizedBox(),
-                  ),
-                  const Icon(
+                  title: const MyText(text: 'What\'s on your mind?'),
+                  trailing: const Icon(
                     Icons.photo,
                     color: Colors.green,
-                  )
-                ],
-              ),
-            ),
+                  ),
+                )
+                //  Row(
+                //   children: [
+                //     InkWell(
+                //       onTap: () {
+                //         Navigator.push(
+                //             context,
+                //             MaterialPageRoute(
+                //               builder: (context) => const UserProfile(),
+                //             ));
+                //       },
+                //       child: const CircleAvatar(
+                //         backgroundImage: AssetImage(
+                //             'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
+                //       ),
+                //     ),
+                //     TextButton(
+                //         onPressed: () {},
+                //         child: const Text(
+                //           'What\'s on your mind?',
+                //           style: TextStyle(
+                //               color: Colors.black, fontWeight: FontWeight.w400),
+                //         )),
+                //     const Expanded(
+                //       child: SizedBox(),
+                //     ),
+                //     const Icon(
+                //       Icons.photo,
+                //       color: Colors.green,
+                //     )
+                //   ],
+                // ),
+                ),
             const Divider(
               color: Color.fromARGB(255, 209, 206, 206),
               thickness: 6,
