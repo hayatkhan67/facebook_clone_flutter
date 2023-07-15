@@ -1,6 +1,6 @@
 import 'package:bano_qabil_project/Facebook/Chats/chats.dart';
-import 'package:bano_qabil_project/Facebook/homepage/profile.dart';
-import 'package:bano_qabil_project/newsfeed/userNewsFeed.dart';
+import 'package:bano_qabil_project/Facebook/Profile/profile.dart';
+import 'package:bano_qabil_project/Facebook/newsfeed/userNewsFeed.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

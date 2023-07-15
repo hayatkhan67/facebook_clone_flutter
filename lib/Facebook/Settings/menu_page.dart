@@ -1,5 +1,5 @@
 import 'package:bano_qabil_project/Facebook/Settings/settings.dart';
-import 'package:bano_qabil_project/Facebook/homepage/profile.dart';
+import 'package:bano_qabil_project/Facebook/Profile/profile.dart';
 import 'package:flutter/material.dart';
 
 class Menu extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:bano_qabil_project/profilee.dart';
 import 'package:flutter/material.dart';
 
-import 'Facebook/homepage/NavigatorBar/navigator_bar.dart';
+import 'Facebook/NavigatorBar/navigator_bar.dart';
 
 void main() {
   runApp(const MyApp());
