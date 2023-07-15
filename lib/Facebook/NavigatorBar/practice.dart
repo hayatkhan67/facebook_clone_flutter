@@ -44,7 +44,7 @@ class _PracticeState extends State<Practice> {
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(20),
                               bottomRight: Radius.circular(20))),
-                    )
+                    ),
                   ],
                 ),
               )

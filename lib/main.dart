@@ -1,7 +1,6 @@
-import 'package:bano_qabil_project/profilee.dart';
 import 'package:flutter/material.dart';
 
-import 'Facebook/NavigatorBar/navigator_bar.dart';
+import 'Facebook/Profile/user_Profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
             iconTheme: IconThemeData(color: Colors.black)),
       ),
-      home: const Test(),
+      home: const UserProfile(),
       // home: const ForgetPassword(),
     );
   }

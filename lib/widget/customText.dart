@@ -11,7 +11,7 @@ class MyText extends StatelessWidget {
       this.fWeight,
       this.size});
 
-  final String text;
+  final text;
 
   final color;
 

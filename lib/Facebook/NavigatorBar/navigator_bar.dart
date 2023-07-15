@@ -1,5 +1,5 @@
 import 'package:bano_qabil_project/Facebook/homepage/homepage.dart';
-import 'package:bano_qabil_project/Facebook/Profile/profile.dart';
+import 'package:bano_qabil_project/Facebook/Profile/user_Profile.dart';
 import 'package:flutter/material.dart';
 import '../Settings/menu_page.dart';
 

@@ -1,17 +1,16 @@
 import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:bano_qabil_project/widget/custom_Divider.dart';
-import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Test extends StatefulWidget {
-  const Test({super.key});
+class Profile extends StatefulWidget {
+  const Profile({super.key});
 
   @override
-  State<Test> createState() => _TestState();
+  State<Profile> createState() => _ProfileState();
 }
 
-class _TestState extends State<Test> {
+class _ProfileState extends State<Profile> {
   var currentIndex = 0;
   List name = [
     'Posts',
