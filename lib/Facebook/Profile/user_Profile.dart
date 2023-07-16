@@ -183,32 +183,15 @@ class _UserProfileState extends State<UserProfile> {
                     children: [
                       ElevatedButton(
                           onPressed: () {},
-                          child: const Row(
-                            children: [
-                              Icon(
-                                Icons.add,
-                                size: 20,
-                              ),
-                              Text(' Add to story'),
-                            ],
-                          )),
+                          child: const MyText(text: '+ Add to story')),
                       ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.grey.shade200,
                               elevation: 0),
-                          child: const Row(
-                            children: [
-                              Icon(
-                                Icons.edit,
-                                size: 20,
-                                color: Colors.black,
-                              ),
-                              MyText(
-                                text: " Edit profile",
-                                color: Colors.black,
-                              )
-                            ],
+                          child: const MyText(
+                            text: "✎ Edit profile",
+                            color: Colors.black,
                           )),
                       ElevatedButton(
                           onPressed: () {},
@@ -247,8 +230,11 @@ class _UserProfileState extends State<UserProfile> {
                                       currentIndex = index;
                                     },
                                     child: Container(
-                                      height: 40,
-                                      width: 90,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.05,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.17,
                                       decoration: BoxDecoration(
                                         color: currentIndex != index
                                             ? Colors.grey.shade200
@@ -279,9 +265,9 @@ class _UserProfileState extends State<UserProfile> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const MyText(
+                        MyText(
                           text: 'Details',
-                          size: 20.0,
+                          size: MediaQuery.of(context).size.height * 0.03,
                           fWeight: FontWeight.bold,
                         ),
                         ...List.generate(
@@ -289,11 +275,13 @@ class _UserProfileState extends State<UserProfile> {
                             (index) => ListTile(
                                   leading: Icon(
                                     detailsIcon[index],
-                                    size: 23,
+                                    size: MediaQuery.of(context).size.height *
+                                        0.03,
                                   ),
                                   title: MyText(
                                     text: detailsText[index],
-                                    size: 18.0,
+                                    size: MediaQuery.of(context).size.height *
+                                        0.02,
                                   ),
                                 )),
                         ElevatedButton(
@@ -342,16 +330,18 @@ class _UserProfileState extends State<UserProfile> {
                           ),
                         ),
                         SizedBox(
-                          height: 370,
+                          height: MediaQuery.of(context).size.height * 0.50,
                           width: double.infinity,
                           child: GridView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 3,
                                     crossAxisSpacing: 05,
                                     mainAxisSpacing: 10,
-                                    mainAxisExtent: 160),
+                                    mainAxisExtent:
+                                        MediaQuery.of(context).size.height *
+                                            0.22),
                             itemCount: 6,
                             itemBuilder: (context, index) => Column(
                               children: [
