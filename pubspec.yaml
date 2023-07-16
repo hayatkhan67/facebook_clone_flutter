@@ -65,6 +65,7 @@ flutter:
   - assets/facebook/loginpage/
   - assets/facebook/homepage/
   - assets/facebook/friends/images/
+  - assets/facebook/myPost/
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

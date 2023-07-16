@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
             iconTheme: IconThemeData(color: Colors.black)),
       ),
       home: const UserProfile(),
-      // home: const ForgetPassword(),
     );
   }
 }

@@ -1,16 +1,28 @@
 class UserDetails {
-  var banner;
+  String? banner;
   String? profilePic;
   String? userName;
   String? totalFriends;
-  List? displayFriendImages;
+  List? displayFriendsImage;
+  List? displayFriendsName;
   List? freindImages;
+  List? posts;
+  List? postText;
 
   UserDetails(
       {this.banner,
+      this.postText,
       this.freindImages,
       this.profilePic,
       this.totalFriends,
       this.userName,
-      this.displayFriendImages});
+      this.displayFriendsImage,
+      this.posts,
+      this.displayFriendsName});
+}
+
+class Posts {
+  List? image;
+  List? text;
+  Posts({this.image, this.text});
 }
