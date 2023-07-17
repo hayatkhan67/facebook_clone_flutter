@@ -62,7 +62,7 @@ class Settings extends StatelessWidget {
               onTap: () {
                 showModalBottomSheet(
                     context: context,
-                    builder: (BuildContext x) => const MyBottomSheet());
+                    builder: (BuildContext context) => const MyBottomSheet());
               },
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.40,

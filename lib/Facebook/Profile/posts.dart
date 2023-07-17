@@ -5,6 +5,7 @@ import '../../widget/customText.dart';
 
 class UserPost extends StatefulWidget {
   const UserPost({super.key, required this.myPost, this.userDp, this.userName});
+  // ignore: prefer_typing_uninitialized_variables
   final myPost, userName, userDp;
   @override
   State<UserPost> createState() => _UserPostState();
@@ -37,21 +38,7 @@ class _UserPostState extends State<UserPost> {
                           ),
                           title: MyText(text: widget.userName),
                           subtitle: const MyText(text: '1 day ago'),
-                          trailing: SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.24,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                const Icon(Icons.more_horiz),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(Icons.close))
-                              ],
-                            ),
-                          ),
+                          trailing: const Icon(Icons.more_horiz),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 10),

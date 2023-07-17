@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:bano_qabil_project/Facebook/Profile/posts.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -183,7 +185,10 @@ class _UserProfileState extends State<UserProfile> {
                     children: [
                       ElevatedButton(
                           onPressed: () {},
-                          child: const MyText(text: '+ Add to story')),
+                          child: const MyText(
+                            text: '+ Add to story',
+                            color: Colors.white,
+                          )),
                       ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(

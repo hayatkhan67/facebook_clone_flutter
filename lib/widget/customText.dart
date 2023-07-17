@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_typing_uninitialized_variables
+// ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
 
@@ -11,14 +11,9 @@ class MyText extends StatelessWidget {
       this.fWeight,
       this.size});
 
-  final text;
+  // ignore: prefer_typing_uninitialized_variables
+  final text, color, fWeight, size, align;
 
-  final color;
-
-  final fWeight;
-
-  final size;
-  final align;
   @override
   Widget build(BuildContext context) {
     return Text(

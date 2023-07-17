@@ -1,6 +1,7 @@
 import 'package:bano_qabil_project/Facebook/homepage/homepage.dart';
 import 'package:bano_qabil_project/Facebook/Profile/user_Profile.dart';
 import 'package:flutter/material.dart';
+import '../Notifications/notifications.dart';
 import '../Settings/menu_page.dart';
 
 class MyNavigatorBar extends StatefulWidget {
@@ -20,12 +21,7 @@ class _MyNavigatorBarState extends State<MyNavigatorBar> {
       ),
     ),
     UserProfile(),
-    Center(
-      child: Text(
-        'Notifications',
-        style: TextStyle(fontSize: 42),
-      ),
-    ),
+    Notifications(),
     Menu()
   ];
   var currentIndex = 0;

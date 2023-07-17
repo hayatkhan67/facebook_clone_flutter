@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -13,8 +15,6 @@ class MyElevatedButton extends StatefulWidget {
   Widget? child;
   // ignore: prefer_typing_uninitialized_variables
   var _onPressed;
-
-  get onPressed => _onPressed;
 
   set onPressed(value) {
     _onPressed = value;
