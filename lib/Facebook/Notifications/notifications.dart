@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../resources_list/details_list.dart';
 import 'bottom_sheet.dart';
+import 'friend_request.dart';
 
 class Notifications extends StatefulWidget {
   const Notifications({super.key});
@@ -14,17 +15,17 @@ class Notifications extends StatefulWidget {
 }
 
 class _NotificationsState extends State<Notifications> {
-  //adding friends detail like dp name in user variable
-  var user = friends;
-
+  //adding friends detail like dp name in notifications variable
+  var notifications = friends;
+  var myFreindRequests = friendRequest;
   //added random hours for notification
   List<String> textIndex = [];
 
   @override
   Widget build(BuildContext context) {
     // try random number genrate
-    List randomHours =
-        List.generate(user.length, (index) => Random().nextInt(24) + 1);
+    List randomHours = List.generate(
+        notifications.length, (index) => Random().nextInt(24) + 1);
 
     //adding for loop to acces random Hours value 1 by 1
     for (int i = 0; i < randomHours.length; i++) {
@@ -59,8 +60,7 @@ class _NotificationsState extends State<Notifications> {
         ],
       ),
       drawer: const Drawer(),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
         children: [
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 12.0),
@@ -71,16 +71,92 @@ class _NotificationsState extends State<Notifications> {
           ),
           //adding a list of notifications
           ...List.generate(
-              user.length,
+              notifications.length,
               (index) => ListTile(
                     leading: CircleAvatar(
                       backgroundColor: Colors.amber,
-                      backgroundImage: AssetImage(user[index].dp),
+                      backgroundImage: AssetImage(notifications[index].dp),
                     ),
-                    title: MyText(text: '${user[index].name} added a new post'),
+                    title: MyText(
+                        text: '${notifications[index].name} added a new post'),
                     subtitle: MyText(text: '${textIndex[index]} h'),
                     trailing: const Icon(Icons.more_horiz_outlined),
                   )),
+
+          //adding friend request sample and see all button to navigate friend request page
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const MyText(
+                  text: 'Friend Requests',
+                  fWeight: FontWeight.bold,
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const FriendRequestList(),
+                        ));
+                  },
+                  child: const MyText(
+                    text: 'see all',
+                    color: Colors.blue,
+                    fWeight: FontWeight.bold,
+                  ),
+                )
+              ],
+            ),
+          ),
+
+          //adding list tile sample
+          ...List.generate(
+            2,
+            (index) => ListTile(
+              minVerticalPadding: 10,
+              horizontalTitleGap: 2,
+              leading: CircleAvatar(
+                  radius: 32,
+                  backgroundImage: AssetImage(myFreindRequests[index].dp)),
+              title: MyText(
+                text: '${myFreindRequests[index].name} sent a friend request',
+                size: 17.0,
+              ),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const MyText(
+                    text: 'Khan Amir and 5 other mutual friends',
+                    color: Colors.grey,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                            onPressed: () {},
+                            child: const MyText(
+                              text: 'Confirm',
+                              color: Colors.white,
+                            )),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        child: ElevatedButton(
+                            onPressed: () {},
+                            child: const MyText(
+                                text: 'Delete', color: Colors.white)),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
