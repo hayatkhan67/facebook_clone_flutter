@@ -148,8 +148,10 @@ class _NotificationsState extends State<Notifications> {
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.grey.shade100),
                             child: const MyText(
-                                text: 'Delete', color: Colors.white)),
+                                text: 'Delete', color: Colors.black)),
                       ),
                     ],
                   )
