@@ -82,3 +82,88 @@ class Shan {
       this.displayFriendsImage,
       this.totalFriends});
 }
+
+class KhanAmir {
+  String? name;
+  String? dp;
+  String? posts;
+  String? postText;
+  String? totalFriends;
+  List? displayFriendsImage;
+
+  KhanAmir(
+      {this.name,
+      this.dp,
+      this.posts,
+      this.postText,
+      this.displayFriendsImage,
+      this.totalFriends});
+}
+
+class HknGaming {
+  String? name;
+  String? dp;
+  String? posts;
+  String? postText;
+  String? totalFriends;
+  List? displayFriendsImage;
+
+  HknGaming(
+      {this.name,
+      this.dp,
+      this.posts,
+      this.postText,
+      this.displayFriendsImage,
+      this.totalFriends});
+}
+
+class Hasan {
+  String? name;
+  String? dp;
+  String? posts;
+  String? postText;
+  String? totalFriends;
+  List? displayFriendsImage;
+
+  Hasan(
+      {this.name,
+      this.dp,
+      this.posts,
+      this.postText,
+      this.displayFriendsImage,
+      this.totalFriends});
+}
+
+class AliSami {
+  String? name;
+  String? dp;
+  String? posts;
+  String? postText;
+  String? totalFriends;
+  List? displayFriendsImage;
+
+  AliSami(
+      {this.name,
+      this.dp,
+      this.posts,
+      this.postText,
+      this.displayFriendsImage,
+      this.totalFriends});
+}
+
+class Unknown {
+  String? name;
+  String? dp;
+  String? posts;
+  String? postText;
+  String? totalFriends;
+  List? displayFriendsImage;
+
+  Unknown(
+      {this.name,
+      this.dp,
+      this.posts,
+      this.postText,
+      this.displayFriendsImage,
+      this.totalFriends});
+}

@@ -17,6 +17,7 @@ class _UserPostState extends State<UserPost> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+        shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         itemCount: widget.myPost.image!.length,
         itemBuilder: (context, index) => Padding(
@@ -26,10 +27,10 @@ class _UserPostState extends State<UserPost> {
                 Container(
                     constraints:
                         const BoxConstraints(minHeight: 350, maxHeight: 850),
-                    height: 450,
+                    // height: 450,
                     width: double.infinity,
-                    color: Colors.white,
                     child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         ListTile(
                           onTap: () {},
@@ -49,11 +50,11 @@ class _UserPostState extends State<UserPost> {
                             ],
                           ),
                         ),
-                        Expanded(
+                        Flexible(
                             child: Image(
                           image: AssetImage(
                               widget.myPost.image![index].toString()),
-                          fit: BoxFit.contain,
+                          fit: BoxFit.fill,
                         )),
                         Container(
                           decoration: BoxDecoration(

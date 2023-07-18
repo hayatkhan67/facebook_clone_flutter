@@ -74,60 +74,26 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: ListTile(
-                  leading: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const UserProfile(),
-                          ));
-                    },
-                    child: const CircleAvatar(
-                      backgroundImage: AssetImage(
-                          "assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg"),
-                    ),
-                  ),
-                  title: const MyText(text: 'What\'s on your mind?'),
-                  trailing: const Icon(
-                    Icons.photo,
-                    color: Colors.green,
-                  ),
-                )
-                //  Row(
-                //   children: [
-                //     InkWell(
-                //       onTap: () {
-                //         Navigator.push(
-                //             context,
-                //             MaterialPageRoute(
-                //               builder: (context) => const UserProfile(),
-                //             ));
-                //       },
-                //       child: const CircleAvatar(
-                //         backgroundImage: AssetImage(
-                //             'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
-                //       ),
-                //     ),
-                //     TextButton(
-                //         onPressed: () {},
-                //         child: const Text(
-                //           'What\'s on your mind?',
-                //           style: TextStyle(
-                //               color: Colors.black, fontWeight: FontWeight.w400),
-                //         )),
-                //     const Expanded(
-                //       child: SizedBox(),
-                //     ),
-                //     const Icon(
-                //       Icons.photo,
-                //       color: Colors.green,
-                //     )
-                //   ],
-                // ),
+            ListTile(
+              leading: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const UserProfile(),
+                      ));
+                },
+                child: const CircleAvatar(
+                  backgroundImage: AssetImage(
+                      "assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg"),
                 ),
+              ),
+              title: const MyText(text: 'What\'s on your mind?'),
+              trailing: const Icon(
+                Icons.photo,
+                color: Colors.green,
+              ),
+            ),
             const Divider(
               color: Color.fromARGB(255, 209, 206, 206),
               thickness: 6,
@@ -206,8 +172,11 @@ class _HomePageState extends State<HomePage> {
               color: Color.fromARGB(255, 209, 206, 206),
               thickness: 6,
             ),
-            const SizedBox(
-                height: 5 * 500, width: double.infinity, child: UserNewsFeed()),
+            // const SizedBox(
+            //     height: 5 * 500, width: double.infinity, child:
+
+            const UserNewsFeed()
+            //  ),
             // const MyText(text: 'no More feed'),
           ],
         ),

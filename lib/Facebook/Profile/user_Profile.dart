@@ -183,21 +183,29 @@ class _UserProfileState extends State<UserProfile> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      ElevatedButton(
-                          onPressed: () {},
-                          child: const MyText(
-                            text: '+ Add to story',
-                            color: Colors.white,
-                          )),
-                      ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.grey.shade200,
-                              elevation: 0),
-                          child: const MyText(
-                            text: "✎ Edit profile",
-                            color: Colors.black,
-                          )),
+                      Expanded(
+                        child: ElevatedButton(
+                            onPressed: () {},
+                            child: const MyText(
+                              text: '+ Add to story',
+                              color: Colors.white,
+                            )),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.grey.shade200,
+                                elevation: 0),
+                            child: const MyText(
+                              text: "✎ Edit profile",
+                              color: Colors.black,
+                            )),
+                      ),
+                      const SizedBox(width: 10),
                       ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
@@ -540,15 +548,11 @@ class _UserProfileState extends State<UserProfile> {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 500 * post[0].image!.length.toDouble(),
-                    width: double.infinity,
-                    child: UserPost(
-                      myPost: post[0],
-                      userDp: profile[0].profilePic,
-                      userName: profile[0].userName,
-                    ),
-                  )
+                  UserPost(
+                    myPost: post[0],
+                    userDp: profile[0].profilePic,
+                    userName: profile[0].userName,
+                  ),
                 ]),
           ],
         ),

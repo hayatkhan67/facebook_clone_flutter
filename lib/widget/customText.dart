@@ -22,7 +22,7 @@ class MyText extends StatelessWidget {
       style: TextStyle(
           color: color ?? Colors.black,
           fontWeight: fWeight ?? FontWeight.normal,
-          fontSize: size ?? 14),
+          fontSize: size ?? 14.0),
     );
   }
 }

@@ -36,8 +36,8 @@ class _UserNewsFeedState extends State<UserNewsFeed> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: ListView.builder(
+    return ListView.builder(
+      shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: newsfeed.length,
       itemBuilder: (context, index) => Padding(
@@ -46,11 +46,11 @@ class _UserNewsFeedState extends State<UserNewsFeed> {
           children: [
             Container(
                 constraints:
-                    const BoxConstraints(minHeight: 350, maxHeight: 550),
-                height: 550,
+                    const BoxConstraints(minHeight: 350, maxHeight: 850),
                 width: double.infinity,
                 color: Colors.white,
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     ListTile(
                       onTap: () {},
@@ -87,7 +87,7 @@ class _UserNewsFeedState extends State<UserNewsFeed> {
                         ],
                       ),
                     ),
-                    Expanded(
+                    Flexible(
                         child: Image(
                       image: AssetImage(newsfeed[index].image.toString()),
                       fit: BoxFit.fill,
@@ -156,6 +156,6 @@ class _UserNewsFeedState extends State<UserNewsFeed> {
           ],
         ),
       ),
-    ));
+    );
   }
 }

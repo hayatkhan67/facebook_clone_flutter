@@ -87,19 +87,6 @@ class _MenuState extends State<Menu> {
                     color: Colors.black,
                   ),
                 ),
-                // MaterialButton(
-                //   onPressed: () {},
-                //   color: Colors.grey.shade200,
-                //   shape: const CircleBorder(),
-                //  padding: EdgeInsets.zero,
-                //   child: const Icon(Icons.settings),
-                //   ),
-                // MaterialButton(
-                //   onPressed: () {},
-                //   color: Colors.grey.shade200,
-                //   shape: const CircleBorder(),
-                //   child: const Icon(Icons.search),
-                // )
               ],
             ),
           )
@@ -131,7 +118,7 @@ class _MenuState extends State<Menu> {
               color: Colors.grey,
             ),
             const Padding(
-              padding: EdgeInsets.all(13.0),
+              padding: EdgeInsets.all(10.0),
               child: Row(
                 children: [
                   Text(
@@ -141,148 +128,146 @@ class _MenuState extends State<Menu> {
                 ],
               ),
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.36,
-              width: double.infinity,
-              child: GridView.builder(
-                itemCount: shortcutIcons.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    crossAxisCount: 2,
-                    mainAxisExtent: 90),
-                itemBuilder: (context, index) => Container(
-                  // height: 20,
-                  // width: 180,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.grey.shade300),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        shortcutIcons[index],
-                        // Icon(
-                        //   Icons.videocam_outlined,
-                        //   color: Colors.blue,
-                        // ),
-                        Text(shortcutText[index])
-                      ],
-                    ),
+            GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: shortcutIcons.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                  crossAxisCount: 2,
+                  mainAxisExtent: 90),
+              itemBuilder: (context, index) => Container(
+                // height: 20,
+                // width: 180,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.grey.shade300),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      shortcutIcons[index],
+                      // Icon(
+                      //   Icons.videocam_outlined,
+                      //   color: Colors.blue,
+                      // ),
+                      Text(shortcutText[index])
+                    ],
                   ),
                 ),
               ),
             ),
             const SizedBox(height: 30),
-            Container(
-              height: 60,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20), color: Colors.pink),
-              child: DropdownButton(
-                borderRadius: BorderRadius.circular(20),
-                dropdownColor: Colors.grey.shade200,
-                isExpanded: true,
-                value: 'Select 1',
-                items: [
-                  const DropdownMenuItem(
-                      value: 'Select 1',
-                      // child: Container(
-                      //   height: 100,
-                      //   width: double.infinity,
-                      //   color: Colors.grey.shade200,
-                      // )
-                      child: Text(
-                        'Select 1',
-                        style: TextStyle(color: Colors.black),
-                      )),
-                  DropdownMenuItem(
-                      value: 'Select 2',
-                      // child: Container(
-                      //   height: 100,
-                      //   width: double.infinity,
-                      //   color: Colors.grey.shade200,
-                      // )),
+            // Container(
+            //   height: 60,
+            //   width: double.infinity,
+            //   decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.circular(20), color: Colors.pink),
+            //   child: DropdownButton(
+            //     borderRadius: BorderRadius.circular(20),
+            //     dropdownColor: Colors.grey.shade200,
+            //     isExpanded: true,
+            //     value: 'Select 1',
+            //     items: [
+            //       const DropdownMenuItem(
+            //           value: 'Select 1',
+            //           // child: Container(
+            //           //   height: 100,
+            //           //   width: double.infinity,
+            //           //   color: Colors.grey.shade200,
+            //           // )
+            //           child: Text(
+            //             'Select 1',
+            //             style: TextStyle(color: Colors.black),
+            //           )),
+            //       DropdownMenuItem(
+            //           value: 'Select 2',
+            //           // child: Container(
+            //           //   height: 100,
+            //           //   width: double.infinity,
+            //           //   color: Colors.grey.shade200,
+            //           // )),
 
-                      child: MaterialButton(
-                          onPressed: () {},
-                          color: Colors.amber,
-                          child: const Text(
-                            'Select',
-                            style: TextStyle(color: Colors.black),
-                          ))),
-                  DropdownMenuItem(
-                      value: 'Select 3',
-                      // child: Container(
-                      //   height: 100,
-                      //   width: double.infinity,
-                      //   color: Colors.grey.shade200,
-                      // )),
-                      child: MaterialButton(
-                          onPressed: () {},
-                          color: Colors.amber,
-                          child: const Text(
-                            'Select',
-                            style: TextStyle(color: Colors.black),
-                          ))),
-                ],
-                onChanged: (value) {},
-              ),
-            )
+            //           child: MaterialButton(
+            //               onPressed: () {},
+            //               color: Colors.amber,
+            //               child: const Text(
+            //                 'Select',
+            //                 style: TextStyle(color: Colors.black),
+            //               ))),
+            //       DropdownMenuItem(
+            //           value: 'Select 3',
+            //           // child: Container(
+            //           //   height: 100,
+            //           //   width: double.infinity,
+            //           //   color: Colors.grey.shade200,
+            //           // )),
+            //           child: MaterialButton(
+            //               onPressed: () {},
+            //               color: Colors.amber,
+            //               child: const Text(
+            //                 'Select',
+            //                 style: TextStyle(color: Colors.black),
+            //               ))),
+            //     ],
+            //     onChanged: (value) {},
+            //   ),
+            // )
 
-            // DropdownButton(
-            //   borderRadius: BorderRadius.circular(20),
-            //   dropdownColor: Colors.grey.shade200,
-            //   isExpanded: true,
-            //   value: 'Select 1',
+            // // DropdownButton(
+            // //   borderRadius: BorderRadius.circular(20),
+            // //   dropdownColor: Colors.grey.shade200,
+            // //   isExpanded: true,
+            // //   value: 'Select 1',
 
-            //   items: [
-            //     DropdownMenuItem(
-            //         value: 'Select 1',
-            //         // child: Container(
-            //         //   height: 100,
-            //         //   width: double.infinity,
-            //         //   color: Colors.grey.shade200,
-            //         // )
-            //         child: MaterialButton(
-            //             onPressed: () {},
-            //             color: Colors.amber,
-            //             child: Text(
-            //               'Select',
-            //               style: TextStyle(color: Colors.black),
-            //             ))),
-            //     DropdownMenuItem(
-            //         value: 'Select 2',
-            //         // child: Container(
-            //         //   height: 100,
-            //         //   width: double.infinity,
-            //         //   color: Colors.grey.shade200,
-            //         // )),
+            // //   items: [
+            // //     DropdownMenuItem(
+            // //         value: 'Select 1',
+            // //         // child: Container(
+            // //         //   height: 100,
+            // //         //   width: double.infinity,
+            // //         //   color: Colors.grey.shade200,
+            // //         // )
+            // //         child: MaterialButton(
+            // //             onPressed: () {},
+            // //             color: Colors.amber,
+            // //             child: Text(
+            // //               'Select',
+            // //               style: TextStyle(color: Colors.black),
+            // //             ))),
+            // //     DropdownMenuItem(
+            // //         value: 'Select 2',
+            // //         // child: Container(
+            // //         //   height: 100,
+            // //         //   width: double.infinity,
+            // //         //   color: Colors.grey.shade200,
+            // //         // )),
 
-            //         child: MaterialButton(
-            //             onPressed: () {},
-            //             color: Colors.amber,
-            //             child: Text(
-            //               'Select',
-            //               style: TextStyle(color: Colors.black),
-            //             ))),
-            //     DropdownMenuItem(
-            //         value: 'Select 3',
-            //         // child: Container(
-            //         //   height: 100,
-            //         //   width: double.infinity,
-            //         //   color: Colors.grey.shade200,
-            //         // )),
-            //         child: MaterialButton(
-            //             onPressed: () {},
-            //             color: Colors.amber,
-            //             child: Text(
-            //               'Select',
-            //               style: TextStyle(color: Colors.black),
-            //             ))),
-            //   ],
+            // //         child: MaterialButton(
+            // //             onPressed: () {},
+            // //             color: Colors.amber,
+            // //             child: Text(
+            // //               'Select',
+            // //               style: TextStyle(color: Colors.black),
+            // //             ))),
+            // //     DropdownMenuItem(
+            // //         value: 'Select 3',
+            // //         // child: Container(
+            // //         //   height: 100,
+            // //         //   width: double.infinity,
+            // //         //   color: Colors.grey.shade200,
+            // //         // )),
+            // //         child: MaterialButton(
+            // //             onPressed: () {},
+            // //             color: Colors.amber,
+            // //             child: Text(
+            // //               'Select',
+            // //               style: TextStyle(color: Colors.black),
+            // //             ))),
+            // //   ],
             //   onChanged: (value) {},
             // )
           ],
