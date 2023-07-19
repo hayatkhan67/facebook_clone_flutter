@@ -3,6 +3,7 @@ import 'package:bano_qabil_project/Facebook/Profile/user_Profile.dart';
 import 'package:flutter/material.dart';
 import '../Notifications/notifications.dart';
 import '../Settings/menu_page.dart';
+import '../Watch_videos/videos.dart';
 
 class MyNavigatorBar extends StatefulWidget {
   const MyNavigatorBar({super.key});
@@ -14,12 +15,7 @@ class MyNavigatorBar extends StatefulWidget {
 class _MyNavigatorBarState extends State<MyNavigatorBar> {
   List facebookNavigation = const [
     HomePage(),
-    Center(
-      child: Text(
-        'Videos',
-        style: TextStyle(fontSize: 42),
-      ),
-    ),
+    Videos(),
     UserProfile(),
     Notifications(),
     Menu()
