@@ -3,39 +3,35 @@
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class MyElevatedButton extends StatefulWidget {
-  MyElevatedButton(
+class CustomElevatedButton extends StatefulWidget {
+  CustomElevatedButton(
       {super.key,
-      onPressed,
       this.elevation,
       this.sizeWidth,
       this.child,
       this.sizeHeight,
-      this.shape});
+      this.shape,this.color,
+      this.onPressed});
   Widget? child;
-  // ignore: prefer_typing_uninitialized_variables
-  var _onPressed;
-
-  set onPressed(value) {
-    _onPressed = value;
-  }
 
   // ignore: prefer_typing_uninitialized_variables
-  final sizeWidth, sizeHeight, elevation, shape;
+  final sizeWidth, sizeHeight, elevation, shape,color;
+  final Function()? onPressed;
   @override
-  State<MyElevatedButton> createState() => _MyElevatedButtonState();
+  State<CustomElevatedButton> createState() => _CustomElevatedButtonState();
 }
 
-class _MyElevatedButtonState extends State<MyElevatedButton> {
+class _CustomElevatedButtonState extends State<CustomElevatedButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: widget._onPressed,
+        onPressed: widget.onPressed,
         style: ElevatedButton.styleFrom(
           fixedSize: Size(
               widget.sizeWidth ?? double.maxFinite, widget.sizeHeight ?? 40),
           elevation: widget.elevation ?? 3,
           shape: widget.shape,
+          backgroundColor: widget.color,
         ),
         child: widget.child);
   }

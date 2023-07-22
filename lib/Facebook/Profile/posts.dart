@@ -1,3 +1,38 @@
+// import 'package:flutter/material.dart';
+
+// import '../../resources_list/user_profile_post.dart';
+// import '../../widget/post.dart';
+
+// class UserPost extends StatefulWidget {
+//    UserPost({super.key});
+//  var  data=hayatKhan;
+//   @override
+//   State<UserPost> createState() => _UserPostState();
+// }
+
+// class _UserPostState extends State<UserPost> {
+//   @override
+//   Widget build(BuildContext context) {
+//     // print(widget.data[0].profilePosts!);
+//     for(var result in widget.data[0].profilePosts!){
+//       print(result);
+//     }
+//     return ListView.builder(
+//       physics: const NeverScrollableScrollPhysics(),
+//       shrinkWrap: true,
+//       itemCount: widget.data.length,
+//       itemBuilder: (context, index) =>  CustomPostContainer(
+//         profileImage: widget.data[index].profileImage,
+//         userName:widget.data[0].name,
+//         postImage: widget.data[0].profilePosts![index],
+//         postText: widget.data[0].postText![index]
+//       ),);
+//   }
+// }
+
+//old code working fine but i want to compress this using custom widget
+
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

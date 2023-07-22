@@ -1,4 +1,4 @@
-import 'package:bano_qabil_project/resources_list/details_list.dart';
+import 'package:bano_qabil_project/resources_list/notifii_friends.dart';
 import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:flutter/material.dart';
 

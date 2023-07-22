@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../../resources_list/newsfeed_modelclass.dart';
+import '../../resources_list/user_posts.dart';
 import '../../widget/post.dart';
 
 class UserNewsFeed extends StatefulWidget {

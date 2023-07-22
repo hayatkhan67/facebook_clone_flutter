@@ -28,8 +28,10 @@ class _CustomPostContainerState extends State<CustomPostContainer> {
       constraints: const BoxConstraints(
         minHeight: 350,
         maxHeight: 950,
+         minWidth:400,
+         maxWidth: double.infinity,
       ),
-      width: double.infinity,
+     
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,

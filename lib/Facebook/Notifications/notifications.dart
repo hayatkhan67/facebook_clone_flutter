@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:flutter/material.dart';
 
-import '../../resources_list/details_list.dart';
+import '../../resources_list/notifii_friends.dart';
 import 'bottom_sheet.dart';
 import 'friend_request.dart';
 
