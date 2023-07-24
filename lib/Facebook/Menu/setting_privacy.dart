@@ -1,5 +1,6 @@
 import 'package:bano_qabil_project/Facebook/Menu/setting&privacy/device_request.dart';
 import 'package:bano_qabil_project/Facebook/Menu/setting&privacy/link_history.dart';
+import 'package:bano_qabil_project/Facebook/Menu/setting&privacy/order_payments.dart';
 import 'package:bano_qabil_project/Facebook/Menu/setting&privacy/recent_ad.dart';
 import 'package:bano_qabil_project/Facebook/Menu/setting&privacy/settings.dart';
 import 'package:bano_qabil_project/widget/customText.dart';
@@ -32,23 +33,43 @@ class _SeetingsPrivacyState extends State<SeetingsPrivacy> {
     const LinkHistory(),
     const DeviceRequest(),
     const RecenetAd(),
-    Settings(),
+    const OrderPayment(),
   ];
-
+  bool dark = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: dark == false ? Colors.white : const Color(0xff181818),
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: dark == false ? Colors.black : Colors.white,
+        ),
+        backgroundColor: dark == false ? Colors.white : const Color(0xff181818),
         leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios,
+          ),
           tooltip: 'Back',
         ),
-        title: const MyText(
+        title: MyText(
           text: 'Settings & Privacy',
+          color: dark == false ? Colors.black : Colors.white,
           fWeight: FontWeight.w500,
         ),
         centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: () {
+                setState(() {
+                  dark = !dark;
+                });
+              },
+              icon: const Icon(Icons.dark_mode)),
+        ],
+        elevation: 1.0,
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),

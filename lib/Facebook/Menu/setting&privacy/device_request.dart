@@ -11,7 +11,9 @@ class DeviceRequest extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: const Icon(Icons.arrow_back_ios),
           tooltip: 'Back',
         ),
@@ -22,6 +24,7 @@ class DeviceRequest extends StatelessWidget {
         ),
         centerTitle: true,
         elevation: 1.0,
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.dark_mode))],
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 20.0, left: 10.0, right: 10.0),

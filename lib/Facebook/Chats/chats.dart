@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'chat_model_class.dart';
+import 'chats_home.dart';
+
 class Chats extends StatefulWidget {
   const Chats({super.key});
 
@@ -8,24 +11,29 @@ class Chats extends StatefulWidget {
 }
 
 class _ChatsState extends State<Chats> {
-  List friendsImages = [
-    "assets/facebook/friends/images/photo_1_2023-07-10_20-06-17.jpg",
-    "assets/facebook/friends/images/photo_2_2023-07-10_20-06-17.jpg",
-    "assets/facebook/friends/images/photo_3_2023-07-10_20-06-17.jpg",
-    "assets/facebook/friends/images/photo_4_2023-07-10_20-06-17.jpg",
-    "assets/facebook/friends/images/photo_5_2023-07-10_20-06-17.jpg",
-    "assets/facebook/friends/images/photo_6_2023-07-10_20-06-17.jpg",
-    "assets/facebook/friends/images/photo_7_2023-07-10_20-06-17.jpg",
-  ];
-  List friendsName = [
-    "Shan Niazi",
-    "Sajjad",
-    "Hayat Khan",
-    "Hayat Khan",
-    "Wahab",
-    "Khan Amir",
-    "Kamran"
-  ];
+  // List friendsImages = [
+  //   'assets/facebook/friends/images/photo_6_2023-07-10_20-06-17.jpg',
+  //   "assets/facebook/friends/images/photo_1_2023-07-10_20-06-17.jpg",
+  //   "assets/facebook/friends/images/photo_2_2023-07-10_20-06-17.jpg",
+  //   'assets/facebook/friends/images/photo_2023-07-15_21-12-22.jpg',
+  //   "assets/facebook/friends/images/photo_5_2023-07-10_20-06-17.jpg",
+  //   'assets/facebook/friends/images/photo_2023-07-15_21-11-48.jpg',
+  //   "assets/facebook/friends/images/photo_7_2023-07-10_20-06-17.jpg",
+  // ];
+  // List friendsName = [
+  //   "Khan Amir",
+  //   "Shan Niazi",
+  //   "Sajjad",
+  //   "Amjad",
+  //   "Wahab",
+  //   "Zain Khan Niazi",
+  //   "Kamran"
+  // ];
+  // var message = 'How are you';
+
+  //added model class
+  var userFullDetials = chatDetails;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +63,7 @@ class _ChatsState extends State<Chats> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
               TextField(
@@ -84,25 +92,39 @@ class _ChatsState extends State<Chats> {
               //   height: 10,
               // ),
               Padding(
-                padding: const EdgeInsets.all(10),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 4.0, horizontal: 6.0),
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height * 0.16,
                   width: double.infinity,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: friendsImages.length,
+                    itemCount: userFullDetials.length,
                     itemBuilder: (context, index) => Stack(
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
                             children: [
-                              CircleAvatar(
-                                radius: 35,
-                                backgroundImage:
-                                    AssetImage(friendsImages[index]),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ChatsHome(
+                                            userDetails:
+                                                userFullDetials[index]),
+                                      ));
+                                },
+                                child: CircleAvatar(
+                                  radius: 35,
+                                  backgroundImage: AssetImage(
+                                      userFullDetials[index]
+                                          .userImage
+                                          .toString()),
+                                ),
                               ),
-                              Text(friendsName[index])
+                              Text(userFullDetials[index].userName.toString())
                             ],
                           ),
                         ),
@@ -123,21 +145,27 @@ class _ChatsState extends State<Chats> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: friendsImages.length * 72,
-                width: double.infinity,
-                child: ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: friendsImages.length,
-                    itemBuilder: (context, index) => ListTile(
-                          leading: CircleAvatar(
-                            backgroundImage: AssetImage(friendsImages[index]),
-                            radius: 30,
-                          ),
-                          title: Text(friendsName[index]),
-                          subtitle: const Text('Hy How are you'),
-                        )),
-              )
+              ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: userFullDetials.length,
+                  itemBuilder: (context, index) => ListTile(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ChatsHome(
+                                      userDetails: userFullDetials[index])));
+                        },
+                        leading: CircleAvatar(
+                          backgroundImage: AssetImage(
+                              userFullDetials[index].userImage.toString()),
+                          radius: 30,
+                        ),
+                        title: Text(userFullDetials[index].userName.toString()),
+                        subtitle:
+                            Text(userFullDetials[index].message.toString()),
+                      ))
             ],
           ),
         ),
@@ -145,13 +173,3 @@ class _ChatsState extends State<Chats> {
     );
   }
 }
-
-// Container(
-//   height: 200,
-//   width: 200,
-//   decoration: const BoxDecoration(
-//       color: Colors.pink,
-//       image: DecorationImage(
-//           image: NetworkImage(
-//               'https://drive.google.com/file/d/1GTevzmiB_l-sa_rccb4GaLY6fhGgbJw2/view?usp=drive_link'))),
-// )

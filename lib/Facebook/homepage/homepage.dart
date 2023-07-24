@@ -20,14 +20,14 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         title: const Text(
           'facebook',
           style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
         ),
         centerTitle: false,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
+        // iconTheme: const IconThemeData(color: Colors.black),
         leadingWidth: MediaQuery.of(context).size.width * 0.08,
         actions: [
           const Padding(

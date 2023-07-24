@@ -32,7 +32,6 @@
 
 //old code working fine but i want to compress this using custom widget
 
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -62,7 +61,6 @@ class _UserPostState extends State<UserPost> {
                 Container(
                     constraints:
                         const BoxConstraints(minHeight: 350, maxHeight: 850),
-                    // height: 450,
                     width: double.infinity,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ChatsHome extends StatefulWidget {
-  const ChatsHome({super.key});
+import '../../widget/customText.dart';
 
+class ChatsHome extends StatefulWidget {
+  const ChatsHome({super.key, this.userDetails});
+
+  final userDetails;
   @override
   State<ChatsHome> createState() => _ChatsHomeState();
 }
@@ -27,22 +30,22 @@ class _ChatsHomeState extends State<ChatsHome> {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
               children: [
-                const Icon(Icons.arrow_back_ios),
-                const SizedBox(
-                  width: 10,
-                ),
+                IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(Icons.arrow_back_ios)),
                 Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(0),
-                    child: ListTile(
-                      onTap: () {},
-                      leading: const CircleAvatar(
-                        backgroundImage: AssetImage(
-                            'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
-                      ),
-                      title: const Text('Hayat Khan'),
-                      subtitle: const Text('Active 1 hours ago'),
+                  child: ListTile(
+                    onTap: () {},
+                    leading: CircleAvatar(
+                      //user profile image
+                      backgroundImage:
+                          AssetImage(widget.userDetails.userImage.toString()),
                     ),
+                    //user Name
+                    title: Text(widget.userDetails.userName.toString()),
+                    subtitle: const Text('Active 1 hours ago'),
                   ),
                 )
               ],
@@ -84,9 +87,10 @@ class _ChatsHomeState extends State<ChatsHome> {
                     children: [
                       Row(
                         children: [
-                          const CircleAvatar(
+                          CircleAvatar(
+                            //user profile image
                             backgroundImage: AssetImage(
-                                'assets/facebook/friends/images/photo_7_2023-07-10_20-06-17.jpg'),
+                                widget.userDetails.userImage.toString()),
                           ),
                           const SizedBox(
                             width: 10,
@@ -101,47 +105,61 @@ class _ChatsHomeState extends State<ChatsHome> {
                                       topRight: Radius.circular(20),
                                       bottomRight: Radius.circular(20))),
                               child: Center(
-                                  child: customText(text: "Hello How are you")))
+                                  //user default message
+                                  child: MyText(
+                                      text: widget.userDetails.message
+                                          .toString())))
                         ],
                       ),
                       ...List.generate(
                           userMessage.length,
-                          (index) => Padding(
-                                padding: const EdgeInsets.all(12.0),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    const CircleAvatar(
-                                      backgroundImage: AssetImage(
-                                          'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Container(
-                                        // height: 20,
-                                        // width: 30,
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.05,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.30,
-                                        decoration: BoxDecoration(
-                                            color: Colors.grey.shade200,
-                                            borderRadius:
-                                                const BorderRadius.only(
-                                                    topLeft:
-                                                        Radius.circular(20),
-                                                    topRight:
-                                                        Radius.circular(20),
-                                                    bottomRight:
-                                                        Radius.circular(20))),
-                                        child: Center(
-                                            child: customText(
-                                                text: userMessage[index])))
-                                  ],
-                                ),
+                          (index) => Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  const CircleAvatar(
+                                    backgroundImage: AssetImage(
+                                        'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Container(
+                                      constraints: const BoxConstraints(
+                                          minHeight: 20,
+                                          maxHeight: 200,
+                                          minWidth: 70,
+                                          maxWidth: double.infinity),
+                                      // height: 20,
+                                      // width: 30,
+                                      // height:
+                                      //     MediaQuery.of(context).size.height *
+                                      //         0.05,
+                                      // width:
+                                      //     MediaQuery.of(context).size.width *
+                                      //         0.30,
+                                      decoration: BoxDecoration(
+                                          color: Colors.grey.shade200,
+                                          borderRadius: const BorderRadius.only(
+                                              topLeft: Radius.circular(20),
+                                              topRight: Radius.circular(20),
+                                              bottomRight:
+                                                  Radius.circular(20))),
+                                      child: Expanded(
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: MyText(
+                                                  text: userMessage[index]),
+                                            ),
+                                          ],
+                                        ),
+                                      ))
+                                ],
                               ))
                     ],
                   ),
@@ -163,6 +181,7 @@ class _ChatsHomeState extends State<ChatsHome> {
                   width: 200,
                   child: TextField(
                     maxLines: 5,
+                    maxLength: 30,
                     controller: myText,
                     onChanged: (value) {
                       setState(() {});
@@ -223,76 +242,3 @@ class _ChatsHomeState extends State<ChatsHome> {
     );
   }
 }
-
-Text customText({required String text, color, fWeight, size}) {
-  return Text(
-    text,
-    style: TextStyle(
-        color: color ?? Colors.black,
-        fontWeight: fWeight ?? FontWeight.normal,
-        fontSize: size ?? 14),
-  );
-}
-      // leading: Row(
-      // children:+ [
-      //     IconButton(
-      //         onPressed: () {
-      //           Navigator.pop(context);
-      //         },
-      //         icon: const Icon(Icons.arrow_back_ios)),
-      //     // const SizedBox(width: 30),
-      //     ListTile(
-      //       leading: CircleAvatar(),
-      //       title: Text('Hayat'),
-      //       subtitle: Text('1 hour active'),
-      //     ),
-      //   ],
-      // ),
-      // actions: [
-      //   Icon(Icons.call),
-      //   SizedBox(width: 20),
-      //   Icon(Icons.video_call)
-      // ],
-      // ),
-      // ),
-      // body: Column(
-      //   children: [
-      //     ListTile(
-      //       leading: Container(
-      //         color: Colors.pink,
-      //         width: 100,
-      //         height: 56,
-      //         child: Row(
-      //           children: [
-      //             IconButton(
-      //                 onPressed: () {
-      //                   Navigator.pop(context);
-      //                 },
-      //                 icon: const Icon(Icons.arrow_back_ios)),
-      //             const CircleAvatar(),
-      //           ],
-      //         ),
-      //       ),
-      //       title: const Text("Hayat Khan"),
-      //       subtitle: const Text('active'),
-      //     )
-      //   ],
-      // ),
-          // ListTile(
-          //   leading: Container(
-          //     color: Colors.pink,
-          //     width: 100,
-          //     height: 56,
-          //     child: Row(
-          //       children: [
-          //         IconButton(
-          //             onPressed: () {
-          //               Navigator.pop(context);
-          //             },
-          //             icon: const Icon(Icons.arrow_back_ios)),
-          //         const CircleAvatar(),
-          //       ],
-          //     ),
-          //   ),
-          //   title: const Text("Hayat Khan"),
-          //   subtitle: const Text('active'),

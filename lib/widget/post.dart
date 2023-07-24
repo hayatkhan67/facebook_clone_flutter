@@ -27,14 +27,11 @@ class _CustomPostContainerState extends State<CustomPostContainer> {
     return Container(
       constraints: const BoxConstraints(
         minHeight: 350,
-        maxHeight: 950,
-         minWidth:400,
-         maxWidth: double.infinity,
+        maxHeight: 850,
       ),
-     
+      width: double.infinity,
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ListTile(
             leading: CircleAvatar(
@@ -72,9 +69,14 @@ class _CustomPostContainerState extends State<CustomPostContainer> {
           ),
 
           //post Text
-          Padding(
-            padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
-            child: MyText(text: widget.postText ?? 'HELLO FRIENDS'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+                child: MyText(text: widget.postText ?? 'HELLO FRIENDS'),
+              ),
+            ],
           ),
           //image
           Flexible(

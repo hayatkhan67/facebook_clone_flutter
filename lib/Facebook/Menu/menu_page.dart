@@ -97,131 +97,133 @@ class _MenuState extends State<Menu> {
         ],
       ),
       drawer: const Drawer(),
-      body: Column(
-        children: [
-          ListTile(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const UserProfile(),
-                  ));
-            },
-            leading: const CircleAvatar(
-              backgroundImage: AssetImage(
-                  'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            ListTile(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const UserProfile(),
+                    ));
+              },
+              leading: const CircleAvatar(
+                backgroundImage: AssetImage(
+                    'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
+              ),
+              title: const Text('Hayat Khan'),
+              subtitle: const Text('see your profile'),
             ),
-            title: const Text('Hayat Khan'),
-            subtitle: const Text('see your profile'),
-          ),
-          const Divider(
-            thickness: 0.8,
-            height: 1,
-            color: Colors.grey,
-          ),
-          const Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Row(
-              children: [
-                Text(
-                  'All shortcuts',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
-                ),
-              ],
+            const Divider(
+              thickness: 0.8,
+              height: 1,
+              color: Colors.grey,
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GridView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: shortcutIcons.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
-                  crossAxisCount: 2,
-                  mainAxisExtent: 90),
-              itemBuilder: (context, index) => Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.grey.shade300),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      shortcutIcons[index],
-                      // Icon(
-                      //   Icons.videocam_outlined,
-                      //   color: Colors.blue,
-                      // ),
-                      Text(shortcutText[index])
-                    ],
+            const Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Row(
+                children: [
+                  Text(
+                    'All shortcuts',
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: shortcutIcons.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    crossAxisCount: 2,
+                    mainAxisExtent: 90),
+                itemBuilder: (context, index) => Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.grey.shade300),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        shortcutIcons[index],
+                        // Icon(
+                        //   Icons.videocam_outlined,
+                        //   color: Colors.blue,
+                        // ),
+                        Text(shortcutText[index])
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-          const SizedBox(height: 30),
-          const Divider(
-            thickness: 0.8,
-            height: 1,
-            color: Colors.grey,
-          ),
-          ListTile(
-            onTap: () {},
-            leading: CircleAvatar(
-              backgroundColor: Colors.grey.shade200,
-              child:
-                  const Icon(Icons.question_mark_outlined, color: Colors.black),
+            const SizedBox(height: 30),
+            const Divider(
+              thickness: 0.8,
+              height: 1,
+              color: Colors.grey,
             ),
-            title: const MyText(text: 'Help & Support'),
-          ),
-          const Divider(
-            thickness: 0.8,
-            height: 1,
-            color: Colors.grey,
-          ),
-          ListTile(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SeetingsPrivacy(),
-                  ));
-            },
-            leading: CircleAvatar(
-              backgroundColor: Colors.grey.shade200,
-              child: const Icon(
-                Icons.settings,
-                color: Colors.black,
+            ListTile(
+              onTap: () {},
+              leading: CircleAvatar(
+                backgroundColor: Colors.grey.shade200,
+                child: const Icon(Icons.question_mark_outlined,
+                    color: Colors.black),
               ),
+              title: const MyText(text: 'Help & Support'),
             ),
-            title: const MyText(text: 'Settings & Privacy'),
-          ),
-          const Divider(
-            thickness: 0.8,
-            height: 1,
-            color: Colors.grey,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CustomElevatedButton(
-              onPressed: () {
-                // Navigator.popUntil(context, (route) => false);
-                Navigator.popUntil(context, (route) => false);
-                // Navigator.push(context,MaterialPageRoute(builder: (context) => const LoginPage(),));
+            const Divider(
+              thickness: 0.8,
+              height: 1,
+              color: Colors.grey,
+            ),
+            ListTile(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SeetingsPrivacy(),
+                    ));
               },
-              color: Colors.grey.shade400,
-              sizeHeight: 30.0,
-              child: const MyText(
-                text: 'Log out',
-                fWeight: FontWeight.w500,
+              leading: CircleAvatar(
+                backgroundColor: Colors.grey.shade200,
+                child: const Icon(
+                  Icons.settings,
+                  color: Colors.black,
+                ),
               ),
+              title: const MyText(text: 'Settings & Privacy'),
             ),
-          )
-        ],
+            const Divider(
+              thickness: 0.8,
+              height: 1,
+              color: Colors.grey,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CustomElevatedButton(
+                onPressed: () {
+                  // Navigator.popUntil(context, (route) => false);
+                  Navigator.popUntil(context, (route) => false);
+                  // Navigator.push(context,MaterialPageRoute(builder: (context) => const LoginPage(),));
+                },
+                color: Colors.grey.shade400,
+                sizeHeight: 30.0,
+                child: const MyText(
+                  text: 'Log out',
+                  fWeight: FontWeight.w500,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
