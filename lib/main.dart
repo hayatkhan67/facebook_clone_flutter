@@ -1,7 +1,5 @@
+import 'package:bano_qabil_project/splash%20screen&onboarding/splash_screen.dart';
 import 'package:flutter/material.dart';
-
-import 'Facebook/Chats/chats.dart';
-import 'api_response.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +21,7 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
             iconTheme: IconThemeData(color: Colors.black)),
       ),
-      home: const ApiRespone(),
+      home: const SplashScreen(),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:bano_qabil_project/Login_page/login_page.dart';
+import 'package:bano_qabil_project/splash%20screen&onboarding/onboarding.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const LoginPage(),
+            builder: (context) => const OnboardingScreen(),
           ));
     });
     setState(() {});

@@ -162,7 +162,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 50),
+                    SizedBox(height: 50),
                     MaterialButton(
                       onPressed: () {
                         Navigator.push(
@@ -191,7 +191,6 @@ class _LoginPageState extends State<LoginPage> {
                       image: const AssetImage(
                           'assets/facebook/loginpage/hd-meta-facebook-white-logo-png-116403446124ydgyipr3u-removebg-preview.png'),
                       height: MediaQuery.of(context).size.height * 0.05,
-                      // width: MediaQuery.of(context).size.height * 0.39,
                       width: double.infinity,
                     )
                   ],
