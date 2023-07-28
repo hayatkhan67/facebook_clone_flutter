@@ -12,7 +12,7 @@ class CustomElevatedButton extends StatefulWidget {
       this.sizeHeight,
       this.shape,
       this.color,
-      this.onPressed});
+    required  this.onPressed});
  
   Widget? child;
   final double? sizeWidth;

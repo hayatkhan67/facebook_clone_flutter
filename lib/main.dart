@@ -1,6 +1,6 @@
+import 'package:bano_qabil_project/splash%20screen&onboarding/splash_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'Login_page/login_page.dart';
 
 
 void main() {
@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Facebook',
       theme: ThemeData(
+        fontFamily: 'Montserrat',
         scaffoldBackgroundColor: Colors.white,
         brightness: Brightness.light,
         appBarTheme: const AppBarTheme(
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
             iconTheme: IconThemeData(color: Colors.black)),
       ),
-      home: const LoginPage(),
+      home: const SplashScreen(),
     );
   }
 }

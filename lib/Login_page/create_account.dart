@@ -1,120 +1,75 @@
+import 'package:bano_qabil_project/widget/customText.dart';
+import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
 import 'package:flutter/material.dart';
-
 import 'forget_paasword.dart';
 
-class GetStarted extends StatelessWidget {
-  const GetStarted({super.key});
+class CreateAccount extends StatelessWidget {
+  const CreateAccount({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back_ios)),
-        elevation: 0,
+  leading: IconButton(onPressed: (){
+    Navigator.pop(context);
+  }, icon:const Icon(Icons.arrow_back_ios)),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
+      body:  Padding(
+        padding:const EdgeInsets.symmetric(vertical: 10,horizontal: 18),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Row(
-              children: [
-                Text(
-                  'What\'s your name?',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const Row(
-              children: [
-                Text(
-                  'Enter the name you use in real life.',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
+           const MyText(text: 'What\'s your name?',size: 20.0,fWeight: FontWeight.bold,),
+           const SizedBox(height: 10,),
+           const MyText(text: 'Enter the name you use in real life.',size: 13.0,fWeight: FontWeight.bold,),
+           const SizedBox(height: 20,),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.10,
-                  width: MediaQuery.of(context).size.width * 0.42,
-                  child: TextFormField(
+                Expanded(
+                  child: TextField(
                     decoration: InputDecoration(
-                        // label: Container()),
-                        labelText: "First Name",
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: const BorderSide(color: Colors.grey))),
+                      border: OutlineInputBorder(
+                        borderRadius:BorderRadius.circular(10) 
+                      ),
+                      labelText: 'Fisrt name'
+                    ),
                   ),
                 ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.05,
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.10,
-                  width: MediaQuery.of(context).size.width * 0.42,
-                  child: TextFormField(
+                const SizedBox(width: 20,),
+                Expanded(
+                  child: TextField(
                     decoration: InputDecoration(
-                        // label: Container()),
-                        labelText: "Surname",
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: const BorderSide(color: Colors.grey))),
+                      border: OutlineInputBorder(
+                        borderRadius:BorderRadius.circular(10),
+                      ),
+                      labelText: 'Surname'
+                    ),
                   ),
                 ),
               ],
             ),
-            sizedbox(),
-            ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  fixedSize: const Size(double.maxFinite, 40),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  elevation: 4,
-                ),
-                child: const Text('Next')),
-            sizedbox(userheight: MediaQuery.of(context).size.height * 0.44),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ForgetPassword(),
-                          ));
-                    },
-                    child: const Text('Already have an account?'))
-              ],
-            )
+            const SizedBox(height: 20,),
+            CustomElevatedButton(
+              onPressed: (){},
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              child:  const MyText(text: 'Next',color: Colors.white,),
+            ),
+            const Expanded(child: 
+            SizedBox()),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(onPressed: (){
+                Navigator.push(context,MaterialPageRoute(builder: (context) => const ForgetPassword(),));
+              }, child: const MyText(text: 'Already have an account?',color: Color.fromARGB(255, 11, 132, 230),fWeight: FontWeight.bold,)),
+            ],
+          )
           ],
         ),
       ),
-    );
-  }
-
-  SizedBox sizedbox({userheight}) {
-    return SizedBox(
-      height: userheight ?? 10,
     );
   }
 }

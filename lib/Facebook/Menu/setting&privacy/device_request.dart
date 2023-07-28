@@ -61,6 +61,7 @@ class DeviceRequest extends StatelessWidget {
                   MyText(text: 'Only use a code from a source that you trust'),
             ),
             CustomElevatedButton(
+              onPressed: (){},
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
               child: const MyText(text: 'Approve'),

@@ -103,7 +103,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               child: CustomElevatedButton(
                 onPressed: () {
                   myPage.nextPage(
-                      duration: const Duration(milliseconds: 100),
+                      duration: const Duration(milliseconds: 300),
                       curve: Curves.linear);
                   if (currentPage == 2) {
                     Navigator.push(

@@ -1,7 +1,9 @@
-import 'package:bano_qabil_project/Login_page/forget_paasword.dart';
+import 'package:bano_qabil_project/widget/customText.dart';
+import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
 import 'package:flutter/material.dart';
 
 import 'create_account.dart';
+import 'forget_paasword.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -9,87 +11,50 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
           leading: IconButton(
               onPressed: () {
                 Navigator.pop(context);
               },
               icon: const Icon(Icons.arrow_back_ios)),
-          elevation: 0,
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            const Text(
-              'Join Facebook',
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Container(
-              height: 170,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                image: const DecorationImage(
-                    image: AssetImage(
-                        'assets/facebook/loginpage/62b03a20c7e36272df213ddc_Facebook Audience Insights-p-500.png'),
-                    fit: BoxFit.cover),
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const Text(
-              'Create an account to connect with friends,family and communities of people who share your interests',
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const GetStarted()));
+      ),
+      body:  Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const MyText(text: 'Join Facebook',size: 24.0,),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset('assets/facebook/loginpage/62b03a20c7e36272df213ddc_Facebook Audience Insights-p-500.png',fit: BoxFit.cover,)),
+          ),
+            const MyText(text: 'Create an account to connect with friends,family and communities of people who share your interests',size: 13.0,fWeight: FontWeight.w500,),
+            const SizedBox(height: 10,),
+            CustomElevatedButton(
+              onPressed: (){
+                Navigator.push(context,MaterialPageRoute(builder: (context) => const CreateAccount(),));
               },
-              child: Container(
-                height: 40,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.blue),
-                child: const Center(
-                  child: Text(
-                    'Get Started',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
+              color: Colors.blue,
+              shape:  RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20)
               ),
+              sizeHeight: 45,
+              child:const MyText(text: 'Get Started',color: Colors.white,fWeight: FontWeight.w500,), 
             ),
-            const SizedBox(
-              height: 178,
-            ),
-            Center(
-              child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ForgetPassword()));
-                  },
-                  child: const Text(
-                    'Already have an account?',
-                    style: TextStyle(color: Colors.blue),
-                  )),
-            )
-          ]),
-        ));
+            const Expanded(child: SizedBox()),
+            Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(onPressed: (){
+                Navigator.push(context,MaterialPageRoute(builder: (context) => const ForgetPassword(),));
+              }, child: const MyText(text: 'Already have an account?',color: Color.fromARGB(255, 11, 132, 230),fWeight: FontWeight.bold,)),
+            ],
+          )
+          ],
+        ),
+      ),
+    );
   }
 }
