@@ -1,5 +1,7 @@
-import 'package:bano_qabil_project/splash%20screen&onboarding/splash_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'Login_page/login_page.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
             iconTheme: IconThemeData(color: Colors.black)),
       ),
-      home: const SplashScreen(),
+      home: const LoginPage(),
     );
   }
 }
@@ -29,4 +31,5 @@ class MyApp extends StatelessWidget {
 //pending tasks
 // profile tab bar 
 // setting bottom sheet
-// chat navigation
+//chat home textfield fix pending
+// chat navigation //complete 

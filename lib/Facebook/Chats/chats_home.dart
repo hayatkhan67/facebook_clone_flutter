@@ -113,38 +113,39 @@ class _ChatsHomeState extends State<ChatsHome> {
                       ),
                       ...List.generate(
                           userMessage.length,
-                          (index) => Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  const CircleAvatar(
-                                    backgroundImage: AssetImage(
-                                        'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  Container(
-                                      constraints: const BoxConstraints(
-                                          minHeight: 20,
-                                          maxHeight: 200,
-                                          minWidth: 70,
-                                          maxWidth: double.infinity),
-                                      // height: 20,
-                                      // width: 30,
-                                      // height:
-                                      //     MediaQuery.of(context).size.height *
-                                      //         0.05,
-                                      // width:
-                                      //     MediaQuery.of(context).size.width *
-                                      //         0.30,
-                                      decoration: BoxDecoration(
-                                          color: Colors.grey.shade200,
-                                          borderRadius: const BorderRadius.only(
-                                              topLeft: Radius.circular(20),
-                                              topRight: Radius.circular(20),
-                                              bottomRight:
-                                                  Radius.circular(20))),
-                                      child: Expanded(
+                          (index) => Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10.0),
+                            child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    const CircleAvatar(
+                                      backgroundImage: AssetImage(
+                                          'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Container(
+                                        constraints: const BoxConstraints(
+                                            minHeight: 20,
+                                            maxHeight: 200,
+                                            minWidth: 70,
+                                            maxWidth: double.infinity),
+                                        // height: 20,
+                                        // width: 30,
+                                        // height:
+                                        //     MediaQuery.of(context).size.height *
+                                        //         0.05,
+                                        // width:
+                                        //     MediaQuery.of(context).size.width *
+                                        //         0.30,
+                                        decoration: BoxDecoration(
+                                            color: Colors.grey.shade200,
+                                            borderRadius: const BorderRadius.only(
+                                                topLeft: Radius.circular(20),
+                                                topRight: Radius.circular(20),
+                                                bottomRight:
+                                                    Radius.circular(20))),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           mainAxisAlignment:
@@ -157,10 +158,10 @@ class _ChatsHomeState extends State<ChatsHome> {
                                                   text: userMessage[index]),
                                             ),
                                           ],
-                                        ),
-                                      ))
-                                ],
-                              ))
+                                        ))
+                                  ],
+                                ),
+                          ))
                     ],
                   ),
                 ),
