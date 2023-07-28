@@ -1,8 +1,8 @@
-import 'package:bano_qabil_project/Login_page/login_page.dart';
 import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
 import 'package:flutter/material.dart';
 
+import '../Login_page/login_page.dart';
 import '../model class/onboarding_modelclass.dart';
 
 class OnboardingScreen extends StatefulWidget {

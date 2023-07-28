@@ -5,7 +5,7 @@ import '../../widget/customText.dart';
 class ChatsHome extends StatefulWidget {
   const ChatsHome({super.key, this.userDetails});
 
-  final userDetails;
+  final dynamic userDetails;
   @override
   State<ChatsHome> createState() => _ChatsHomeState();
 }

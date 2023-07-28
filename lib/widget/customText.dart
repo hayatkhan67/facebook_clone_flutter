@@ -12,8 +12,12 @@ class MyText extends StatelessWidget {
       this.fWeight,
       this.size});
 
-  // ignore: prefer_typing_uninitialized_variables
-  final text, color, fWeight, size, align, fontFamily;
+  final dynamic text;
+  final Color? color;
+  final FontWeight?fWeight;
+  final double? size;
+  final TextAlign? align;
+  final String? fontFamily;
 
   @override
   Widget build(BuildContext context) {

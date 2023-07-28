@@ -98,15 +98,19 @@ class _RecenetAdState extends State<RecenetAd> {
                   ),
                 ],
               ),
-              // TabBarView(children: [
-              //   // Column(
-              //   //   crossAxisAlignment: CrossAxisAlignment.start,
-              //   //   children: [MyText(text: 'You clicked on this 16 May')],
-              //   // ),
-              //   // Column(
-              //   //   children: [],
-              //   // )
-              // ])
+              const TabBarView(children: [ 
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [MyText(text: 'You clicked on this 16 May')],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    children: [],
+                  ),
+                )
+              ])
             ],
           ),
         ),

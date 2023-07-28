@@ -1,8 +1,12 @@
+import 'package:bano_qabil_project/Facebook/homepage/homepage.dart';
 import 'package:bano_qabil_project/Login_page/forget_paasword.dart';
-import 'package:bano_qabil_project/Login_page/sign_up.dart';
+import 'package:bano_qabil_project/widget/customText.dart';
+import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../Facebook/NavigatorBar/navigator_bar.dart';
+import 'create_account.dart';
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -12,192 +16,139 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController userNumber = TextEditingController();
-  TextEditingController userPassword = TextEditingController();
-
-  bool eyeChanger = true;
-
-  final _formKey = GlobalKey<FormState>();
-
+  TextEditingController userNumber=TextEditingController();
+  TextEditingController userPassword=TextEditingController();
+ 
+final formKey=GlobalKey<FormState>(); 
+ bool eyeChanger=true;
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        return false;
-      },
-      child: Scaffold(
-        body: Form(
-          key: _formKey,
-          autovalidateMode: AutovalidateMode.always,
-          child: Container(
-            padding: EdgeInsets.zero,
-            height: MediaQuery.of(context).size.height * 1,
-            width: double.infinity,
-            color: Colors.blue.withOpacity(0.2),
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.35,
-                      width: double.infinity,
-                      child: const Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              height: 200,
-                              width: 150,
-                              child: Image(
-                                image: AssetImage(
-                                    "assets/facebook/loginpage/Facebook-logo.png"),
-                                height: 50,
-                                width: 100,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Enter Number or Email';
-                        } else {
-                          return null;
-                        }
-                      },
-                      controller: userNumber,
-                      decoration: InputDecoration(
-                          labelText: "Mobile number or email address",
-                          hintText: "Mobile number or email address",
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                  color: Colors.black, width: 1.5),
-                              borderRadius: BorderRadius.circular(10))),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Enter Password';
-                        } else {
-                          return null;
-                        }
-                      },
-                      controller: userPassword,
-                      obscureText: eyeChanger,
-                      decoration: InputDecoration(
-                          suffixIcon: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  eyeChanger = !eyeChanger;
-                                });
-                              },
-                              icon: eyeChanger == false
-                                  ? const Icon(Icons.remove_red_eye_outlined)
-                                  : const Icon(Icons.remove_red_eye)),
-                          labelText: "Password",
-                          hintText: "Password",
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                  color: Colors.black, width: 1.5),
-                              borderRadius: BorderRadius.circular(10))),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    MaterialButton(
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const MyNavigatorBar(),
-                              ));
-                        }
-                      },
-                      // color: Colors.blue,
-                      // minWidth: double.infinity,
-                      // height: 60,
-                      child: Container(
-                        height: 40,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            color: Colors.blue.shade700,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: const Center(
-                          child: Text(
-                            "Log in",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 1,
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ForgetPassword(),
-                            ));
-                      },
-                      child: const Text(
-                        'Forgotten Password?',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 50),
-                    MaterialButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SignUp(),
-                            ));
-                      },
-                      child: Container(
-                        height: 40,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.blue, width: 2),
-                            borderRadius: BorderRadius.circular(20)),
-                        child: const Center(
-                            child: Text(
-                          'Create New Account',
-                          style: TextStyle(color: Colors.blue),
-                        )),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Image(
-                      image: const AssetImage(
-                          'assets/facebook/loginpage/hd-meta-facebook-white-logo-png-116403446124ydgyipr3u-removebg-preview.png'),
-                      height: MediaQuery.of(context).size.height * 0.05,
-                      width: double.infinity,
-                    )
-                  ],
+    return Scaffold(
+      //add single child scroll view for overfollow problem
+      body: SingleChildScrollView(
+        //add Container first for full screen custom color
+        child: Container(
+          height: MediaQuery.of(context).size.height*1,
+          width: double.infinity,
+          // padding: EdgeInsets.zero,
+          color: Colors.blue.withOpacity(0.2),
+        child: Padding(
+          padding:const  EdgeInsets.all(8.0),
+          //add form valiadator
+          child: Form(
+            key: formKey,
+            //add auto validate 
+            autovalidateMode: AutovalidateMode.always,
+            child: Column(
+              children: [
+                // add padding for image center in less code
+                 const Padding(
+                   padding:  EdgeInsets.symmetric(vertical: 80),
+                   child: Image(image: AssetImage("assets/facebook/loginpage/Facebook-logo.png"),height: 80,),
+                 ),
+               TextFormField(
+            
+                controller: userNumber,
+                decoration: InputDecoration(
+                  fillColor: Colors.grey.shade50,
+                  filled: true,
+                // hintText: 'Mobile number or email address',
+                labelText: 'Mobile number or email address',
+               prefixIcon: const Icon(Icons.person),
+               suffixIcon: IconButton(onPressed: (){
+                setState(() {
+                  userNumber.clear();
+                });
+               }, icon: const Icon(Icons.close)),
+                  border: 
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(10))
                 ),
-              ),
+                //adding validator for empty notice
+                validator: (value) {
+                  if(value!.isEmpty){
+                    return 'Enter Mobile Number or email address' ;
+                  }else{
+                    return null;
+                  }
+                },
+               ),
+               const SizedBox(height: 10,),
+               TextFormField(
+                obscureText: eyeChanger,
+                controller: userPassword,
+                decoration: InputDecoration(
+                  fillColor: Colors.grey.shade50,
+                  filled: true,
+                // hintText: 'Password',
+                labelText: 'Password',
+                suffixIcon:IconButton(onPressed: (){
+                  setState(() {
+                    eyeChanger=!eyeChanger;
+                  });
+                }, icon:  eyeChanger==true?const Icon(Icons.remove_red_eye):const Icon(Icons.remove_red_eye_outlined),
+               ),
+                prefixIcon: const Icon(Icons.key),
+                  border: 
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(10))
+                ),
+                 //adding validator for empty notice
+                validator: (value) {
+                  if(value!.isEmpty){
+                    return 'Enter Password';
+                  }else{
+                    return null;
+                  }
+              }),
+               const SizedBox(height: 10,),
+               //add Custom Elevated for login button with navigation or validate
+               CustomElevatedButton(
+                onPressed: (){
+                  if(formKey.currentState!.validate()){
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => const HomePage(),));
+                  }
+                },
+                color: const Color.fromARGB(255, 6, 126, 223),
+             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+             child: const MyText(text: 'Log in',color: Colors.white,),
+               ),
+
+               //add text button for forget password page
+               TextButton(onPressed: (){
+                Navigator.push(context,MaterialPageRoute(builder: (context) => const ForgetPassword(),));
+               },
+               child:const MyText(text: 'Forgotton Password?',fWeight: FontWeight.w500,),),
+              
+              //add sized box wrap with expanded for filling space
+              const Expanded(child: SizedBox()),
+               
+               //add column for button and text
+              Column(
+                children:[
+                CustomElevatedButton(
+                  onPressed: (){
+                Navigator.push(context,MaterialPageRoute(builder: (context) => const GetStarted(),));
+
+                  },
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20),side: const BorderSide(color: Colors.blue,width: 1.5)),
+               color:  const Color.fromARGB(255, 203, 229, 251),elevation: 0.0,
+               child: const MyText(text: "Create New Account",color: Colors.blue,),
+                ),
+              const Padding(
+                   padding:  EdgeInsets.all(8.0),
+                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(FontAwesomeIcons.meta),
+                      SizedBox(width: 10,),
+                      MyText(text: 'Meta',size: 18.0,)
+                    ],
+                    ),
+                 )
+              ])
+              ],
             ),
           ),
+        ),
         ),
       ),
     );

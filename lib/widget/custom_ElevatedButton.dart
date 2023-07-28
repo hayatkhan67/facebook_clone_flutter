@@ -10,12 +10,16 @@ class CustomElevatedButton extends StatefulWidget {
       this.sizeWidth,
       this.child,
       this.sizeHeight,
-      this.shape,this.color,
+      this.shape,
+      this.color,
       this.onPressed});
+ 
   Widget? child;
-
-  // ignore: prefer_typing_uninitialized_variables
-  final sizeWidth, sizeHeight, elevation, shape,color;
+  final double? sizeWidth;
+  final double? sizeHeight; 
+  final double? elevation;
+  final OutlinedBorder? shape;
+  final Color? color;
   final Function()? onPressed;
   @override
   State<CustomElevatedButton> createState() => _CustomElevatedButtonState();

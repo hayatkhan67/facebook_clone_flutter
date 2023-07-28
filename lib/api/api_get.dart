@@ -37,7 +37,6 @@ Future fetchData ()async{
 }
 @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     fetchData();
   }
@@ -69,7 +68,7 @@ Future fetchData ()async{
 
 class NewsHomePage extends StatelessWidget {
   const NewsHomePage({super.key,this.data});
-final  data;
+final dynamic data;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

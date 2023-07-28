@@ -6,8 +6,10 @@ class MyDivider extends StatelessWidget {
   const MyDivider(
       {super.key, this.indent, this.endIndent, this.thick, this.color});
 
-  // ignore: prefer_typing_uninitialized_variables
-  final thick, indent, color, endIndent;
+  final double? thick;
+  final double?  indent; 
+  final Color? color;
+  final double? endIndent;
   @override
   Widget build(BuildContext context) {
     return Divider(
