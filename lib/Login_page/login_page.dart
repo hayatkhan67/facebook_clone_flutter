@@ -1,11 +1,11 @@
 import 'package:bano_qabil_project/Facebook/homepage/homepage.dart';
 import 'package:bano_qabil_project/Login_page/forget_paasword.dart';
+import 'package:bano_qabil_project/Login_page/sign_up.dart';
 import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'create_account.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -130,7 +130,7 @@ final formKey=GlobalKey<FormState>();
                   children:[
                   CustomElevatedButton(
                     onPressed: (){
-                  Navigator.push(context,MaterialPageRoute(builder: (context) => const CreateAccount(),));
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => const SignUp(),));
     
                     },
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20),side: const BorderSide(color: Colors.blue,width: 1.5)),
