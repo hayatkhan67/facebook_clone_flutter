@@ -1,245 +1,209 @@
+import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:flutter/material.dart';
 
-import '../../widget/customText.dart';
+class ChatHomePage extends StatefulWidget {
+  const ChatHomePage({super.key, this.userDetails});
 
-class ChatsHome extends StatefulWidget {
-  const ChatsHome({super.key, this.userDetails});
-
-  final dynamic userDetails;
+final dynamic userDetails;
   @override
-  State<ChatsHome> createState() => _ChatsHomeState();
+  State<ChatHomePage> createState() => _ChatHomePageState();
 }
 
-class _ChatsHomeState extends State<ChatsHome> {
-  TextEditingController myText = TextEditingController();
-  var sendButton = true;
-  var likeButton = false;
-  List userMessage = [
-    'I am fine',
-  ];
+class _ChatHomePageState extends State<ChatHomePage> {
+
+TextEditingController myMessage=TextEditingController();
+
+ScrollController myList= ScrollController();
+
+bool sendButton=false;
+
+  List message=[
+  "I am fine",
+];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 3,
-        toolbarHeight: 72,
-        leadingWidth: MediaQuery.of(context).size.width * 0.70,
-        leading: SizedBox(
-          width: 100,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              children: [
-                IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(Icons.arrow_back_ios)),
-                Expanded(
-                  child: ListTile(
-                    onTap: () {},
-                    leading: CircleAvatar(
-                      //user profile image
-                      backgroundImage:
-                          AssetImage(widget.userDetails.userImage.toString()),
-                    ),
-                    //user Name
-                    title: Text(widget.userDetails.userName.toString()),
-                    subtitle: const Text('Active 1 hours ago'),
-                  ),
-                )
-              ],
-            ),
-          ),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back_ios)),
+        leadingWidth: 5,
+        title:  ListTile(
+         leading: CircleAvatar(
+          backgroundImage: AssetImage(widget.userDetails.userImage),
+         ),
+          title: MyText(text: widget.userDetails.userName),
+          subtitle:const MyText(text: '1 hour ago'),
         ),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.all(12.0),
-            child: Row(
-              children: [
-                Icon(
+        actions: const[
+             Icon(
                   Icons.call,
                   size: 30,
                   color: Colors.purple,
                 ),
-                SizedBox(
-                  width: 10,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Icon(
+                    Icons.video_call,
+                    size: 30,
+                    color: Colors.purple,
+                  ),
                 ),
-                Icon(
-                  Icons.video_call,
-                  size: 30,
-                  color: Colors.purple,
-                ),
-              ],
-            ),
-          )
         ],
       ),
       body: Column(
         children: [
           Expanded(
-            child: SingleChildScrollView(
-              child: Container(
-                color: Colors.white,
-                child: Padding(
+            child: Container(
+              color: Colors.white,
+            child: ListView(
+              controller: myList,
+              children: [
+                Padding(
                   padding: const EdgeInsets.all(12.0),
-                  child: Column(
+                  child: Row(
                     children: [
-                      Row(
-                        children: [
-                          CircleAvatar(
-                            //user profile image
-                            backgroundImage: AssetImage(
-                                widget.userDetails.userImage.toString()),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Container(
-                              height: MediaQuery.of(context).size.height * 0.05,
-                              width: MediaQuery.of(context).size.width * 0.30,
-                              decoration: BoxDecoration(
-                                  color: Colors.grey.shade200,
-                                  borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      topRight: Radius.circular(20),
-                                      bottomRight: Radius.circular(20))),
-                              child: Center(
-                                  //user default message
-                                  child: MyText(
-                                      text: widget.userDetails.message
-                                          .toString())))
-                        ],
+                       CircleAvatar(
+                        backgroundImage: AssetImage(widget.userDetails.userImage),
+                        onBackgroundImageError: (exception, stackTrace) => const Icon(Icons.error),
                       ),
-                      ...List.generate(
-                          userMessage.length,
-                          (index) => Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10.0),
-                            child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    const CircleAvatar(
-                                      backgroundImage: AssetImage(
-                                          'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Container(
-                                        constraints: const BoxConstraints(
-                                            minHeight: 20,
-                                            maxHeight: 200,
-                                            minWidth: 70,
-                                            maxWidth: double.infinity),
-                                        // height: 20,
-                                        // width: 30,
-                                        // height:
-                                        //     MediaQuery.of(context).size.height *
-                                        //         0.05,
-                                        // width:
-                                        //     MediaQuery.of(context).size.width *
-                                        //         0.30,
-                                        decoration: BoxDecoration(
-                                            color: Colors.grey.shade200,
-                                            borderRadius: const BorderRadius.only(
-                                                topLeft: Radius.circular(20),
-                                                topRight: Radius.circular(20),
-                                                bottomRight:
-                                                    Radius.circular(20))),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: MyText(
-                                                  text: userMessage[index]),
-                                            ),
-                                          ],
-                                        ))
-                                  ],
-                                ),
-                          ))
+                      const SizedBox(width: 10,),
+                      Container(
+                        padding: const EdgeInsets.all(5),
+                        constraints:const BoxConstraints(
+                          minHeight: 20,
+                          maxHeight: 200,
+                          minWidth: 30,
+                          maxWidth: 200,
+                        ),
+                        decoration: BoxDecoration(color: Colors.grey.shade200,borderRadius: BorderRadius.circular(20
+                        )),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            MyText(text: widget.userDetails.message),
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.08,
-            width: double.infinity,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                customIcon(iconName: Icons.camera_alt),
-                customIcon(iconName: Icons.photo),
-                customIcon(iconName: Icons.mic),
-                SizedBox(
-                  height: 40,
-                  width: 200,
-                  child: TextField(
-                    maxLines: 5,
-                    maxLength: 30,
-                    controller: myText,
-                    onChanged: (value) {
-                      setState(() {});
-                      if (value.isNotEmpty) {
-                        sendButton = false;
-                      }
-                      if (value.isEmpty) {
-                        sendButton = true;
-                      }
-                    },
-                    onSubmitted: (value) {
-                      if (myText.text.isNotEmpty) {
-                        setState(() {
-                          userMessage.add(myText.text);
-                          myText.clear();
-                        });
-                      }
-                    },
-                    autofocus: sendButton,
-                    decoration: InputDecoration(
-                        hintText: "Aa",
-                        suffixIcon: sendButton == true
-                            ? customIcon(iconName: Icons.face)
-                            : IconButton(
-                                onPressed: () {
-                                  if (myText.text.isNotEmpty) {
-                                    setState(() {
-                                      userMessage.add(myText.text);
-                                      myText.clear();
-                                    });
-                                  } else {
-                                    null;
-                                  }
-                                },
-                                icon: customIcon(iconName: Icons.send)),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                        filled: true,
-                        fillColor: Colors.grey.shade200),
+                ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: message.length,itemBuilder: (context, index) => 
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                       CircleAvatar(
+                       backgroundImage: const AssetImage('assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
+                        onBackgroundImageError: (exception, stackTrace) => const Icon(Icons.error),
+
+                      ),
+                      const SizedBox(width: 10,),
+                      Container(
+                        padding: const EdgeInsets.all(5),
+                        constraints:const BoxConstraints(
+                          minHeight: 20,
+                          maxHeight: 200,
+                          minWidth: 30,
+                          maxWidth: 200,
+                        ),
+                        decoration: BoxDecoration(color: Colors.grey.shade200,borderRadius: BorderRadius.circular(20
+                        )),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            MyText(text: message[index].toString()),
+                          ],
+                        ),
+                      )
+                    ],
                   ),
-                ),
-                IconButton(
-                    onPressed: () {},
-                    icon: customIcon(iconName: Icons.thumb_up_sharp))
+                ),),
               ],
             ),
-          )
+            ),
+          ),
+         Container(
+          // height: 60,
+          constraints: const BoxConstraints(
+            minHeight: 40,
+            maxHeight: 100,
+          ),
+          width: double.infinity,
+          color: Colors.white,
+          child:  Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Icon(Icons.camera_alt,color: Colors.blue,),
+              ),
+              const Icon(Icons.photo,color: Colors.blue,),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Icon(Icons.mic,color: Colors.blue,),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: TextField(
+                    controller: myMessage,
+                    onChanged: (value){
+                      if(value.isEmpty){
+                        sendButton=false;
+                      }else{
+                        sendButton=true;
+                      }
+                      setState(() {});
+                    },
+                    onSubmitted: (v){
+                      if (myMessage.text.isNotEmpty) {
+                        message.add(myMessage.text);
+                      setState(() {});
+                          myMessage.clear();
+                      }
+                      else{
+                        null;
+                      }
+                    },
+                   minLines: 1,
+                   maxLines: 3,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(borderRadius:BorderRadius.circular(20)),
+                      fillColor: Colors.grey.shade200,
+                      filled: true,
+                      hintText: 'Aaa.',
+                      hintStyle: const TextStyle(fontSize: 14),
+                      suffixIcon:sendButton==false? const Icon(Icons.face): IconButton(onPressed: (){
+                       if(myMessage.text.isNotEmpty){
+                         message.add(myMessage.text);
+                         myList.animateTo(myList.position.maxScrollExtent, duration: const Duration(microseconds: 400),curve:Curves.linear );
+                        setState(() {
+                          myMessage.clear();
+                       });
+                        }else{
+                          null;
+                        }
+                      }, icon: const Icon(Icons.send))
+                    ),
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Icon(Icons.thumb_up,color: Colors.blue,),
+              ),
+            ],
+          ),
+         )
         ],
       ),
-    );
-  }
-
-  Icon customIcon({required iconName, color, size}) {
-    return Icon(
-      iconName,
-      color: color ?? Colors.blue,
-      size: size ?? 30,
     );
   }
 }

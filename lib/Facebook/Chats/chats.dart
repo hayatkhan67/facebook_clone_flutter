@@ -11,26 +11,6 @@ class Chats extends StatefulWidget {
 }
 
 class _ChatsState extends State<Chats> {
-  // List friendsImages = [
-  //   'assets/facebook/friends/images/photo_6_2023-07-10_20-06-17.jpg',
-  //   "assets/facebook/friends/images/photo_1_2023-07-10_20-06-17.jpg",
-  //   "assets/facebook/friends/images/photo_2_2023-07-10_20-06-17.jpg",
-  //   'assets/facebook/friends/images/photo_2023-07-15_21-12-22.jpg',
-  //   "assets/facebook/friends/images/photo_5_2023-07-10_20-06-17.jpg",
-  //   'assets/facebook/friends/images/photo_2023-07-15_21-11-48.jpg',
-  //   "assets/facebook/friends/images/photo_7_2023-07-10_20-06-17.jpg",
-  // ];
-  // List friendsName = [
-  //   "Khan Amir",
-  //   "Shan Niazi",
-  //   "Sajjad",
-  //   "Amjad",
-  //   "Wahab",
-  //   "Zain Khan Niazi",
-  //   "Kamran"
-  // ];
-  // var message = 'How are you';
-
   //added model class
   var userFullDetials = chatDetails;
 
@@ -49,16 +29,11 @@ class _ChatsState extends State<Chats> {
         ),
         centerTitle: true,
         actions: const [
-          SizedBox(
-            width: 100,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
                 Icon(Icons.settings),
-                Icon(Icons.edit_square),
-              ],
-            ),
-          )
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  child: Icon(Icons.edit_square),
+                )
         ],
       ),
       body: SingleChildScrollView(
@@ -93,7 +68,7 @@ class _ChatsState extends State<Chats> {
               // ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 4.0, horizontal: 6.0),
+                    const EdgeInsets.symmetric(vertical: 4.0,),
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height * 0.16,
                   width: double.infinity,
@@ -111,7 +86,7 @@ class _ChatsState extends State<Chats> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => ChatsHome(
+                                        builder: (context) => ChatHomePage(
                                             userDetails:
                                                 userFullDetials[index]),
                                       ));
@@ -122,6 +97,8 @@ class _ChatsState extends State<Chats> {
                                       userFullDetials[index]
                                           .userImage
                                           .toString()),
+                        onBackgroundImageError: (exception, stackTrace) => const Icon(Icons.error),
+
                                 ),
                               ),
                               Text(userFullDetials[index].userName.toString())
@@ -129,8 +106,8 @@ class _ChatsState extends State<Chats> {
                           ),
                         ),
                         const Positioned(
-                          top: 50,
-                          right: 2,
+                          bottom: 30,
+                          right: 10,
                           child: CircleAvatar(
                               radius: 10,
                               backgroundColor: Colors.white,
@@ -154,12 +131,13 @@ class _ChatsState extends State<Chats> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => ChatsHome(
+                                  builder: (context) => ChatHomePage(
                                       userDetails: userFullDetials[index])));
                         },
                         leading: CircleAvatar(
                           backgroundImage: AssetImage(
                               userFullDetials[index].userImage.toString()),
+                        onBackgroundImageError: (exception, stackTrace) => const Icon(Icons.error),
                           radius: 30,
                         ),
                         title: Text(userFullDetials[index].userName.toString()),

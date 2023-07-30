@@ -1,8 +1,6 @@
+import 'package:bano_qabil_project/Facebook/Chats/chats.dart';
 import 'package:flutter/material.dart';
 
-import 'Facebook/Profile/friend_list.dart';
-import 'Facebook/Profile/friends_profile.dart';
-import 'Facebook/Profile/user_Profile.dart';
 
 
 
@@ -27,7 +25,7 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
             iconTheme: IconThemeData(color: Colors.black)),
       ),
-      home: const UserProfile(),
+      home: const Chats(),
     );
   }
 }
