@@ -1,5 +1,8 @@
-import 'package:bano_qabil_project/splash%20screen&onboarding/splash_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'Facebook/Profile/friend_list.dart';
+import 'Facebook/Profile/friends_profile.dart';
+import 'Facebook/Profile/user_Profile.dart';
 
 
 
@@ -24,13 +27,14 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
             iconTheme: IconThemeData(color: Colors.black)),
       ),
-      home: const SplashScreen(),
+      home: const UserProfile(),
     );
   }
 }
 
-//pending tasks
+// pending tasks
 // profile tab bar 
 // setting bottom sheet
-//chat home textfield fix pending
+// chat home textfield fix pending
 // chat navigation //complete 
+// friends banner and post pending
