@@ -1,4 +1,4 @@
-import 'package:bano_qabil_project/Facebook/homepage/homepage.dart';
+import 'package:bano_qabil_project/Facebook/NavigatorBar/navigator_bar.dart';
 import 'package:bano_qabil_project/Login_page/forget_paasword.dart';
 import 'package:bano_qabil_project/Login_page/sign_up.dart';
 import 'package:bano_qabil_project/widget/customText.dart';
@@ -108,7 +108,7 @@ final formKey=GlobalKey<FormState>();
                  CustomElevatedButton(
                   onPressed: (){
                     if(formKey.currentState!.validate()){
-                      Navigator.push(context,MaterialPageRoute(builder: (context) => const HomePage(),));
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => const MyNavigatorBar(),));
                     }
                   },
                   color: const Color.fromARGB(255, 6, 126, 223),

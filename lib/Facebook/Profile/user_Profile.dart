@@ -4,9 +4,11 @@ import 'package:bano_qabil_project/Facebook/Profile/posts.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../model class/userProfile_model_Class.dart';
+import 'UserModel_Class.dart';
 import '../../widget/customText.dart';
 import '../../widget/custom_Divider.dart';
+import 'friend_list.dart';
+import 'friends_profile.dart';
 
 class UserProfile extends StatefulWidget {
   const UserProfile({super.key});
@@ -353,21 +355,23 @@ class _UserProfileState extends State<UserProfile> {
                                 ],
                               ),
                             ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.50,
-                              width: double.infinity,
-                              child: GridView.builder(
-                                physics: const NeverScrollableScrollPhysics(),
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 3,
-                                        crossAxisSpacing: 05,
-                                        mainAxisSpacing: 10,
-                                        mainAxisExtent:
-                                            MediaQuery.of(context).size.height *
-                                                0.22),
-                                itemCount: 6,
-                                itemBuilder: (context, index) => Column(
+                            GridView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 3,
+                                      crossAxisSpacing: 05,
+                                      mainAxisSpacing: 10,
+                                      mainAxisExtent:
+                                          MediaQuery.of(context).size.height *
+                                              0.22),
+                                              shrinkWrap: true,
+                              itemCount: 6,
+                              itemBuilder: (context, index) => InkWell(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => FriendProfile(image:profile[0].displayFriendsImage![index].toString(),userName: profile[0].displayFriendsName![index].toString()),));
+                                },
+                                child: Column(
                                   children: [
                                     Expanded(
                                         child: Container(
@@ -410,8 +414,13 @@ class _UserProfileState extends State<UserProfile> {
                                 ),
                               ),
                             ),
+                            const SizedBox(
+                              height: 20,
+                            ),
                             ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(context,MaterialPageRoute(builder: (context) =>const FriendList(),));
+                                },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.grey.shade200,
                                   fixedSize: const Size(double.maxFinite, 40),

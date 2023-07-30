@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 import '../../resources_list/user_posts.dart';
-import '../../widget/post.dart';
+import '../../widget/custom_post.dart';
 
 class UserNewsFeed extends StatefulWidget {
   const UserNewsFeed({super.key});

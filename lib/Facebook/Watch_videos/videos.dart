@@ -3,7 +3,7 @@ import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:bano_qabil_project/widget/custom_Divider.dart';
 import 'package:flutter/material.dart';
 
-import '../../widget/post.dart';
+import '../../widget/custom_post.dart';
 
 // ignore: must_be_immutable
 class Videos extends StatefulWidget {
