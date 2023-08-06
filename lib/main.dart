@@ -1,6 +1,7 @@
-import 'package:bano_qabil_project/Facebook/Chats/chats.dart';
 import 'package:flutter/material.dart';
 
+import 'Facebook/Chats/chats.dart';
+import 'Facebook/homepage/homepage.dart';
 
 
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Facebook',
       theme: ThemeData(
+        
         fontFamily: 'Montserrat',
         scaffoldBackgroundColor: Colors.white,
         brightness: Brightness.light,
@@ -25,7 +27,8 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
             iconTheme: IconThemeData(color: Colors.black)),
       ),
-      home: const Chats(),
+      home:const HomePage()
+      // home:  const ResponsiveLayout(desktopScaffold: DesktopScaffold(),mobileScaffold: MobileScaffold(),tabletScaffold: TabletScaffold(),),
     );
   }
 }
@@ -36,3 +39,6 @@ class MyApp extends StatelessWidget {
 // chat home textfield fix pending
 // chat navigation //complete 
 // friends banner and post pending
+// issue 1 overflow onboarding text
+// 2 chat screen stack response
+// 3 notification text

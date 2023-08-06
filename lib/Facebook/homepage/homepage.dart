@@ -1,10 +1,14 @@
 import 'package:bano_qabil_project/Facebook/Chats/chats.dart';
 import 'package:bano_qabil_project/Facebook/Profile/user_Profile.dart';
 import 'package:bano_qabil_project/Facebook/newsfeed/user_newsfeed.dart';
+import 'package:bano_qabil_project/widget/circle_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../api/api_get.dart';
 import '../../widget/customText.dart';
+import '../../widget/custom_appbar.dart';
 import 'create_story/create_story.dart';
 import 'music.dart';
 
@@ -18,62 +22,39 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+  var  screenHeight=MediaQuery.of(context).size.height;
+  var  screenWidth=MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        // backgroundColor: Colors.white,
-        title: const Text(
-          'facebook',
-          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
-        ),
-        centerTitle: false,
-        elevation: 0,
-        // iconTheme: const IconThemeData(color: Colors.black),
-        leadingWidth: MediaQuery.of(context).size.width * 0.08,
-        actions: [
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              radius: 17,
-              backgroundColor: Color.fromARGB(241, 238, 235, 235),
-              child: Icon(Icons.add, weight: 30),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              radius: 17,
-              backgroundColor: Color.fromARGB(241, 238, 235, 235),
-              child: Icon(Icons.search, weight: 30),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 8, right: 10),
-            child: CircleAvatar(
-                radius: 17,
-                backgroundColor: const Color.fromARGB(241, 238, 235, 235),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Chats(),
-                        ));
-                  },
-                  icon: const Icon(
-                    FontAwesomeIcons.facebookMessenger,
-                    size: 19,
-                  ),
-                )
-                //  Icon(Icons.message, weight: 30),
-                ),
+      appBar: CustomAppBar(
+      title: const MyText(text: 'facebook',color: Colors.blue,fWeight: FontWeight.bold,),
+      leadingWidth: 30,
+      actions: [
+        const CircleIcon(icon: Icons.add),
+        const CircleIcon(icon: Icons.search),
+        CircleIcon(icon: MdiIcons.facebookMessenger,color: Colors.blue,onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const Chats(),));
+        },),
+      ],
+      ),
+      drawer:  Drawer(
+        backgroundColor:const Color.fromARGB(255, 162, 199, 230),
+      child: ListView(
+        children: [
+          ListTile(
+            onTap: (){
+              Navigator.push(context,MaterialPageRoute(builder: (context) => const ApiGet(),));
+            },
+            leading: const Icon(Icons.api),
+            title: const MyText(text: 'Facebook News'),
           )
         ],
       ),
-      drawer: const Drawer(),
+      ),
       // bottomNavigationBar: const MyNavigatorBar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Center(child: MyText(text: 'height=${screenHeight.toInt()} , width=${screenWidth.toInt()}')),
             ListTile(
               leading: InkWell(
                 onTap: () {
@@ -101,7 +82,8 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.23,
+                // height: MediaQuery.of(context).size.height * 0.23,
+                height:160,
                 width: double.infinity,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
@@ -110,15 +92,13 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(width: 3),
                     const CreateStory(),
                     const SizedBox(width: 3),
-                    // ListView.builder(
-                    //   itemBuilder: (context, index) =>
                     ...List.generate(
                       10,
                       (index) => Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 1),
                         child: Container(
-                          height: MediaQuery.of(context).size.height * 0.22,
-                          width: MediaQuery.of(context).size.width * 0.25,
+                          // width: MediaQuery.of(context).size.width * 0.25,
+                          width: 100,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               border: Border.all(color: Colors.grey)),
@@ -127,8 +107,8 @@ class _HomePageState extends State<HomePage> {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 image: const DecorationImage(
-                                    image: NetworkImage(
-                                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdR8gEA8y9_mimWHIM8P0kuU971JcofwkBET7ZEkjOir2C04WO-KnDuk3ErBzLiIaZG8k&usqp=CAU'),
+                                    image: AssetImage(
+                                        'assets/facebook/friends/images/photo_2023-07-18_15-42-23.jpg'),
                                     fit: BoxFit.fill)),
                             child: const Stack(
                               // mainAxisAlignment: MainAxisAlignment.spaceBetween,

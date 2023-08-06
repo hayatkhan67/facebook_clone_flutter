@@ -26,8 +26,8 @@ class _CustomPostContainerState extends State<CustomPostContainer> {
   Widget build(BuildContext context) {
     return Container(
       constraints: const BoxConstraints(
-        minHeight: 350,
-        maxHeight: 850,
+        minHeight: 200,
+        maxHeight: double.infinity,
       ),
       width: double.infinity,
       child: Column(
@@ -35,7 +35,7 @@ class _CustomPostContainerState extends State<CustomPostContainer> {
         children: [
           ListTile(
             leading: CircleAvatar(
-              backgroundImage: AssetImage(widget.profileImage ??
+              backgroundImage:AssetImage(widget.profileImage ??
                   'assets/facebook/friends/images/photo_2023-07-18_15-42-23.jpg'),
             ),
             title: Row(
@@ -80,61 +80,51 @@ class _CustomPostContainerState extends State<CustomPostContainer> {
           ),
           //image
           Flexible(
-              child: Image(
-            image: AssetImage(widget.postImage ??
-                'assets/facebook/friends/images/photo_2023-07-18_15-42-23.jpg'),
-            fit: BoxFit.fill,
-          )),
-          const SizedBox(
-            height: 20,
-            width: double.infinity,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
+              child: AspectRatio(
+                aspectRatio: 16/9,
+                child: Image(
+                          image: AssetImage(widget.postImage ??
+                  'assets/facebook/friends/images/photo_2023-07-18_15-42-23.jpg'),
+                          fit: BoxFit.fill,
+                        ),
+              )),
+          // const SizedBox(
+          //   height: 20,
+          //   width: double.infinity,
+          //   child: Padding(
+          //     padding: EdgeInsets.symmetric(horizontal: 10),
+          //     child:
+                const Flexible(
+                 child: Padding(
+                   padding: EdgeInsets.symmetric(horizontal: 8.0),
+                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(
-                        Icons.thumb_up_off_alt_sharp,
-                        color: Colors.blue,
-                        size: 16.0,
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.thumb_up_off_alt_sharp,
+                            color: Colors.blue,
+                            size: 16.0,
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          MyText(text: '100'),
+                        ],
                       ),
-                      SizedBox(
-                        width: 4,
+                      
+                      Row(
+                        children: [
+                          MyText(text: '20 \t share \t 60 \t comments'),
+                        ],
                       ),
-                      MyText(text: '100'),
                     ],
-                  ),
-                  Row(
-                    children: [
-                      MyText(text: '20'),
-                      SizedBox(
-                        width: 4,
-                      ),
-                      MyText(text: 'share'),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      MyText(text: '60'),
-                      SizedBox(
-                        width: 4,
-                      ),
-                      MyText(text: 'comments'),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      MyText(text: '60'),
-                      SizedBox(
-                        width: 4,
-                      ),
-                      MyText(text: 'views'),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
+                               ),
+                 ),
+               ),
+            // ),
+          // ),
           const MyDivider(
             thick: 1.0,
           ),

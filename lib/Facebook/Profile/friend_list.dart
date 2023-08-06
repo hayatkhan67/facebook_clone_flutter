@@ -21,7 +21,7 @@ var data=friendDetails;
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back_ios)),
-        title:  MyText(text: '${widget.userName==null?"Hayat Khan Niazi":widget.userName}\'s friends',size: 18,
+        title:  MyText(text: '${widget.userName ?? "Hayat Khan Niazi"}\'s friends',size: 18,
         fWeight: FontWeight.bold,),
         centerTitle: true,
         actions: const[ Padding(

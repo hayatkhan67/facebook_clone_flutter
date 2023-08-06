@@ -36,7 +36,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   font_awesome_flutter: ^10.5.0
+  material_design_icons_flutter: ^7.0.7296
   http: ^1.1.0
+  flutter_svg: ^2.0.7
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +70,7 @@ flutter:
   - assets/facebook/friends/images/
   - assets/facebook/myPost/
   - assets/facebook/onboarding/
+  - assets/svg/
 
 
   #   - images/a_dot_burr.jpeg

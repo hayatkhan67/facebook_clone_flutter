@@ -1,5 +1,8 @@
+import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:flutter/material.dart';
-
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import '../../widget/circle_icon.dart';
+import '../../widget/custom_listtile.dart';
 import 'chat_model_class.dart';
 import 'chats_home.dart';
 
@@ -11,8 +14,7 @@ class Chats extends StatefulWidget {
 }
 
 class _ChatsState extends State<Chats> {
-  //added model class
-  var userFullDetials = chatDetails;
+  final data = chatDetails;
 
   @override
   Widget build(BuildContext context) {
@@ -23,129 +25,122 @@ class _ChatsState extends State<Chats> {
               Navigator.pop(context);
             },
             icon: const Icon(Icons.arrow_back_ios)),
-        title: const Text(
-          'Chats',
-          style: TextStyle(color: Colors.black),
-        ),
+        title: const MyText(text: 'Chat'),
         centerTitle: true,
-        actions: const [
-                Icon(Icons.settings),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
-                  child: Icon(Icons.edit_square),
-                )
+        actions: [
+          CircleIcon(circle: false, icon: MdiIcons.cog),
+          CircleIcon(
+            circle: false,
+            icon: MdiIcons.squareEditOutline,
+          )
         ],
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              TextField(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
                 decoration: InputDecoration(
-                  constraints: const BoxConstraints.expand(height: 40),
-                  prefixIcon: const Icon(
-                    Icons.search,
-                    size: 20,
-                    color: Colors.grey,
-                  ),
-                  hintText: "Search",
-                  hintStyle: const TextStyle(
-                    fontSize: 16,
-                    height: 2.8,
-                  ),
-                  filled: true,
-                  fillColor: Colors.grey.shade200,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide:
+                          const BorderSide(color: Colors.black, width: 3)),
+                  hintText: 'Search',
                 ),
               ),
-              // const SizedBox(
-              //   height: 10,
-              // ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 4.0,),
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.16,
-                  width: double.infinity,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: userFullDetials.length,
-                    itemBuilder: (context, index) => Stack(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => ChatHomePage(
-                                            userDetails:
-                                                userFullDetials[index]),
-                                      ));
-                                },
-                                child: CircleAvatar(
-                                  radius: 35,
-                                  backgroundImage: AssetImage(
-                                      userFullDetials[index]
-                                          .userImage
-                                          .toString()),
-                        onBackgroundImageError: (exception, stackTrace) => const Icon(Icons.error),
-
+            ),
+            SizedBox(
+              // height: MediaQuery.of(context).size.height * 0.35,
+              height:150,
+              width: double.infinity,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: data.length,
+                itemBuilder: (context, index) => Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                      child: Row(
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        ChatHomePage(userDetails: data[index]),
+                                  ));
+                            },
+                            child: Container(
+                                height: 80,
+                                width: 80,
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 5),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          data[index].userImage.toString()),
+                                      fit: BoxFit.fill),
                                 ),
-                              ),
-                              Text(userFullDetials[index].userName.toString())
-                            ],
+                                child: const Stack(
+                                  textDirection: TextDirection.rtl,
+                                  fit: StackFit.loose,
+                                  clipBehavior: Clip.none,
+                                  children: [
+                                    Positioned(
+                                      bottom: 0.0,
+                                      right: 3.0,
+                                      child: CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        radius: 8,
+                                        child: CircleAvatar(
+                                          backgroundColor: Colors.green,
+                                          radius: 6,
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                )),
                           ),
-                        ),
-                        const Positioned(
-                          bottom: 30,
-                          right: 10,
-                          child: CircleAvatar(
-                              radius: 10,
-                              backgroundColor: Colors.white,
-                              child: CircleAvatar(
-                                radius: 7,
-                                backgroundColor:
-                                    Color.fromARGB(255, 59, 207, 64),
-                              )),
-                        )
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
+                    const SizedBox(height: 5),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        data[index].userName!,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: userFullDetials.length,
-                  itemBuilder: (context, index) => ListTile(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ChatHomePage(
-                                      userDetails: userFullDetials[index])));
-                        },
-                        leading: CircleAvatar(
-                          backgroundImage: AssetImage(
-                              userFullDetials[index].userImage.toString()),
-                        onBackgroundImageError: (exception, stackTrace) => const Icon(Icons.error),
-                          radius: 30,
-                        ),
-                        title: Text(userFullDetials[index].userName.toString()),
-                        subtitle:
-                            Text(userFullDetials[index].message.toString()),
-                      ))
-            ],
-          ),
+            ),
+            ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: data.length,
+              itemBuilder: (context, index) {
+                return CustomListTile(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              ChatHomePage(userDetails: data[index]),
+                        ));
+                  },
+                  image: data[index].userImage.toString(),
+                  title: MyText(text: data[index].userName),
+                  subtitle: MyText(text: data[index].message),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );

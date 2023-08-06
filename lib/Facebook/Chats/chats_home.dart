@@ -28,13 +28,13 @@ bool sendButton=false;
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back_ios)),
-        leadingWidth: 5,
+        leadingWidth: 20,
         title:  ListTile(
          leading: CircleAvatar(
           backgroundImage: AssetImage(widget.userDetails.userImage),
          ),
-          title: MyText(text: widget.userDetails.userName),
-          subtitle:const MyText(text: '1 hour ago'),
+          title: MyText(text: widget.userDetails.userName,size: 13,),
+          subtitle:const MyText(text: '1 hour ago',size:13),
         ),
         actions: const[
              Icon(

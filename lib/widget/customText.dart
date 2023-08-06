@@ -12,7 +12,7 @@ class MyText extends StatelessWidget {
       this.fWeight,
       this.size});
 
-  final dynamic text;
+  final String? text;
   final Color? color;
   final FontWeight?fWeight;
   final double? size;
@@ -22,13 +22,15 @@ class MyText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      text,
+      text!,
       textAlign: align,
       style: TextStyle(
           fontFamily: fontFamily,
           color: color ?? Colors.black,
           fontWeight: fWeight ?? FontWeight.normal,
-          fontSize: size ?? 14.0),
+          // fontSize:MediaQuery.of(context).textScaleFactor*size ?? MediaQuery.of(context).textScaleFactor*14.0),
+          fontSize:size!=null?MediaQuery.of(context).textScaleFactor * size!: MediaQuery.of(context).textScaleFactor * 16.0,
+      )    
     );
   }
 }

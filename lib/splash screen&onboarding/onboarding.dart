@@ -1,9 +1,9 @@
 import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 import '../Login_page/login_page.dart';
-import '../model class/onboarding_modelclass.dart';
+import 'onboarding_modelclass.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -31,7 +31,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               height: 20,
             ),
             Expanded(
-              flex: 10,
               child: PageView.builder(
                 onPageChanged: (value) {
                   setState(() {
@@ -43,24 +42,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 itemCount: data.length,
                 itemBuilder: (context, index) => Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(19.0),
-                          child: MyText(
-                            text: data[index].title.toString(),
-                            fontFamily: "Montserrat",
-                            fWeight: FontWeight.bold,
-                            size: 20.0,
-                          ),
-                        ),
-                      ],
+                    MyText(
+                      text: data[index].title.toString(),
+                      align: TextAlign.center,
+                      fontFamily: "Montserrat",
+                      fWeight: FontWeight.bold,
+                      //  align: TextAlign.center,
+                      size: 20.0,
                     ),
-                    Expanded(
-                      child: Image(
-                        image: AssetImage(data[index].image.toString()),
-                        fit: BoxFit.fill,
+                    const SizedBox(height: 20,),
+                  Expanded(
+                      child: AspectRatio(
+                        aspectRatio:16/9,
+                        child: SvgPicture.asset(data[index].svg.toString(),fit: BoxFit.contain,),
+                          // image: AssetImage(data[index].image.toString()),
+                         
                       ),
                     ),
                     const SizedBox(
@@ -72,17 +68,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         text: data[index].detail.toString(),
                         size: 20.0,
                         align: TextAlign.center,
-                        fWeight: FontWeight.w400,
+                        fWeight: FontWeight.w600,
                         fontFamily: "Montserrat",
+                      
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-            const Expanded(
-              child: SizedBox(),
-            ),
+            // const Expanded(
+            //   child: SizedBox(),
+            // ),
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
@@ -124,7 +121,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   fontFamily: "Montserrat",
                   text: currentPage == 2 ? 'Continue' : 'Next',
                   // text: 'Next $currentPage',
-                  size: 16.0,
+                  size: 20.0,
                   color: Colors.white,
                 ),
               ),

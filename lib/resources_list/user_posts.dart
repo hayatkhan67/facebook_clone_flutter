@@ -51,9 +51,9 @@ List<UserPost> newsFeedPost = [
   UserPost(
     userName: 'Wahab Khan',
     // postText: '30 days ago',
-    postImage: 'assets/facebook/friends/images/photo_2023-07-15_21-12-19.jpg',
+    postImage: 'assets/facebook/friends/images/wahab_post.jpg',
     profileImage:
-        'assets/facebook/friends/images/photo_2023-07-15_21-12-19.jpg',
+        'assets/facebook/friends/images/wahab_profile.jpg',
   ),
   UserPost(
     userName: 'Shan Niazi',

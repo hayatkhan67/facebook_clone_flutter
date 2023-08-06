@@ -62,9 +62,11 @@ class CreateAccount extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(onPressed: (){
-                Navigator.push(context,MaterialPageRoute(builder: (context) => const ForgetPassword(),));
-              }, child: const MyText(text: 'Already have an account?',color: Color.fromARGB(255, 11, 132, 230),fWeight: FontWeight.bold,)),
+              Expanded(
+                child: TextButton(onPressed: (){
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => const ForgetPassword(),));
+                }, child: const MyText(text: 'Already have an account?',color: Color.fromARGB(255, 11, 132, 230),fWeight: FontWeight.bold,align: TextAlign.center,)),
+              ),
             ],
           )
           ],

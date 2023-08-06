@@ -64,36 +64,34 @@ class _MenuState extends State<Menu> {
         leadingWidth: 25,
         elevation: 0,
         actions: [
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.25,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                CircleAvatar(
-                  backgroundColor: Colors.grey.shade200,
-                  child: IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Settings(),
-                            ));
-                      },
-                      icon: const Icon(
-                        Icons.settings,
-                        color: Colors.black,
-                      )),
-                ),
-                CircleAvatar(
-                  backgroundColor: Colors.grey.shade200,
-                  child: const Icon(
-                    Icons.search,
-                    color: Colors.black,
-                  ),
-                ),
-              ],
-            ),
-          )
+          // SizedBox(
+          //   width: MediaQuery.of(context).size.width * 0.25,
+          //   child:
+             CircleAvatar(
+               backgroundColor: Colors.grey.shade200,
+               child: IconButton(
+                   onPressed: () {
+                     Navigator.push(
+                         context,
+                         MaterialPageRoute(
+                           builder: (context) => Settings(),
+                         ));
+                   },
+                   icon: const Icon(
+                     Icons.settings,
+                     color: Colors.black,
+                   )),
+             ),
+             Padding(
+               padding: const EdgeInsets.all(8.0),
+               child: CircleAvatar(
+                 backgroundColor: Colors.grey.shade200,
+                 child: const Icon(
+                   Icons.search,
+                   color: Colors.black,
+                 ),
+               ),
+             )
         ],
       ),
       drawer: const Drawer(),

@@ -21,16 +21,22 @@ class SignUp extends StatelessWidget {
       body:  Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const MyText(text: 'Join Facebook',size: 24.0,),
+           const Row(
+                children: [
+                  MyText(text: 'Join Facebook',),
+                ],
+              ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: Image.asset('assets/facebook/loginpage/62b03a20c7e36272df213ddc_Facebook Audience Insights-p-500.png',fit: BoxFit.cover,)),
+              child: AspectRatio(
+                aspectRatio: 16/9,
+                child: Image.asset('assets/facebook/loginpage/62b03a20c7e36272df213ddc_Facebook Audience Insights-p-500.png',fit: BoxFit.cover,))),
           ),
-            const MyText(text: 'Create an account to connect with friends,family and communities of people who share your interests',size: 13.0,fWeight: FontWeight.w500,),
+            const MyText(text: "Create an account to connect with friends,family and communities of people who share your interests",fWeight: FontWeight.w500,),
             const SizedBox(height: 10,),
             CustomElevatedButton(
               onPressed: (){
