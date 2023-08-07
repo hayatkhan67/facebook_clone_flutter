@@ -52,7 +52,7 @@ class _ChatsState extends State<Chats> {
             ),
             SizedBox(
               // height: MediaQuery.of(context).size.height * 0.35,
-              height:150,
+              height: 150,
               width: double.infinity,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -85,12 +85,12 @@ class _ChatsState extends State<Chats> {
                                           data[index].userImage.toString()),
                                       fit: BoxFit.fill),
                                 ),
-                                child: const Stack(
+                                child: Stack(
                                   textDirection: TextDirection.rtl,
                                   fit: StackFit.loose,
                                   clipBehavior: Clip.none,
                                   children: [
-                                    Positioned(
+                                    const Positioned(
                                       bottom: 0.0,
                                       right: 3.0,
                                       child: CircleAvatar(
@@ -101,25 +101,30 @@ class _ChatsState extends State<Chats> {
                                           radius: 6,
                                         ),
                                       ),
-                                    )
+                                    ),
+                                    // SizedBox(height: 5),
+                                    Positioned(
+                                      bottom: -40,
+                                      right: 8.0,
+                                      left: 8.0,
+                                      child: MyText(
+                                        text: data[index].userName!,
+                                        align: TextAlign.center,
+                                        maxline: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
                                   ],
                                 )),
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(height: 5),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Text(
-                        data[index].userName!,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
                   ],
                 ),
               ),
             ),
+            const SizedBox(height: 10,),
             ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,

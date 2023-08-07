@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'Facebook/Chats/chats.dart';
 import 'Facebook/homepage/homepage.dart';
-
-
 
 void main() {
   runApp(const MyApp());
