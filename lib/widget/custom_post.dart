@@ -35,7 +35,7 @@ class _CustomPostContainerState extends State<CustomPostContainer> {
         children: [
           ListTile(
             leading: CircleAvatar(
-              backgroundImage:AssetImage(widget.profileImage ??
+              backgroundImage: AssetImage(widget.profileImage ??
                   'assets/facebook/friends/images/photo_2023-07-18_15-42-23.jpg'),
             ),
             title: Row(
@@ -73,57 +73,54 @@ class _CustomPostContainerState extends State<CustomPostContainer> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
-                child: MyText(text: widget.postText ?? 'HELLO FRIENDS'),
+                padding: const EdgeInsets.all(10),
+                child: MyText(
+                  text: widget.postText ?? 'HELLO FRIENDS',
+                  maxline: 6,
+                ),
               ),
             ],
           ),
           //image
-          Flexible(
-              child: AspectRatio(
-                aspectRatio: 16/9,
-                child: Image(
-                          image: AssetImage(widget.postImage ??
-                  'assets/facebook/friends/images/photo_2023-07-18_15-42-23.jpg'),
-                          fit: BoxFit.fill,
-                        ),
-              )),
-          // const SizedBox(
-          //   height: 20,
-          //   width: double.infinity,
-          //   child: Padding(
-          //     padding: EdgeInsets.symmetric(horizontal: 10),
-          //     child:
-                const Flexible(
-                 child: Padding(
-                   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          widget.postImage != null
+              ? Flexible(
+                  child: Container(
+                  color: Colors.grey,
+                  child: Image(
+                    image: AssetImage(widget.postImage!),
+                    // fit: BoxFit.fill,
+                  ),
+                ))
+              : const SizedBox.shrink(),
+          const Flexible(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
                     children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.thumb_up_off_alt_sharp,
-                            color: Colors.blue,
-                            size: 16.0,
-                          ),
-                          SizedBox(
-                            width: 4,
-                          ),
-                          MyText(text: '100'),
-                        ],
+                      Icon(
+                        Icons.thumb_up_off_alt_sharp,
+                        color: Colors.blue,
+                        size: 16.0,
                       ),
-                      
-                      Row(
-                        children: [
-                          MyText(text: '20 \t share \t 60 \t comments'),
-                        ],
+                      SizedBox(
+                        width: 4,
                       ),
+                      MyText(text: '100'),
                     ],
-                               ),
-                 ),
-               ),
-            // ),
+                  ),
+                  Row(
+                    children: [
+                      MyText(text: '20 \t share \t 60 \t comments'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          // ),
           // ),
           const MyDivider(
             thick: 1.0,

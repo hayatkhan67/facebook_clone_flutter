@@ -3,7 +3,6 @@ import 'package:bano_qabil_project/Facebook/Profile/user_Profile.dart';
 import 'package:bano_qabil_project/Facebook/newsfeed/user_newsfeed.dart';
 import 'package:bano_qabil_project/widget/circle_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../api/api_get.dart';
@@ -22,39 +21,58 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-  var  screenHeight=MediaQuery.of(context).size.height;
-  var  screenWidth=MediaQuery.of(context).size.width;
+    var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: CustomAppBar(
-      title: const MyText(text: 'facebook',color: Colors.blue,fWeight: FontWeight.bold,),
-      leadingWidth: 30,
-      actions: [
-        const CircleIcon(icon: Icons.add),
-        const CircleIcon(icon: Icons.search),
-        CircleIcon(icon: MdiIcons.facebookMessenger,color: Colors.blue,onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const Chats(),));
-        },),
-      ],
-      ),
-      drawer:  Drawer(
-        backgroundColor:const Color.fromARGB(255, 162, 199, 230),
-      child: ListView(
-        children: [
-          ListTile(
-            onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder: (context) => const ApiGet(),));
+        title: const MyText(
+          text: 'facebook',size: 19,
+          color: Colors.blue,
+          fWeight: FontWeight.bold,
+        ),
+        leadingWidth: 30,
+        actions: [
+          const CircleIcon(icon: Icons.add),
+          const CircleIcon(icon: Icons.search),
+          CircleIcon(
+            icon: MdiIcons.facebookMessenger,
+            color: Colors.blue,
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Chats(),
+                  ));
             },
-            leading: const Icon(Icons.api),
-            title: const MyText(text: 'Facebook News'),
-          )
+          ),
         ],
       ),
+      drawer: Drawer(
+        backgroundColor: const Color.fromARGB(255, 162, 199, 230),
+        child: ListView(
+          children: [
+            ListTile(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ApiGet(),
+                    ));
+              },
+              leading: const Icon(Icons.api),
+              title: const MyText(text: 'Facebook News'),
+            )
+          ],
+        ),
       ),
       // bottomNavigationBar: const MyNavigatorBar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Center(child: MyText(text: 'height=${screenHeight.toInt()} , width=${screenWidth.toInt()}')),
+            Center(
+                child: MyText(
+                    text:
+                        'height=${screenHeight.toInt()} , width=${screenWidth.toInt()}')),
             ListTile(
               leading: InkWell(
                 onTap: () {
@@ -83,7 +101,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(8.0),
               child: SizedBox(
                 // height: MediaQuery.of(context).size.height * 0.23,
-                height:160,
+                height: 160,
                 width: double.infinity,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
@@ -128,13 +146,19 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                     )),
                                 Positioned(
-                                  bottom: 10,
+                                  bottom: 8.0,
+                                  left: 8.0,
+                                  right: 8.0,
                                   child: Padding(
                                     padding:
                                         EdgeInsets.symmetric(horizontal: 10),
-                                    child: Text(
-                                      'Hayat Khan',
-                                      style: TextStyle(color: Colors.white),
+                                    child: MyText(
+                                      text:
+                                      'Hayat Khan Niazi',align: TextAlign.center,
+                                      size: 10,fWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                     maxline: 2,
+                                     overflow: TextOverflow.ellipsis,
                                     ),
                                   ),
                                 )

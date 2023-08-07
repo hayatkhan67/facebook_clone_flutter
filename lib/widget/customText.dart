@@ -10,7 +10,7 @@ class MyText extends StatelessWidget {
       this.fontFamily,
       this.color,
       this.fWeight,
-      this.size});
+      this.size, this.maxline, this.overflow});
 
   final String? text;
   final Color? color;
@@ -18,7 +18,8 @@ class MyText extends StatelessWidget {
   final double? size;
   final TextAlign? align;
   final String? fontFamily;
-
+  final int? maxline;
+  final TextOverflow? overflow;
   @override
   Widget build(BuildContext context) {
     return Text(
@@ -30,7 +31,9 @@ class MyText extends StatelessWidget {
           fontWeight: fWeight ?? FontWeight.normal,
           // fontSize:MediaQuery.of(context).textScaleFactor*size ?? MediaQuery.of(context).textScaleFactor*14.0),
           fontSize:size!=null?MediaQuery.of(context).textScaleFactor * size!: MediaQuery.of(context).textScaleFactor * 16.0,
-      )    
+      ),
+      maxLines: maxline ?? 2,
+      overflow: overflow,
     );
   }
 }

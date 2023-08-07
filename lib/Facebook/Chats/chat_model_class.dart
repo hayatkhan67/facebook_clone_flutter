@@ -13,17 +13,17 @@ List<ChatDetails> chatDetails = [
       userImage:
           'assets/facebook/friends/images/photo_6_2023-07-10_20-06-17.jpg'),
   ChatDetails(
-      userName: 'Hasan',
+      userName: 'Hasan Khan',
       message: 'How are you',
       userImage:
           'assets/facebook/friends/images/photo_2023-07-18_15-37-01.jpg'),
   ChatDetails(
-      userName: 'Wahab',
+      userName: 'Wahab Niazi',
       message: 'How are you',
       userImage:
           'assets/facebook/friends/images/wahab_post.jpg'),
   ChatDetails(
-      userName: 'Amjad',
+      userName: 'Amjad Ali',
       message: 'How are you',
       userImage:
           'assets/facebook/friends/images/photo_2023-07-15_21-12-22.jpg'),
@@ -33,7 +33,7 @@ List<ChatDetails> chatDetails = [
       userImage:
           'assets/facebook/friends/images/photo_1_2023-07-10_20-06-17.jpg'),
   ChatDetails(
-      userName: 'Zain Niazi',
+      userName: 'Zain Khan Niazi',
       message: 'How are you',
       userImage:
           'assets/facebook/friends/images/photo_2023-07-15_21-11-48.jpg'),

@@ -17,16 +17,18 @@ class CircleIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return circle == true
         ? Container(
-            margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 10),
+            margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 11),
             decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 225, 220, 220),
                 shape: BoxShape.circle),
-            child: IconButton(
-              onPressed: onPressed,
-              icon: Icon(
-                icon,
-                size: size??20,
-                color: color ?? Colors.black,
+            child: Center(
+              child: IconButton(
+                onPressed: onPressed,
+                icon: Icon(
+                  icon,
+                  size: size ?? 20,
+                  color: color ?? Colors.black,
+                ),
               ),
             ))
         : IconButton(

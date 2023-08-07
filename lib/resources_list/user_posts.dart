@@ -21,6 +21,13 @@ List<UserPost> newsFeedPost = [
   
   ),
   UserPost(
+    userName: 'Niaz',
+    // postText: '1 year ago',
+    postText: 'Hy Everyone',
+    profileImage:
+        'assets/facebook/friends/images/photo_2023-07-18_15-37-01.jpg',
+  ),
+  UserPost(
     userName: 'Hasan Khan',
     // postText: '1 year ago',
     postImage: 'assets/facebook/friends/images/photo_2023-07-18_15-37-01.jpg',
@@ -63,3 +70,4 @@ List<UserPost> newsFeedPost = [
         'assets/facebook/friends/images/photo_1_2023-07-10_20-06-17.jpg',
   ),
 ];
+                            
