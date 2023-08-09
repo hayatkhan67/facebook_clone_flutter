@@ -9,37 +9,52 @@ class ForgetPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-         leading: IconButton(
+        leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
             },
             icon: const Icon(Icons.arrow_back_ios)),
       ),
       body: Padding(
-        padding:  const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(12.0),
         child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const MyText(text: 'Find your account',size: 24,fWeight: FontWeight.w500,),
+            const MyText(
+              text: 'Find your account',
+              size: 24,
+              fWeight: FontWeight.w500,
+            ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
-              child: MyText(text: 'Enter your mobile number or email address',size: 15,fWeight: FontWeight.w500,),
+              child: MyText(
+                text: 'Enter your mobile number or email address',
+                size: 15,
+                fWeight: FontWeight.w500,
+              ),
             ),
             TextField(
               decoration: InputDecoration(
-                labelText: 'Mobile number or email address',
-                border: OutlineInputBorder(
-                  borderRadius:BorderRadius.circular(20), 
-                )
-              ),
+                  labelText: 'Mobile number or email address',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  )),
             ),
-            const SizedBox(height: 15,),
+            const SizedBox(
+              height: 15,
+            ),
             CustomElevatedButton(
-              onPressed: (){},
+              onPressed: () {},
               color: Colors.blue,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-           sizeHeight: 45,
-            child: const MyText(text: 'Find Account',fWeight: FontWeight.w500,color: Colors.white,),)
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              sizeHeight: 45,
+              child: const MyText(
+                text: 'Find Account',
+                fWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
+            )
           ],
         ),
       ),

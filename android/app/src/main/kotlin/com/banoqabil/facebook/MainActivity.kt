@@ -1,4 +1,4 @@
-package com.example.bano_qabil_project
+package com.banoqabil.facebook
 
 import io.flutter.embedding.android.FlutterActivity
 

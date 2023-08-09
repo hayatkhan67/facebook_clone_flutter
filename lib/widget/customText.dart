@@ -25,12 +25,13 @@ class MyText extends StatelessWidget {
     return Text(
       text!,
       textAlign: align,
+      textScaleFactor: 1.0,
       style: TextStyle(
           fontFamily: fontFamily,
           color: color ?? Colors.black,
           fontWeight: fWeight ?? FontWeight.normal,
-          // fontSize:MediaQuery.of(context).textScaleFactor*size ?? MediaQuery.of(context).textScaleFactor*14.0),
-          fontSize:size!=null?MediaQuery.of(context).textScaleFactor * size!: MediaQuery.of(context).textScaleFactor * 16.0,
+          fontSize: size ?? 14,
+          // fontSize:size!=null?MediaQuery.of(context).textScaleFactor * size!: MediaQuery.of(context).textScaleFactor * 16.0,
       ),
       maxLines: maxline ?? 2,
       overflow: overflow,

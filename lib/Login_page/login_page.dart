@@ -111,6 +111,7 @@ final formKey=GlobalKey<FormState>();
                       Navigator.push(context,MaterialPageRoute(builder: (context) => const MyNavigatorBar(),));
                     }
                   },
+                  
                   color: const Color.fromARGB(255, 6, 126, 223),
                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                child: const MyText(text: 'Log in',color: Colors.white,),
@@ -133,6 +134,8 @@ final formKey=GlobalKey<FormState>();
                   Navigator.push(context,MaterialPageRoute(builder: (context) => const SignUp(),));
     
                     },
+                sizeWidth: double.maxFinite,
+
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20),side: const BorderSide(color: Colors.blue,width: 1.5)),
                  color:  const Color.fromARGB(255, 203, 229, 251),elevation: 0.0,
                  child: const MyText(text: "Create New Account",color: Colors.blue,),

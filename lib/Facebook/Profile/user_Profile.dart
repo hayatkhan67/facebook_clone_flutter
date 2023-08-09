@@ -1,12 +1,13 @@
 // ignore_for_file: file_names
 
 import 'package:bano_qabil_project/Facebook/Profile/posts.dart';
+import 'package:bano_qabil_project/data/fb_data.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'UserModel_Class.dart';
 import '../../widget/customText.dart';
 import '../../widget/custom_Divider.dart';
+import '../../widget/custom_ElevatedButton.dart';
 import 'friend_list.dart';
 import 'friends_profile.dart';
 
@@ -18,19 +19,8 @@ class UserProfile extends StatefulWidget {
 }
 
 class _UserProfileState extends State<UserProfile> {
-  List<Posts> post = [
-    Posts(image: [
-      'assets/facebook/myPost/photo_2023-07-16_08-41-47.jpg',
-      'assets/facebook/myPost/photo_2023-07-16_08-41-42.jpg',
-      'assets/facebook/myPost/photo_2023-07-16_08-41-47.jpg',
-      'assets/facebook/myPost/photo_2023-07-16_08-41-50.jpg'
-    ], text: [
-      'group pic',
-      'new pic',
-      '2020',
-      '2023'
-    ])
-  ];
+  var data = fbData;
+
   var currentIndex = 0;
   List name = [
     'Posts',
@@ -64,29 +54,6 @@ class _UserProfileState extends State<UserProfile> {
     'See Your About Info'
   ];
 
-  List<UserDetails> profile = [
-    UserDetails(
-        displayFriendsImage: [
-          'assets/facebook/friends/images/photo_1_2023-07-10_20-06-17.jpg',
-          'assets/facebook/friends/images/photo_2023-07-15_21-12-22.jpg',
-          'assets/facebook/friends/images/photo_2023-07-15_21-11-48.jpg',
-          'assets/facebook/friends/images/photo_2023-07-15_21-12-19.jpg',
-          'assets/facebook/friends/images/photo_6_2023-07-10_20-06-17.jpg',
-          'assets/facebook/friends/images/photo_5_2023-07-10_20-06-17.jpg',
-        ],
-        displayFriendsName: [
-          'Shan Niazi',
-          'Amjad',
-          'Zain Khan',
-          'Wahab Niazi',
-          'Khan Amir Niazi',
-          'Iqbal Niazi'
-        ],
-        profilePic: 'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg',
-        totalFriends: '6',
-        userName: 'Hayat Khan',
-        banner: 'assets/facebook/myPost/photo_2023-07-16_08-41-47.jpg')
-  ];
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -105,20 +72,13 @@ class _UserProfileState extends State<UserProfile> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Icon(Icons.edit, color: Colors.black),
-                    // SizedBox(
-                    //   width: 10,
-                    // ),
                     Icon(Icons.search, color: Colors.black),
-                    // SizedBox(
-                    //   width: 6,
-                    // ),
                   ],
                 ),
               )
             ],
             title: MyText(
-              text: profile[0].userName,
-              color: Colors.black,
+              text: data[0].userName,
               size: 18.0,
             ),
             centerTitle: true,
@@ -138,12 +98,13 @@ class _UserProfileState extends State<UserProfile> {
               children: [
                 Stack(clipBehavior: Clip.none, children: [
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.30,
+                    // height: MediaQuery.of(context).size.height * 0.40,
+                    height: 200,
                     width: double.infinity,
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(0.4),
                         image: DecorationImage(
-                            image: AssetImage(profile[0].banner.toString()),
+                            image: AssetImage(data[0].userBanner.toString()),
                             fit: BoxFit.cover)),
                   ),
                   Positioned(
@@ -155,7 +116,7 @@ class _UserProfileState extends State<UserProfile> {
                       child: CircleAvatar(
                         radius: 57,
                         backgroundImage:
-                            AssetImage(profile[0].profilePic.toString()),
+                            AssetImage(data[0].profileImage.toString()),
                       ),
                     ),
                   ),
@@ -175,52 +136,48 @@ class _UserProfileState extends State<UserProfile> {
                 ]),
                 Padding(
                   padding: const EdgeInsets.only(
-                      top: 35, bottom: 10, left: 20, right: 20),
+                      top: 35, bottom: 10, ),
+                      // left: 20, right: 20
                   child: Column(
                     children: [
                       Row(
                         children: [
                           MyText(
-                              text: profile[0].userName,
+                              text: data[0].userName,
                               size: 20.0,
                               fWeight: FontWeight.w500),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      Wrap(
+                        direction: Axis.horizontal,
+                        runSpacing: 2,
+                        runAlignment: WrapAlignment.spaceEvenly,
+                       spacing: 2,
                         children: [
-                          Expanded(
-                            child: ElevatedButton(
-                                onPressed: () {},
-                                child: const MyText(
-                                  text: '+ Add to story',
-                                  color: Colors.white,
-                                )),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Expanded(
-                            child: ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.grey.shade200,
-                                    elevation: 0),
-                                child: const MyText(
-                                  text: "✎ Edit profile",
-                                  color: Colors.black,
-                                )),
-                          ),
-                          const SizedBox(width: 10),
-                          ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.grey.shade200,
-                                  elevation: 0),
-                              child: const Icon(
-                                Icons.more_horiz,
-                                color: Colors.black,
-                              ))
+                          CustomElevatedButton(onPressed: (){},
+                          sizeWidth: double.nan,
+                           child: 
+                        const Row(
+                          mainAxisSize: MainAxisSize.min,
+                            children:  [
+                              Icon(Icons.add),
+                              MyText(text: 'Add to Story',color: Colors.white,)
+                            ],
+                          )),
+                           CustomElevatedButton(onPressed: (){}, 
+                          sizeWidth: double.nan,color:Colors.grey[200],
+                           child: 
+                           const Row(
+                          mainAxisSize: MainAxisSize.min,
+                            children:  [
+                              Icon(Icons.edit,color: Colors.black,),
+                              MyText(text: 'Edit Profile',color: Colors.black,)
+                            ],
+                          )),
+                           CustomElevatedButton(onPressed: (){},
+                          sizeWidth: double.nan,color:Colors.grey[200],
+                            child: 
+                          const Icon(Icons.more_horiz,color: Colors.black,))
                         ],
                       ),
                     ],
@@ -341,7 +298,7 @@ class _UserProfileState extends State<UserProfile> {
                                       ),
                                       subtitle: MyText(
                                           text:
-                                              '${profile[0].totalFriends.toString()} friends'),
+                                              '${data[0].friendsNames!.length} friends'),
                                     ),
                                   ),
                                   const Expanded(
@@ -365,11 +322,19 @@ class _UserProfileState extends State<UserProfile> {
                                       mainAxisExtent:
                                           MediaQuery.of(context).size.height *
                                               0.22),
-                                              shrinkWrap: true,
+                              shrinkWrap: true,
                               itemCount: 6,
                               itemBuilder: (context, index) => InkWell(
-                                onTap: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => FriendProfile(image:profile[0].displayFriendsImage![index].toString(),userName: profile[0].displayFriendsName![index].toString()),));
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => FriendProfile(
+                                            image:
+                                                data[0].friendsImages![index],
+                                            userName:
+                                                data[0].friendsNames![index]),
+                                      ));
                                 },
                                 child: Column(
                                   children: [
@@ -377,8 +342,8 @@ class _UserProfileState extends State<UserProfile> {
                                         child: Container(
                                       decoration: BoxDecoration(
                                           image: DecorationImage(
-                                              image: AssetImage(profile[0]
-                                                  .displayFriendsImage![index]
+                                              image: AssetImage(data[0]
+                                                  .friendsImages![index]
                                                   .toString()),
                                               fit: BoxFit.fill),
                                           color: Colors.blue,
@@ -405,8 +370,8 @@ class _UserProfileState extends State<UserProfile> {
                                                         Radius.circular(10))),
                                         child: Center(
                                             child: MyText(
-                                          text: profile[0]
-                                              .displayFriendsName![index]
+                                          text: data[0]
+                                              .friendsNames![index]
                                               .toString(),
                                           fWeight: FontWeight.bold,
                                         )))
@@ -419,7 +384,12 @@ class _UserProfileState extends State<UserProfile> {
                             ),
                             ElevatedButton(
                                 onPressed: () {
-                                  Navigator.push(context,MaterialPageRoute(builder: (context) =>const FriendList(),));
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const FriendList(),
+                                      ));
                                 },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.grey.shade200,
@@ -429,16 +399,6 @@ class _UserProfileState extends State<UserProfile> {
                                   text: 'See all friends',
                                   fWeight: FontWeight.bold,
                                 )),
-                            //Practice
-                            // MyElevatedButton(
-                            //   onPressed: () {
-                            //     print('yes');
-                            //   },
-                            //   child: const MyText(
-                            //     text: 'See all friends',
-                            //     fWeight: FontWeight.bold,
-                            //   ),
-                            // ),
                             const MyDivider(
                               indent: 14.0,
                               endIndent: 14.0,
@@ -466,8 +426,8 @@ class _UserProfileState extends State<UserProfile> {
                             ),
                             ListTile(
                               leading: CircleAvatar(
-                                backgroundImage: AssetImage(
-                                    profile[0].profilePic.toString()),
+                                backgroundImage:
+                                    AssetImage(data[0].profileImage.toString()),
                               ),
                               title:
                                   const MyText(text: 'What\'s on your mind?'),
@@ -579,11 +539,7 @@ class _UserProfileState extends State<UserProfile> {
                           ],
                         ),
                       ),
-                      UserPost(
-                        myPost: post[0],
-                        userDp: profile[0].profilePic,
-                        userName: profile[0].userName,
-                      ),
+                      const UserPost(),
                     ]),
               ],
             ),

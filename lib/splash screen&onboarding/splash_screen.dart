@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'package:bano_qabil_project/splash%20screen&onboarding/onboarding.dart';
+import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -26,38 +29,44 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white30,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        backgroundColor: Colors.white30,
+        body: Column(
           children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.30,
-            ),
-            const Icon(
-              Icons.facebook,
-              size: 100,
+            const Spacer(),
+            Icon(
+              MdiIcons.facebook,
               color: Colors.white,
+              size: 100,
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.40,
+            const Spacer(),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: CircularProgressIndicator(),
             ),
-            Column(
-              children: [
-                const Text('from'),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image(
-                    image: const AssetImage(
-                        'assets/facebook/loginpage/hd-meta-facebook-white-logo-png-116403446124ydgyipr3u-removebg-preview.png'),
-                    height: MediaQuery.of(context).size.height * 0.05,
+            const MyText(
+              text: 'from',
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    FontAwesomeIcons.meta,
+                    color: Colors.white,
                   ),
-                )
-              ],
-            ),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  MyText(
+                    text: 'Meta',
+                    size: 20,
+                    color: Colors.white,
+                  )
+                ],
+              ),
+            )
           ],
-        ),
-      ),
-    );
+        ));
   }
 }

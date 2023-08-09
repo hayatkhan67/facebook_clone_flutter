@@ -1,5 +1,9 @@
+import 'package:bano_qabil_project/Login_page/login_page.dart';
+import 'package:bano_qabil_project/splash%20screen&onboarding/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'Facebook/Profile/user_Profile.dart';
 import 'Facebook/homepage/homepage.dart';
+import 'Login_page/sign_up.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,9 +22,11 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Montserrat',
         scaffoldBackgroundColor: Colors.white,
         brightness: Brightness.light,
+       
         appBarTheme: const AppBarTheme(
             elevation: 0,
             color: Colors.white,
+            
             iconTheme: IconThemeData(color: Colors.black)),
       ),
       home:const HomePage()

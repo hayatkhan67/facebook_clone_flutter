@@ -1,3 +1,4 @@
+import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:flutter/material.dart';
 
 class CreateStory extends StatelessWidget {
@@ -6,7 +7,6 @@ class CreateStory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: MediaQuery.of(context).size.height * 0.22,
       width: 100,
       decoration: BoxDecoration(
           color: Colors.white,
@@ -19,6 +19,7 @@ class CreateStory extends StatelessWidget {
             Column(
               children: [
                 Expanded(
+                  flex: 2,
                   child: Container(
                     decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
@@ -31,29 +32,17 @@ class CreateStory extends StatelessWidget {
                             fit: BoxFit.cover)),
                   ),
                 ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.08,
-                  width: double.infinity,
-                  child: const Center(
+                const Expanded(
                     child: Padding(
-                      padding: EdgeInsets.zero,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            'Create\nstory',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 12),
-                          ),
-                        ],
-                      ),
-                    ),
+                  padding: EdgeInsets.symmetric(vertical: 8.0),
+                  child: MyText(
+                    text: 'Create Story',
+                    align: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    maxline: 2,
+                    size: 10,
                   ),
-                ),
+                )),
               ],
             ),
             Positioned(

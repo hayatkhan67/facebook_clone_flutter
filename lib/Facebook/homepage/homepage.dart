@@ -4,10 +4,9 @@ import 'package:bano_qabil_project/Facebook/newsfeed/user_newsfeed.dart';
 import 'package:bano_qabil_project/widget/circle_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-
-import '../../api/api_get.dart';
 import '../../widget/customText.dart';
 import '../../widget/custom_appbar.dart';
+import '../../widget/fb_drawer.dart';
 import 'create_story/create_story.dart';
 import 'music.dart';
 
@@ -26,7 +25,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: CustomAppBar(
         title: const MyText(
-          text: 'facebook',size: 19,
+          text: 'facebook',
+          size: 19,
           color: Colors.blue,
           fWeight: FontWeight.bold,
         ),
@@ -47,33 +47,15 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      drawer: Drawer(
-        backgroundColor: const Color.fromARGB(255, 162, 199, 230),
-        child: ListView(
-          children: [
-            ListTile(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ApiGet(),
-                    ));
-              },
-              leading: const Icon(Icons.api),
-              title: const MyText(text: 'Facebook News'),
-            )
-          ],
-        ),
-      ),
-      // bottomNavigationBar: const MyNavigatorBar(),
+      drawer:const MyDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Center(
+           Center(
                 child: MyText(
                     text:
                         'height=${screenHeight.toInt()} , width=${screenWidth.toInt()}')),
-            ListTile(
+             ListTile(
               leading: InkWell(
                 onTap: () {
                   Navigator.push(
@@ -100,7 +82,6 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SizedBox(
-                // height: MediaQuery.of(context).size.height * 0.23,
                 height: 160,
                 width: double.infinity,
                 child: ListView(
@@ -115,7 +96,6 @@ class _HomePageState extends State<HomePage> {
                       (index) => Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 1),
                         child: Container(
-                          // width: MediaQuery.of(context).size.width * 0.25,
                           width: 100,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
@@ -129,7 +109,6 @@ class _HomePageState extends State<HomePage> {
                                         'assets/facebook/friends/images/photo_2023-07-18_15-42-23.jpg'),
                                     fit: BoxFit.fill)),
                             child: const Stack(
-                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Positioned(
                                     left: 0.09,
@@ -153,12 +132,13 @@ class _HomePageState extends State<HomePage> {
                                     padding:
                                         EdgeInsets.symmetric(horizontal: 10),
                                     child: MyText(
-                                      text:
-                                      'Hayat Khan Niazi',align: TextAlign.center,
-                                      size: 10,fWeight: FontWeight.bold,
+                                      text: 'Hayat Khan Niazi',
+                                      align: TextAlign.center,
+                                      size: 10,
+                                      fWeight: FontWeight.bold,
                                       color: Colors.white,
-                                     maxline: 2,
-                                     overflow: TextOverflow.ellipsis,
+                                      maxline: 2,
+                                      overflow: TextOverflow.ellipsis,
                                     ),
                                   ),
                                 )
@@ -176,12 +156,7 @@ class _HomePageState extends State<HomePage> {
               color: Color.fromARGB(255, 209, 206, 206),
               thickness: 6,
             ),
-            // const SizedBox(
-            //     height: 5 * 500, width: double.infinity, child:
-
             const UserNewsFeed()
-            //  ),
-            // const MyText(text: 'no More feed'),
           ],
         ),
       ),

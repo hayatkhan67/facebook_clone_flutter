@@ -6,8 +6,7 @@ class Music extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: MediaQuery.of(context).size.height * 0.22,
-      width:100,
+      width: 100,
       decoration: BoxDecoration(
         gradient: const LinearGradient(begin: Alignment.topLeft, colors: [
           Color.fromARGB(255, 108, 201, 111),

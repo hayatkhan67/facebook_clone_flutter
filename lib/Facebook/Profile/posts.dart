@@ -35,25 +35,24 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../data/fb_data.dart';
 import '../../widget/customText.dart';
 
 class UserPost extends StatefulWidget {
-  const UserPost({super.key, required this.myPost, this.userDp, this.userName});
-  // ignore: prefer_typing_uninitialized_variables
-  final myPost, userName, userDp;
+  const UserPost({super.key});
   @override
   State<UserPost> createState() => _UserPostState();
 }
 
 class _UserPostState extends State<UserPost> {
+  var userPost=fbData;
   bool liked = false;
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: widget.myPost.image!.length,
+        itemCount: userPost[0].post![0].userPosts!.length,
         itemBuilder: (context, index) => Padding(
             padding: const EdgeInsets.symmetric(vertical: 5.0),
             child: Column(
@@ -68,9 +67,9 @@ class _UserPostState extends State<UserPost> {
                         ListTile(
                           onTap: () {},
                           leading: CircleAvatar(
-                            backgroundImage: AssetImage(widget.userDp),
+                            backgroundImage: AssetImage(userPost[0].profileImage!),
                           ),
-                          title: MyText(text: widget.userName),
+                          title: MyText(text: userPost[0].userName),
                           subtitle: const MyText(text: '1 day ago'),
                           trailing: const Icon(Icons.more_horiz),
                         ),
@@ -79,15 +78,15 @@ class _UserPostState extends State<UserPost> {
                           child: Row(
                             children: [
                               MyText(
-                                  text: widget.myPost.text![index].toString()),
+                                  text: userPost[0].post![0].userPostsText![index]),
                             ],
                           ),
                         ),
                         Flexible(
                             child: Image(
                           image: AssetImage(
-                              widget.myPost.image![index].toString()),
-                          fit: BoxFit.fill,
+                              userPost[0].post![0].userPosts![index]),
+                          // fit: BoxFit.fill,
                         )),
                         Container(
                           decoration: BoxDecoration(

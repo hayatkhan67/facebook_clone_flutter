@@ -77,9 +77,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
             ),
-            // const Expanded(
-            //   child: SizedBox(),
-            // ),
+          
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
@@ -90,7 +88,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       height: currentPage != index ? 10 : 20,
                       width: currentPage != index ? 10 : 20,
                       decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 147, 196, 237),
+                          color: const Color.fromARGB(255, 99, 170, 228),
                           borderRadius: BorderRadius.circular(20)),
                     ),
                   ),
@@ -112,7 +110,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     null;
                   }
                 },
-                sizeHeight: 50.0,
+                sizeHeight: 45.0,
+                
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
                 elevation: 0.0,
@@ -121,7 +120,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   fontFamily: "Montserrat",
                   text: currentPage == 2 ? 'Continue' : 'Next',
                   // text: 'Next $currentPage',
-                  size: 20.0,
+                  // size: 10.0,
                   color: Colors.white,
                 ),
               ),
