@@ -22,12 +22,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSize {
   Widget build(BuildContext context) {
     return AppBar(
       title: title,
-      leading: leading !=null?
+      leading: leading ??
           IconButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: const Icon(Icons.arrow_back_ios)):leading,
+              icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: centerTitle ?? false,
       elevation: elevation,
       leadingWidth: leadingWidth,

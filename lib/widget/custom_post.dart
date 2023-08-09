@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import 'customText.dart';
 import 'custom_Divider.dart';
@@ -25,32 +25,14 @@ class _CustomPostContainerState extends State<CustomPostContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints(
-        minHeight: 200,
-        maxHeight: double.infinity,
-      ),
-      width: double.infinity,
       child: Column(
-        mainAxisSize: MainAxisSize.min,
         children: [
           ListTile(
             leading: CircleAvatar(
               backgroundImage: AssetImage(widget.profileImage ??
                   'assets/facebook/friends/images/photo_2023-07-18_15-42-23.jpg'),
             ),
-            title: Row(
-              children: [
-                MyText(text: widget.userName ?? 'HKN Playz YT.'),
-                widget.textButton == true
-                    ? TextButton(
-                        onPressed: () {},
-                        child: MyText(
-                          text: 'Follow',
-                          color: Colors.blue.shade800,
-                        ))
-                    : const SizedBox()
-              ],
-            ),
+            title: MyText(text: widget.userName ?? 'HKN Playz YT.'),
             subtitle: const MyText(text: 'Uploaded on 2023'),
             trailing: const SizedBox(
               height: 40,
@@ -69,98 +51,104 @@ class _CustomPostContainerState extends State<CustomPostContainer> {
           ),
 
           //post Text
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: MyText(
-                  text: widget.postText ?? 'HELLO FRIENDS',
-                  maxline: 6,
-                ),
-              ),
-            ],
-          ),
-          //image
-          widget.postImage != null
-              ? Flexible(
-                  child: Container(
-                  color: Colors.grey,
-                  child: Image(
-                    image: AssetImage(widget.postImage!),
-                    // fit: BoxFit.fill,
+          widget.postText != null
+              ? Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      MyText(
+                        text: widget.postText,
+                        maxline: 6,
+                      )
+                    ],
                   ),
-                ))
+                )
               : const SizedBox.shrink(),
-          const Flexible(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
+          widget.postImage != null
+              ? Image.asset(widget.postImage.toString())
+              : const SizedBox.shrink(),
+          const Padding(
+            padding: EdgeInsets.all(3.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Row(
                     children: [
                       Icon(
-                        Icons.thumb_up_off_alt_sharp,
+                        Icons.thumb_up_sharp,
                         color: Colors.blue,
-                        size: 16.0,
                       ),
+                      Expanded(child: MyText(text: 'Like\t100')),
+                      MyText(text: 'comment\t100'),
                       SizedBox(
-                        width: 4,
+                        width: 10,
                       ),
-                      MyText(text: '100'),
+                      MyText(text: 'share\t100'),
                     ],
                   ),
-                  Row(
-                    children: [
-                      MyText(text: '20 \t share \t 60 \t comments'),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          // ),
-          // ),
-          const MyDivider(
-            thick: 1.0,
-          ),
-          const SizedBox(
-            height: 35,
-            width: double.infinity,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Row(
-                  children: [
-                    Icon(
-                      Icons.thumb_up_sharp,
-                      color: Colors.blue,
-                    ),
-                    SizedBox(width: 10),
-                    MyText(text: 'Like'),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Icon(FontAwesomeIcons.comment),
-                    SizedBox(width: 10),
-                    MyText(text: 'Comment'),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Icon(FontAwesomeIcons.share),
-                    SizedBox(width: 10),
-                    MyText(text: 'Share'),
-                  ],
                 ),
               ],
             ),
           ),
+          MyDivider(
+            thick: 2.0,
+            color: Colors.grey[200],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              button(
+                  icon: Icons.thumb_up_sharp, color: Colors.blue, name: 'Like'),
+              button(icon: MdiIcons.commentOutline, name: 'comments'),
+              button(icon: MdiIcons.shareOutline, name: 'share')
+            ],
+          ),
+
           const MyDivider()
         ],
       ),
     );
   }
+
+  Expanded button({IconData? icon, Color? color, String? name}) {
+    return Expanded(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 6),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.grey[200],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+              const SizedBox(
+              width: 7,
+            ),
+            Icon(
+              icon,
+              color: color,
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            Expanded(
+                child: MyText(
+              text: name,
+              overflow: TextOverflow.ellipsis,
+              maxline: 1,
+            ))
+          ],
+        ),
+      ),
+    );
+  }
 }
+
+// widget.textButton == true
+//                     ? TextButton(
+//                         onPressed: () {},
+//                         child: MyText(
+//                           text: 'Follow',
+//                           color: Colors.blue.shade800,
+//                         ))
+//                     : const SizedBox()

@@ -13,6 +13,7 @@ List<UserPost> newsFeedPost = [
   UserPost(
     
     userName: 'Hayat Khan',
+    postText: 'Hy Everyone',
 
     // postText: '10 days ago',
     profileImage: 'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg',

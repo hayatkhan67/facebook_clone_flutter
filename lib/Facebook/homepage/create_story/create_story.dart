@@ -6,8 +6,9 @@ class CreateStory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+   final screenmd=MediaQuery.of(context).size;
     return Container(
-      width: 100,
+      width: screenmd.width*0.3,
       decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(color: Colors.grey),
@@ -34,20 +35,20 @@ class CreateStory extends StatelessWidget {
                 ),
                 const Expanded(
                     child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.0),
+                  padding: EdgeInsets.symmetric(vertical: 16.0),
                   child: MyText(
                     text: 'Create Story',
                     align: TextAlign.center,
                     overflow: TextOverflow.ellipsis,
                     maxline: 2,
-                    size: 10,
+                    size: 12,
                   ),
                 )),
               ],
             ),
             Positioned(
-              top: 80,
-              bottom: 29,
+              top: screenmd.height*0.15,
+              bottom: screenmd.height*0.04,
               child: Container(
                 height: 70,
                 width: 30,

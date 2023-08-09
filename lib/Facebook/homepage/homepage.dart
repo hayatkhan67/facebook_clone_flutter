@@ -20,8 +20,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    var screenHeight = MediaQuery.of(context).size.height;
-    var screenWidth = MediaQuery.of(context).size.width;
+   final screenmd=MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: CustomAppBar(
         title: const MyText(
@@ -35,34 +35,27 @@ class _HomePageState extends State<HomePage> {
           const CircleIcon(icon: Icons.add),
           const CircleIcon(icon: Icons.search),
           CircleIcon(
-            icon: MdiIcons.facebookMessenger,
-            color: Colors.blue,
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Chats(),
-                  ));
-            },
-          ),
+          icon: MdiIcons.facebookMessenger,
+          color: Colors.blue,
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Chats(),
+                ));
+          },
+          )
+          
         ],
       ),
       drawer:const MyDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
-           Center(
-                child: MyText(
-                    text:
-                        'height=${screenHeight.toInt()} , width=${screenWidth.toInt()}')),
              ListTile(
               leading: InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const UserProfile(),
-                      ));
+                 Navigator.push(context, MaterialPageRoute(builder: (context) => const UserProfile(),));
                 },
                 child: const CircleAvatar(
                   backgroundImage: AssetImage(
@@ -82,7 +75,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SizedBox(
-                height: 160,
+                height: screenmd.height*0.3,
                 width: double.infinity,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
@@ -96,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                       (index) => Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 1),
                         child: Container(
-                          width: 100,
+                          width: screenmd.width*0.3,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               border: Border.all(color: Colors.grey)),
@@ -156,6 +149,7 @@ class _HomePageState extends State<HomePage> {
               color: Color.fromARGB(255, 209, 206, 206),
               thickness: 6,
             ),
+             
             const UserNewsFeed()
           ],
         ),

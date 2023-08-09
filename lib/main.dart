@@ -1,9 +1,9 @@
-import 'package:bano_qabil_project/Login_page/login_page.dart';
-import 'package:bano_qabil_project/splash%20screen&onboarding/splash_screen.dart';
+import 'package:bano_qabil_project/Facebook/NavigatorBar/navigator_bar.dart';
+import 'package:bano_qabil_project/Facebook/homepage/homepage.dart';
+import 'package:bano_qabil_project/practice.dart';
 import 'package:flutter/material.dart';
-import 'Facebook/Profile/user_Profile.dart';
-import 'Facebook/homepage/homepage.dart';
-import 'Login_page/sign_up.dart';
+
+import 'Facebook/Menu/setting&privacy/settings.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
             
             iconTheme: IconThemeData(color: Colors.black)),
       ),
-      home:const HomePage()
+      home: Settings()
       // home:  const ResponsiveLayout(desktopScaffold: DesktopScaffold(),mobileScaffold: MobileScaffold(),tabletScaffold: TabletScaffold(),),
     );
   }

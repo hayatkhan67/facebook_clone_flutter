@@ -25,7 +25,7 @@ final EdgeInsetsGeometry? padding;
       contentPadding: padding,
       onTap: onTap,
           leading:CircleAvatar(
-          backgroundImage: AssetImage(image!),
+          backgroundImage: AssetImage(image.toString()),
           onBackgroundImageError: (exception, stackTrace) => const Icon(Icons.error),
           radius: radius ?? 25,
           ),

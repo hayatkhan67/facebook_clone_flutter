@@ -136,8 +136,7 @@ class _UserProfileState extends State<UserProfile> {
                 ]),
                 Padding(
                   padding: const EdgeInsets.only(
-                      top: 35, bottom: 10, ),
-                      // left: 20, right: 20
+                      top: 35, bottom: 10, left: 20, right: 20),
                   child: Column(
                     children: [
                       Row(
