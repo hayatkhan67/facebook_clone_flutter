@@ -1,9 +1,7 @@
-import 'package:bano_qabil_project/Facebook/NavigatorBar/navigator_bar.dart';
-import 'package:bano_qabil_project/Facebook/homepage/homepage.dart';
-import 'package:bano_qabil_project/practice.dart';
+import 'package:bano_qabil_project/Facebook/Menu/setting&privacy/settings.dart';
 import 'package:flutter/material.dart';
 
-import 'Facebook/Menu/setting&privacy/settings.dart';
+import 'Facebook/Menu/setting&privacy/my_bottom_sheet.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +27,7 @@ class MyApp extends StatelessWidget {
             
             iconTheme: IconThemeData(color: Colors.black)),
       ),
-      home: Settings()
+      home:  Settings()
       // home:  const ResponsiveLayout(desktopScaffold: DesktopScaffold(),mobileScaffold: MobileScaffold(),tabletScaffold: TabletScaffold(),),
     );
   }

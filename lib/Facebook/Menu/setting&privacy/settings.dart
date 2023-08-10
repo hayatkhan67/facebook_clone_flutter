@@ -60,11 +60,23 @@ class Settings extends StatelessWidget {
               child: InkWell(
                 onTap: () {
                   showModalBottomSheet(
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20))),
+                            useSafeArea: true,
+                    isScrollControlled: true,
+                    constraints: BoxConstraints(
+                      minHeight: 100,
+                      maxHeight: MediaQuery.of(context).size.height*.80
+                    ),
                     context: context,
                     builder: (context) => const MyBottomSheet(),
                   );
                 },
                 child: Card(
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   color: Colors.white,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -176,6 +188,7 @@ class Settings extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
               child: Card(
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                 color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

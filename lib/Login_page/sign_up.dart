@@ -3,11 +3,9 @@ import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../splash screen&onboarding/splash_screen.dart';
 import '../widget/custom_appbar.dart';
 import 'create_account.dart';
 import 'forget_paasword.dart';
-import 'login_page.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
