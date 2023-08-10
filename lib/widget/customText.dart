@@ -28,6 +28,7 @@ class MyText extends StatelessWidget {
       textScaleFactor: 1.0,
       style: TextStyle(
           fontFamily: fontFamily,
+          
           color: color ?? Colors.black,
           fontWeight: fWeight ?? FontWeight.normal,
           fontSize: size ?? 13,

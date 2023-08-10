@@ -71,12 +71,6 @@ bool sendButton=false;
                       const SizedBox(width: 10,),
                       Container(
                         padding: const EdgeInsets.all(5),
-                        constraints:const BoxConstraints(
-                          minHeight: 20,
-                          maxHeight: 200,
-                          minWidth: 30,
-                          maxWidth: 200,
-                        ),
                         decoration: BoxDecoration(color: Colors.grey.shade200,borderRadius: BorderRadius.circular(20
                         )),
                         child: Row(
@@ -106,19 +100,17 @@ bool sendButton=false;
                       ),
                       const SizedBox(width: 10,),
                       Container(
-                        padding: const EdgeInsets.all(5),
-                        constraints:const BoxConstraints(
-                          minHeight: 20,
-                          maxHeight: 200,
-                          minWidth: 30,
-                          maxWidth: 200,
+                        constraints: const BoxConstraints(
+                          minWidth: 20,maxWidth: 150
                         ),
+                        padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(color: Colors.grey.shade200,borderRadius: BorderRadius.circular(20
                         )),
                         child: Row(
-                          mainAxisSize: MainAxisSize.min,
                           children: [
-                            MyText(text: message[index].toString()),
+                            Flexible(
+                              flex: 1,
+                              child: Text(message[index].toString())),
                           ],
                         ),
                       )
@@ -130,12 +122,6 @@ bool sendButton=false;
             ),
           ),
          Container(
-          // height: 60,
-          constraints: const BoxConstraints(
-            minHeight: 40,
-            maxHeight: 100,
-          ),
-          width: double.infinity,
           color: Colors.white,
           child:  Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -190,8 +176,9 @@ bool sendButton=false;
                         }else{
                           null;
                         }
-                      }, icon: const Icon(Icons.send))
+                      }, icon: const Icon(Icons.send)),contentPadding: const EdgeInsets.all(10)
                     ),
+                    
                   ),
                 ),
               ),

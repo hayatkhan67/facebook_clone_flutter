@@ -39,26 +39,31 @@ class _ChatsState extends State<Chats> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide:
-                          const BorderSide(color: Colors.black, width: 3)),
-                  hintText: 'Search',
+              padding: const EdgeInsets.all(12.0),
+              child: SizedBox(
+                height: 40,
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide:
+                            const BorderSide(color: Colors.black, width: 3)),
+                    hintText: 'Search',
+                    contentPadding: const EdgeInsets.all(12)
+                  ),
                 ),
               ),
             ),
             SizedBox(
-              // height: MediaQuery.of(context).size.height * 0.35,
-              height: 150,
+              height: MediaQuery.of(context).size.height * 0.18,
+              // height: 150,
               width: double.infinity,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: data.length,
                 itemBuilder: (context, index) => Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 4.0),
@@ -104,14 +109,15 @@ class _ChatsState extends State<Chats> {
                                     ),
                                     // SizedBox(height: 5),
                                     Positioned(
-                                      bottom: -40,
+                                      bottom: -20,
                                       right: 8.0,
                                       left: 8.0,
-                                      child: MyText(
-                                        text: data[index].userName!,
-                                        align: TextAlign.center,
-                                        maxline: 2,
-                                        overflow: TextOverflow.ellipsis,
+                                      child: FittedBox(
+                                        child: MyText(
+                                          text: data[index].userName!,
+                                          maxline: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
                                       ),
                                     ),
                                   ],
