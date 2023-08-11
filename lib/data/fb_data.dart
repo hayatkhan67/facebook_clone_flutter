@@ -36,8 +36,7 @@ List<User> fbData = [
           'assets/facebook/myPost/photo_2023-07-16_08-41-42.jpg',
           'assets/facebook/myPost/photo_2023-07-16_08-41-47.jpg',
           'assets/facebook/myPost/photo_2023-07-16_08-41-50.jpg'
-        ], 
-        userPostsText: [
+        ], userPostsText: [
           'group pic',
           'new pic',
           '2020',

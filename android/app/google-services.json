@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "673078912178",
+    "project_id": "facebook-2239a",
+    "storage_bucket": "facebook-2239a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673078912178:android:616449630ae6e0f10a55ab",
+        "android_client_info": {
+          "package_name": "com.banoqabil.facebook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673078912178-iajj29cfgs9hhtp5ot43a6otvdvl8pq1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.banoqabil.facebook",
+            "certificate_hash": "5b85fe9e6cee093450c2c839526484003e1e38c9"
+          }
+        },
+        {
+          "client_id": "673078912178-hpjp84hto68ghc40ck5fo1pvgi2v4bt6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ-1MLFmYGI1cvKKh_nIr-0IMIHHGe1-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673078912178-hpjp84hto68ghc40ck5fo1pvgi2v4bt6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

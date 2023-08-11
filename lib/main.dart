@@ -1,6 +1,5 @@
+import 'package:bano_qabil_project/splash%20screen&onboarding/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'Facebook/Chats/chats.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -12,23 +11,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Facebook',
-      theme: ThemeData(
-        
-        fontFamily: 'Montserrat',
-        scaffoldBackgroundColor: Colors.white,
-        brightness: Brightness.light,
-       
-        appBarTheme: const AppBarTheme(
-            elevation: 0,
-            color: Colors.white,
-            
-            iconTheme: IconThemeData(color: Colors.black)),
-      ),
-      home:  const Chats()
-      // home:  const ResponsiveLayout(desktopScaffold: DesktopScaffold(),mobileScaffold: MobileScaffold(),tabletScaffold: TabletScaffold(),),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Facebook',
+        theme: ThemeData(
+          fontFamily: 'Montserrat',
+          scaffoldBackgroundColor: Colors.white,
+          brightness: Brightness.light,
+          appBarTheme: const AppBarTheme(
+              elevation: 0,
+              color: Colors.white,
+              iconTheme: IconThemeData(color: Colors.black)),
+        ),
+        home: const SplashScreen()
+        // home:  const ResponsiveLayout(desktopScaffold: DesktopScaffold(),mobileScaffold: MobileScaffold(),tabletScaffold: TabletScaffold(),),
+        );
   }
 }
 

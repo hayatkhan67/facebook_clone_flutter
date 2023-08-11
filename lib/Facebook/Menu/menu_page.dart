@@ -1,9 +1,12 @@
 import 'package:bano_qabil_project/Facebook/Menu/setting_privacy.dart';
 import 'package:bano_qabil_project/Facebook/Menu/setting&privacy/settings.dart';
 import 'package:bano_qabil_project/Facebook/Profile/user_Profile.dart';
+import 'package:bano_qabil_project/Login_page/login_page.dart';
 import 'package:bano_qabil_project/widget/customText.dart';
+import 'package:bano_qabil_project/widget/fb_drawer.dart';
 import 'package:flutter/material.dart';
 
+import '../../widget/circle_icon.dart';
 import '../../widget/custom_ElevatedButton.dart';
 
 class Menu extends StatefulWidget {
@@ -64,37 +67,23 @@ class _MenuState extends State<Menu> {
         leadingWidth: 25,
         elevation: 0,
         actions: [
-          // SizedBox(
-          //   width: MediaQuery.of(context).size.width * 0.25,
-          //   child:
-             CircleAvatar(
-               backgroundColor: Colors.grey.shade200,
-               child: IconButton(
-                   onPressed: () {
-                     Navigator.push(
-                         context,
-                         MaterialPageRoute(
-                           builder: (context) => Settings(),
-                         ));
-                   },
-                   icon: const Icon(
-                     Icons.settings,
-                     color: Colors.black,
-                   )),
-             ),
-             Padding(
-               padding: const EdgeInsets.all(8.0),
-               child: CircleAvatar(
-                 backgroundColor: Colors.grey.shade200,
-                 child: const Icon(
-                   Icons.search,
-                   color: Colors.black,
-                 ),
-               ),
-             )
+          CircleIcon(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Settings(),
+                  ));
+            },
+            icon: Icons.settings,
+            color: Colors.black,
+          ),
+          const CircleIcon(
+            icon: Icons.search,
+          ),
         ],
       ),
-      drawer: const Drawer(),
+      drawer: const MyDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -208,9 +197,12 @@ class _MenuState extends State<Menu> {
               padding: const EdgeInsets.all(8.0),
               child: CustomElevatedButton(
                 onPressed: () {
-                  // Navigator.popUntil(context, (route) => false);
-                  Navigator.popUntil(context, (route) => false);
-                  // Navigator.push(context,MaterialPageRoute(builder: (context) => const LoginPage(),));
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginPage(),
+                      ),
+                      (route) => false);
                 },
                 color: Colors.grey.shade400,
                 sizeHeight: 30.0,

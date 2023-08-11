@@ -103,14 +103,16 @@ bool sendButton=false;
                         constraints: const BoxConstraints(
                           minWidth: 20,maxWidth: 150
                         ),
-                        padding: const EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(color: Colors.grey.shade200,borderRadius: BorderRadius.circular(20
                         )),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             Flexible(
                               flex: 1,
-                              child: Text(message[index].toString())),
+                              child: Text(message[index].toString(),style: const TextStyle(letterSpacing: 2),)),
                           ],
                         ),
                       )

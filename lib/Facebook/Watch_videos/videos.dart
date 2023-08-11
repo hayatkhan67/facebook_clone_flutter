@@ -1,6 +1,7 @@
 import 'package:bano_qabil_project/Facebook/Watch_videos/tab_bar.dart';
 import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:bano_qabil_project/widget/custom_Divider.dart';
+import 'package:bano_qabil_project/widget/fb_drawer.dart';
 import 'package:flutter/material.dart';
 
 import '../../widget/custom_post.dart';
@@ -54,7 +55,7 @@ class _VideosState extends State<Videos> {
           ),
         ],
       ),
-      drawer: const Drawer(),
+      drawer: const MyDrawer(),
 
       body: ListView(
         children: [

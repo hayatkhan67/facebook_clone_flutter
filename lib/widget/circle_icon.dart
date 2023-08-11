@@ -18,8 +18,9 @@ class CircleIcon extends StatelessWidget {
     return circle == true
         ? Container(
             margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 10),
-            decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 225, 220, 220),
+            decoration: BoxDecoration(
+                // color: Color.fromARGB(255, 225, 220, 220),
+                color: Colors.grey.shade200,
                 shape: BoxShape.circle),
             child: Center(
               child: IconButton(

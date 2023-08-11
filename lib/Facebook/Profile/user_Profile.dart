@@ -134,12 +134,12 @@ class _UserProfileState extends State<UserProfile> {
                     ),
                   ),
                 ]),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 35, bottom: 10, left: 20, right: 20),
-                  child: Column(
-                    children: [
-                      Row(
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          top: 35, bottom: 10, left: 20, right: 20),
+                      child: Row(
                         children: [
                           MyText(
                               text: data[0].userName,
@@ -147,40 +147,59 @@ class _UserProfileState extends State<UserProfile> {
                               fWeight: FontWeight.w500),
                         ],
                       ),
-                      Wrap(
-                        direction: Axis.horizontal,
-                        runSpacing: 2,
-                        runAlignment: WrapAlignment.spaceEvenly,
-                       spacing: 2,
-                        children: [
-                          CustomElevatedButton(onPressed: (){},
-                          sizeWidth: double.nan,
-                           child: 
-                        const Row(
-                          mainAxisSize: MainAxisSize.min,
-                            children:  [
-                              Icon(Icons.add),
-                              MyText(text: 'Add to Story',color: Colors.white,)
-                            ],
-                          )),
-                           CustomElevatedButton(onPressed: (){}, 
-                          sizeWidth: double.nan,color:Colors.grey[200],
-                           child: 
-                           const Row(
-                          mainAxisSize: MainAxisSize.min,
-                            children:  [
-                              Icon(Icons.edit,color: Colors.black,),
-                              MyText(text: 'Edit Profile',color: Colors.black,)
-                            ],
-                          )),
-                           CustomElevatedButton(onPressed: (){},
-                          sizeWidth: double.nan,color:Colors.grey[200],
-                            child: 
-                          const Icon(Icons.more_horiz,color: Colors.black,))
-                        ],
-                      ),
-                    ],
-                  ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Flexible(
+                          flex: 2,
+                          child: CustomElevatedButton(
+                              onPressed: () {},
+                              sizeWidth: double.nan,
+                              child: const Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(Icons.add),
+                                  MyText(
+                                    text: 'Add to Story',
+                                    color: Colors.white,
+                                  )
+                                ],
+                              )),
+                        ),
+                        Flexible(
+                          flex: 2,
+                          child: CustomElevatedButton(
+                              onPressed: () {},
+                              sizeWidth: double.nan,
+                              color: Colors.grey[200],
+                              child: const Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    Icons.edit,
+                                    color: Colors.black,
+                                  ),
+                                  MyText(
+                                    text: 'Edit Profile',
+                                    color: Colors.black,
+                                  )
+                                ],
+                              )),
+                        ),
+                        Flexible(
+                          child: CustomElevatedButton(
+                              onPressed: () {},
+                              sizeWidth: double.nan,
+                              color: Colors.grey[200],
+                              child: const Icon(
+                                Icons.more_horiz,
+                                color: Colors.black,
+                              )),
+                        )
+                      ],
+                    ),
+                  ],
                 ),
                 Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -320,7 +339,7 @@ class _UserProfileState extends State<UserProfile> {
                                       mainAxisSpacing: 10,
                                       mainAxisExtent:
                                           MediaQuery.of(context).size.height *
-                                              0.22),
+                                              0.26),
                               shrinkWrap: true,
                               itemCount: 6,
                               itemBuilder: (context, index) => InkWell(
@@ -355,7 +374,7 @@ class _UserProfileState extends State<UserProfile> {
                                     Container(
                                         height:
                                             MediaQuery.of(context).size.height *
-                                                0.05,
+                                                0.070,
                                         width: double.infinity,
                                         decoration: BoxDecoration(
                                             color: Colors.white,

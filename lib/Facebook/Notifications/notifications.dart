@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:bano_qabil_project/widget/customText.dart';
+import 'package:bano_qabil_project/widget/fb_drawer.dart';
 import 'package:flutter/material.dart';
 
 import '../../resources_list/notifii_friends.dart';
@@ -48,7 +49,6 @@ class _NotificationsState extends State<Notifications> {
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(10),
                             topRight: Radius.circular(10))),
-                    isScrollControlled: true,
                     context: context,
                     builder: (context) => const NotificationSetting());
               },
@@ -59,7 +59,7 @@ class _NotificationsState extends State<Notifications> {
           const Icon(Icons.search)
         ],
       ),
-      drawer: const Drawer(),
+      drawer: const MyDrawer(),
       body: ListView(
         children: [
           const Padding(

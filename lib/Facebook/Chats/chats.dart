@@ -54,7 +54,8 @@ class _ChatsState extends State<Chats> {
                 ),
               ),
             ),
-            SizedBox(
+            Container(
+              padding: const EdgeInsets.all(5),
               height: MediaQuery.of(context).size.height * 0.18,
               // height: 150,
               width: double.infinity,

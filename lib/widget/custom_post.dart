@@ -121,8 +121,8 @@ class _CustomPostContainerState extends State<CustomPostContainer> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-              const SizedBox(
-              width: 7,
+            const SizedBox(
+              width: 20,
             ),
             Icon(
               icon,
