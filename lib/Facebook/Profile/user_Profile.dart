@@ -12,8 +12,8 @@ import 'friend_list.dart';
 import 'friends_profile.dart';
 
 class UserProfile extends StatefulWidget {
-  const UserProfile({super.key});
-
+  UserProfile({super.key, required this.isBack});
+  bool isBack = false;
   @override
   State<UserProfile> createState() => _UserProfileState();
 }
@@ -58,7 +58,7 @@ class _UserProfileState extends State<UserProfile> {
   Widget build(BuildContext context) {
     return WillPopScope(
         onWillPop: () async {
-          return false;
+          return widget.isBack;
         },
         child: Scaffold(
           appBar: AppBar(
@@ -93,6 +93,7 @@ class _UserProfileState extends State<UserProfile> {
               ),
             ),
           ),
+          drawer: const MyDivider(),
           body: SingleChildScrollView(
             child: Column(
               children: [

@@ -1,4 +1,4 @@
-import 'package:bano_qabil_project/shop_api/homepage.dart';
+import 'package:bano_qabil_project/api/shop_api/shopHome.dart';
 import 'package:flutter/material.dart';
 
 import '../api/api_get.dart';

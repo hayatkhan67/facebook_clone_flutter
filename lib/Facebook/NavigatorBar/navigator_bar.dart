@@ -13,12 +13,12 @@ class MyNavigatorBar extends StatefulWidget {
 }
 
 class _MyNavigatorBarState extends State<MyNavigatorBar> {
-  List facebookNavigation = const [
-    HomePage(),
-    Videos(),
-    UserProfile(),
-    Notifications(),
-    Menu()
+  List facebookNavigation = [
+    const HomePage(),
+    const Videos(),
+    UserProfile(isBack: false),
+    const Notifications(),
+    const Menu()
   ];
   var currentIndex = 0;
   @override

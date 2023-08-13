@@ -92,7 +92,7 @@ class _MenuState extends State<Menu> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const UserProfile(),
+                      builder: (context) => UserProfile(isBack: true),
                     ));
               },
               leading: const CircleAvatar(

@@ -72,6 +72,7 @@ flutter:
   - assets/facebook/myPost/
   - assets/facebook/onboarding/
   - assets/svg/
+  - assets/shop_api/
 
 
   #   - images/a_dot_burr.jpeg

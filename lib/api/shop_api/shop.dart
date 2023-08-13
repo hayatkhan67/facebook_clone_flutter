@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../widget/customText.dart';
-import '../widget/myrich_text.dart';
+import '../../widget/customText.dart';
+import '../../widget/myrich_text.dart';
 
 class Shop extends StatefulWidget {
   const Shop({super.key, this.data});

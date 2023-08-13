@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:bano_qabil_project/shop_api/shop.dart';
+import 'package:bano_qabil_project/api/shop_api/shop.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'model_phone.dart';
@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: Colors.blueGrey,
                       image: DecorationImage(
                           image: AssetImage(
-                              'assets/photo_2023-08-11_17-41-42.jpg'),
+                              'assets/shop_api/photo_2023-08-11_17-41-42.jpg'),
                           fit: BoxFit.cover)),
                 ),
                 Positioned(
