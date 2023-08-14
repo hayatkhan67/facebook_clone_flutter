@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
               color: Colors.white,
               iconTheme: IconThemeData(color: Colors.black)),
         ),
-        home: const RecentAd());
+        home: const SplashScreen());
   }
 }
 

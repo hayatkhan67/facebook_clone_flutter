@@ -65,7 +65,14 @@ class _CustomPostContainerState extends State<CustomPostContainer> {
                 )
               : const SizedBox.shrink(),
           widget.postImage != null
-              ? Image.asset(widget.postImage.toString())
+              ? Container(
+                  width: double.infinity,
+                  color: Colors.grey,
+                  child: Column(
+                    children: [
+                      Image.asset(widget.postImage.toString()),
+                    ],
+                  ))
               : const SizedBox.shrink(),
           const Padding(
             padding: EdgeInsets.all(3.0),
