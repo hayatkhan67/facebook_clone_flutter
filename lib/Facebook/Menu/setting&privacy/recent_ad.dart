@@ -1,116 +1,104 @@
+import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:bano_qabil_project/widget/custom_Divider.dart';
+import 'package:bano_qabil_project/widget/custom_appbar.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../widget/customText.dart';
+import '../../../widget/custom_post.dart';
 
-class RecenetAd extends StatefulWidget {
-  const RecenetAd({super.key});
+class RecentAd extends StatefulWidget {
+  const RecentAd({super.key});
 
   @override
-  State<RecenetAd> createState() => _RecenetAdState();
+  State<RecentAd> createState() => _RecentAdState();
 }
 
-class _RecenetAdState extends State<RecenetAd> {
-  var tabIndex = 0;
-
+class _RecentAdState extends State<RecentAd> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
+    return const DefaultTabController(
       length: 2,
-      initialIndex: 0,
       child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back_ios),
-            tooltip: 'Back',
-          ),
-          title: const MyText(
-            text: 'Recent ad activity',
-            fWeight: FontWeight.w500,
-            size: 17.0,
-          ),
+        appBar: CustomAppBar(
+          title: MyText(text: 'Recent ad activity'),
           centerTitle: true,
           elevation: 1.0,
         ),
-        body: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
+        body: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const SizedBox(
-                height: 10,
-              ),
-              const Icon(
-                Icons.ad_units,
-                color: Colors.blue,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const MyText(
-                text: 'Your ad activity',
-                size: 16.0,
-                fWeight: FontWeight.w500,
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                child: MyText(
-                  text:
-                      'See ads you recently interacted with and easily follow up on the ones you care about.',
-                  align: TextAlign.center,
+              Center(
+                child: Icon(
+                  FontAwesomeIcons.tv,
+                  color: Colors.blueAccent,
                 ),
               ),
-              const MyDivider(
-                thick: 9.0,
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 8.0),
+                child: MyText(
+                  text: 'Your ad activity',
+                  fWeight: FontWeight.bold,
+                ),
+              ),
+              MyText(
+                text:
+                    'See ads you recently interacted with and easily follow up on the ones you care about',
+                align: TextAlign.center,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              MyDivider(
+                thick: 12,
               ),
               TabBar(
-                onTap: (value) {
-                  setState(() {
-                    tabIndex = value;
-                  });
-                  // print(value);
-                },
-                // indicatorColor: Colors.amber,
-                // labelColor: Colors.red,
-                tabs: [
-                  Tab(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: MyText(
-                        text: 'Recent',
-                        size: 19.0,
-                        color: tabIndex != 0 ? Colors.black : Colors.blue,
-                      ),
+                  labelColor: Colors.black,
+                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                  tabs: [
+                    Tab(
+                      text: 'Recent',
+                    ),
+                    Tab(
+                      text: 'Saved',
+                    )
+                  ]),
+              Expanded(
+                child: TabBarView(children: [
+                  SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        CustomPostContainer(
+                          postImage:
+                              'assets/facebook/homepage/359800012_284191147701436_8751252261540810986_n.jpg',
+                          postText:
+                              'BANO QABIL 2.0\nRegistration Now Open\nwww.banoqabil.pk\n#Banoqabil #Alkhidmat #Karachi #Pakistan',
+                          profileImage:
+                              'assets/facebook/homepage/286712598_111894744875608_5547918998843983187_n.jpg',
+                          userName: 'Bano Qabil',
+                        ),
+                      ],
                     ),
                   ),
-                  Tab(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: MyText(
-                        text: 'Saved',
-                        size: 19.0,
-                        color: tabIndex != 1 ? Colors.black : Colors.blue,
-                      ),
+                  SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        CustomPostContainer(
+                          postImage:
+                              'assets/facebook/homepage/359800012_284191147701436_8751252261540810986_n.jpg',
+                          postText:
+                              'BANO QABIL 2.0\nRegistration Now Open\nwww.banoqabil.pk\n#Banoqabil #Alkhidmat #Karachi #Pakistan',
+                          profileImage:
+                              'assets/facebook/homepage/286712598_111894744875608_5547918998843983187_n.jpg',
+                          userName: 'Bano Qabil',
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-              const TabBarView(children: [ 
-                // Expanded(
-                //   child: Column(
-                //     crossAxisAlignment: CrossAxisAlignment.start,
-                //     children: [MyText(text: 'You clicked on this 16 May')],
-                //   ),
-                // ),
-                // Expanded(
-                //   child: Column(
-                //     children: [],
-                //   ),
-                // )
-              ])
+                ]),
+              )
             ],
           ),
         ),

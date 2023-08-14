@@ -32,7 +32,7 @@ class _SeetingsPrivacyState extends State<SeetingsPrivacy> {
     Settings(),
     const LinkHistory(),
     const DeviceRequest(),
-    const RecenetAd(),
+    const RecentAd(),
     const OrderPayment(),
   ];
   bool dark = false;

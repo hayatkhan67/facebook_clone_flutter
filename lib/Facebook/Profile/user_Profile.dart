@@ -8,9 +8,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../widget/customText.dart';
 import '../../widget/custom_Divider.dart';
 import '../../widget/custom_ElevatedButton.dart';
+import '../../widget/custom_appbar.dart';
 import 'friend_list.dart';
 import 'friends_profile.dart';
 
+// ignore: must_be_immutable
 class UserProfile extends StatefulWidget {
   UserProfile({super.key, required this.isBack});
   bool isBack = false;
@@ -61,10 +63,17 @@ class _UserProfileState extends State<UserProfile> {
           return widget.isBack;
         },
         child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.white,
+          appBar: CustomAppBar(
             elevation: 0,
-            toolbarHeight: 45,
+            barHeigth: 45,
+            leading: widget.isBack == true
+                ? IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(Icons.arrow_back_ios),
+                  )
+                : const SizedBox(),
             actions: const [
               SizedBox(
                 width: 80,
@@ -82,18 +91,7 @@ class _UserProfileState extends State<UserProfile> {
               size: 18.0,
             ),
             centerTitle: true,
-            leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                color: Colors.black,
-                size: 20,
-              ),
-            ),
           ),
-          drawer: const MyDivider(),
           body: SingleChildScrollView(
             child: Column(
               children: [

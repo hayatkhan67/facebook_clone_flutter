@@ -3,6 +3,7 @@ import 'package:bano_qabil_project/Facebook/Profile/user_Profile.dart';
 import 'package:bano_qabil_project/Facebook/newsfeed/user_newsfeed.dart';
 import 'package:bano_qabil_project/widget/circle_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../../widget/customText.dart';
 import '../../widget/fb_drawer.dart';
@@ -33,7 +34,53 @@ class _HomePageState extends State<HomePage> {
           ),
           leadingWidth: 30,
           actions: [
-            const CircleIcon(icon: Icons.add),
+            CircleAvatar(
+              radius: 20,
+              backgroundColor: Colors.grey[200],
+              child: Center(
+                child: PopupMenuButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  position: PopupMenuPosition.under,
+                  icon: const Icon(
+                    Icons.add,
+                    color: Colors.black,
+                  ),
+                  itemBuilder: (context) {
+                    return [
+                      PopupMenuItem(
+                          child: TextButton.icon(
+                              onPressed: () {},
+                              icon: const Icon(FontAwesomeIcons.penToSquare),
+                              label: const MyText(
+                                text: 'Post',
+                              ))),
+                      PopupMenuItem(
+                          child: TextButton.icon(
+                              onPressed: () {},
+                              icon: const Icon(FontAwesomeIcons.book),
+                              label: const MyText(
+                                text: 'Story',
+                              ))),
+                      PopupMenuItem(
+                          child: TextButton.icon(
+                              onPressed: () {},
+                              icon: const Icon(Icons.video_collection_rounded),
+                              label: const MyText(
+                                text: 'Reel',
+                              ))),
+                      PopupMenuItem(
+                          child: TextButton.icon(
+                              onPressed: () {},
+                              icon: const Icon(Icons.videocam_outlined),
+                              label: const MyText(
+                                text: 'Live',
+                              ))),
+                    ];
+                  },
+                ),
+              ),
+            ),
             const CircleIcon(icon: Icons.search),
             CircleIcon(
               icon: MdiIcons.facebookMessenger,
