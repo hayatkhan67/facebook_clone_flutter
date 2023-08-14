@@ -1,6 +1,5 @@
 // ignore_for_file: file_names
 
-import 'package:bano_qabil_project/Facebook/Profile/posts.dart';
 import 'package:bano_qabil_project/data/fb_data.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -9,6 +8,7 @@ import '../../widget/customText.dart';
 import '../../widget/custom_Divider.dart';
 import '../../widget/custom_ElevatedButton.dart';
 import '../../widget/custom_appbar.dart';
+import '../../widget/custom_post.dart';
 import 'friend_list.dart';
 import 'friends_profile.dart';
 
@@ -147,56 +147,119 @@ class _UserProfileState extends State<UserProfile> {
                         ],
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Flexible(
-                          flex: 2,
-                          child: CustomElevatedButton(
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    //   children: [
+                    //     Expanded(
+                    //       child: CustomElevatedButton(
+                    //           onPressed: () {},
+                    //           sizeWidth: double.nan,
+                    //           child: const Row(
+                    //             mainAxisSize: MainAxisSize.min,
+                    //             children: [
+                    //               Icon(Icons.add),
+                    //               MyText(
+                    //                 text: 'Add to Story',
+                    //                 color: Colors.white,
+                    //               )
+                    //             ],
+                    //           )),
+                    //     ),
+                    //     Expanded(
+                    //       child: CustomElevatedButton(
+                    //           onPressed: () {},
+                    //           sizeWidth: double.nan,
+                    //           color: Colors.grey[200],
+                    //           child: const Row(
+                    //             mainAxisSize: MainAxisSize.min,
+                    //             children: [
+                    //               Icon(
+                    //                 Icons.edit,
+                    //                 color: Colors.black,
+                    //               ),
+                    //               MyText(
+                    //                 text: 'Edit Profile',
+                    //                 color: Colors.black,
+                    //               )
+                    //             ],
+                    //           )),
+                    //     ),
+                    //     Flexible(
+                    //       child: CustomElevatedButton(
+                    //           onPressed: () {},
+                    //           sizeWidth: double.nan,
+                    //           color: Colors.grey[200],
+                    //           child: const Icon(
+                    //             Icons.more_horiz,
+                    //             color: Colors.black,
+                    //           )),
+                    //     )
+                    //   ],
+                    // ),
+
+                    Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Expanded(
+                            child: CustomElevatedButton(
                               onPressed: () {},
-                              sizeWidth: double.nan,
+                              color: Colors.blue,
                               child: const Row(
-                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Icon(Icons.add),
+                                  Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
                                   MyText(
                                     text: 'Add to Story',
                                     color: Colors.white,
                                   )
                                 ],
-                              )),
-                        ),
-                        Flexible(
-                          flex: 2,
-                          child: CustomElevatedButton(
-                              onPressed: () {},
-                              sizeWidth: double.nan,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(
+                            child: CustomElevatedButton(
                               color: Colors.grey[200],
+                              onPressed: () {},
                               child: const Row(
-                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(
                                     Icons.edit,
                                     color: Colors.black,
                                   ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
                                   MyText(
-                                    text: 'Edit Profile',
-                                    color: Colors.black,
-                                  )
+                                      text: 'Edit profile', color: Colors.black)
                                 ],
-                              )),
-                        ),
-                        Flexible(
-                          child: CustomElevatedButton(
-                              onPressed: () {},
-                              sizeWidth: double.nan,
-                              color: Colors.grey[200],
-                              child: const Icon(
-                                Icons.more_horiz,
-                                color: Colors.black,
-                              )),
-                        )
-                      ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          CustomElevatedButton(
+                            onPressed: () {},
+                            color: Colors.grey[200],
+                            sizeHeight: 30,
+                            sizeWidth: 10,
+                            child: const Icon(Icons.more_horiz,
+                                color: Colors.black),
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -556,7 +619,16 @@ class _UserProfileState extends State<UserProfile> {
                           ],
                         ),
                       ),
-                      const UserPost(),
+                      ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: data[0].post![0].userPosts!.length,
+                        itemBuilder: (context, index) => CustomPostContainer(
+                            profileImage: data[0].profileImage,
+                            userName: data[0].userName,
+                            postImage: data[0].post![0].userPosts![index],
+                            postText: data[0].post![0].userPostsText![index]),
+                      )
                     ]),
               ],
             ),

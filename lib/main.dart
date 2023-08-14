@@ -1,4 +1,5 @@
 import 'package:bano_qabil_project/Facebook/NavigatorBar/navigator_bar.dart';
+import 'package:bano_qabil_project/Facebook/Profile/user_Profile.dart';
 import 'package:bano_qabil_project/splash%20screen&onboarding/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
@@ -28,7 +29,9 @@ class MyApp extends StatelessWidget {
               color: Colors.white,
               iconTheme: IconThemeData(color: Colors.black)),
         ),
-        home: const SplashScreen());
+        home: UserProfile(
+          isBack: false,
+        ));
   }
 }
 

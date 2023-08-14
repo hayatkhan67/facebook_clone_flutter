@@ -42,7 +42,11 @@ List<User> fbData = [
           '2020',
           '2023',
           '2023'
-        ])
+        ], friendPost: [
+          'assets/facebook/friends/images/download.jpg',
+          'assets/facebook/friends/images/images.jpg',
+          'assets/facebook/friends/images/s.jpg',
+        ]),
       ])
 ];
 // 5B:85:FE:9E:6C:EE:09:34:50:C2:C8:39:52:64:84:00:3E:1E:38:C9

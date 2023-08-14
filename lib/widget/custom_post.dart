@@ -69,8 +69,12 @@ class _CustomPostContainerState extends State<CustomPostContainer> {
                   width: double.infinity,
                   color: Colors.grey,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Image.asset(widget.postImage.toString()),
+                      Image.asset(
+                        widget.postImage.toString(),
+                        fit: BoxFit.cover,
+                      ),
                     ],
                   ))
               : const SizedBox.shrink(),
