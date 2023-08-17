@@ -9,11 +9,10 @@ import 'forget_paasword.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
-   final screenmd=MediaQuery.of(context).size;
-
+    final w = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: const CustomAppBar(),
       body: Column(
@@ -25,27 +24,33 @@ class SignUp extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Row(
+                    Row(
                       children: [
-                        MyText(
-                          text: 'Join Facebook',
-                        ),
+                        MyText(text: 'Join Facebook', size: w < 600 ? 18 : 43),
                       ],
                     ),
-                   
+
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10.0),
                       child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: SvgPicture.asset(
-                            'assets/svg/ddc-facebook-audience-insights-p-500.svg',
-                            fit: BoxFit.fill,height: screenmd.height *.3,width: double.infinity,
-                          )),
+                        borderRadius: BorderRadius.circular(20),
+                        child: SizedBox(
+                            height: w < 600
+                                ? 200
+                                : MediaQuery.of(context).size.height * 0.50,
+                            width: double.infinity,
+                            child: SvgPicture.asset(
+                              'assets/svg/ddc-facebook-audience-insights-p-500.svg',
+                              fit: BoxFit.cover,
+                            )),
+                      ),
                     ),
+
                     const MyText(
                       text:
                           "Create an account to connect with friends,family and communities of people who share your interests",
                       fWeight: FontWeight.w500,
+                      align: TextAlign.center,
                     ),
                     const SizedBox(
                       height: 10,

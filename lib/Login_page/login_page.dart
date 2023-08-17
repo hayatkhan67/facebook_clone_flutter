@@ -21,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   bool eyeChanger = true;
   @override
   Widget build(BuildContext context) {
+    final w = MediaQuery.of(context).size.width;
     return WillPopScope(
       onWillPop: () async {
         return false;
@@ -32,8 +33,8 @@ class _LoginPageState extends State<LoginPage> {
           child: Container(
             height: MediaQuery.of(context).size.height * 1,
             width: double.infinity,
-            // padding: EdgeInsets.zero,
-            color: Colors.blue.withOpacity(0.2),
+            color: const Color(0xff1877f2).withOpacity(0.2),
+            // color: Colors.blue.withOpacity(0.2),#1877f2
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               //add form valiadator
@@ -52,64 +53,70 @@ class _LoginPageState extends State<LoginPage> {
                         height: 80,
                       ),
                     ),
-                    TextFormField(
-                      controller: userNumber,
-                      decoration: InputDecoration(
-                          fillColor: Colors.grey.shade50,
-                          filled: true,
-                          // hintText: 'Mobile number or email address',
-                          labelText: 'Mobile number or email address',
-                          prefixIcon: const Icon(Icons.person),
-                          suffixIcon: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  userNumber.clear();
-                                });
-                              },
-                              icon: const Icon(Icons.close)),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10))),
-                      //adding validator for empty notice
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Enter Mobile Number or email address';
-                        } else {
-                          return null;
-                        }
-                      },
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    TextFormField(
-                        obscureText: eyeChanger,
-                        controller: userPassword,
+                    SizedBox(
+                      width: w > 600 ? 500 : double.infinity,
+                      child: TextFormField(
+                        controller: userNumber,
                         decoration: InputDecoration(
                             fillColor: Colors.grey.shade50,
                             filled: true,
-                            // hintText: 'Password',
-                            labelText: 'Password',
+                            // hintText: 'Mobile number or email address',
+                            labelText: 'Mobile number or email address',
+                            prefixIcon: const Icon(Icons.person),
                             suffixIcon: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  eyeChanger = !eyeChanger;
-                                });
-                              },
-                              icon: eyeChanger == true
-                                  ? const Icon(Icons.remove_red_eye)
-                                  : const Icon(Icons.remove_red_eye_outlined),
-                            ),
-                            prefixIcon: const Icon(Icons.key),
+                                onPressed: () {
+                                  setState(() {
+                                    userNumber.clear();
+                                  });
+                                },
+                                icon: const Icon(Icons.close)),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10))),
                         //adding validator for empty notice
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'Enter Password';
+                            return 'Enter Mobile Number or email address';
                           } else {
                             return null;
                           }
-                        }),
+                        },
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    SizedBox(
+                      width: w > 600 ? 500 : double.infinity,
+                      child: TextFormField(
+                          obscureText: eyeChanger,
+                          controller: userPassword,
+                          decoration: InputDecoration(
+                              fillColor: Colors.grey.shade50,
+                              filled: true,
+                              // hintText: 'Password',
+                              labelText: 'Password',
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    eyeChanger = !eyeChanger;
+                                  });
+                                },
+                                icon: eyeChanger == true
+                                    ? const Icon(Icons.remove_red_eye)
+                                    : const Icon(Icons.remove_red_eye_outlined),
+                              ),
+                              prefixIcon: const Icon(Icons.key),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10))),
+                          //adding validator for empty notice
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Enter Password';
+                            } else {
+                              return null;
+                            }
+                          }),
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
@@ -125,6 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                         }
                       },
                       color: const Color.fromARGB(255, 6, 126, 223),
+                      sizeWidth: w > 600 ? 500 : double.maxFinite,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                       child: const MyText(
@@ -161,13 +169,13 @@ class _LoginPageState extends State<LoginPage> {
                                 builder: (context) => const SignUp(),
                               ));
                         },
-                        sizeWidth: double.maxFinite,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                             side: const BorderSide(
                                 color: Colors.blue, width: 1.5)),
                         color: const Color.fromARGB(255, 203, 229, 251),
                         elevation: 0.0,
+                        sizeWidth: w > 600 ? 500 : double.maxFinite,
                         child: const MyText(
                           text: "Create New Account",
                           color: Colors.blue,

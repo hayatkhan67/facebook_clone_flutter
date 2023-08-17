@@ -1,9 +1,10 @@
 import 'package:bano_qabil_project/Facebook/Profile/user_Profile.dart';
+import 'package:bano_qabil_project/Login_page/login_page.dart';
 import 'package:bano_qabil_project/splash%20screen&onboarding/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 
-import 'Facebook/Notifications/notifications.dart';
+import 'Login_page/sign_up.dart';
 
 void main() {
   HttpOverrides.global = MyHttpOverrides();

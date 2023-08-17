@@ -45,6 +45,7 @@ class ForgetPassword extends StatelessWidget {
             ),
             CustomElevatedButton(
               onPressed: () {},
+              sizeWidth: double.maxFinite,
               color: Colors.blue,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),

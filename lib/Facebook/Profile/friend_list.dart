@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../data/fb_data.dart';
 import '../../widget/customText.dart';
-import 'UserModel_Class.dart';
 import 'friends_profile.dart';
 
 class FriendList extends StatefulWidget {

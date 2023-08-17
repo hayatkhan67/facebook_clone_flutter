@@ -60,9 +60,11 @@ class _FriendProfileState extends State<FriendProfile> {
                 clipBehavior: Clip.none,
                 children: [
                   Container(
-                    height: w > 500
-                        ? MediaQuery.of(context).size.height * 0.70
-                        : 200,
+                    height: w > 600
+                        ? MediaQuery.of(context).size.height * 0.60
+                        : w > 1200
+                            ? MediaQuery.of(context).size.height * 0.70
+                            : 200,
                     width: double.infinity,
                     decoration: BoxDecoration(
                         color: const Color.fromRGBO(244, 67, 54, 1),
@@ -169,11 +171,11 @@ class _FriendProfileState extends State<FriendProfile> {
                   (index) => ListTile(
                         leading: Icon(
                           detailsIcon[index],
-                          size: MediaQuery.of(context).size.height * 0.03,
+                          size: 20,
                         ),
                         title: MyText(
                           text: detailsText[index],
-                          size: MediaQuery.of(context).size.height * 0.02,
+                          size: 16,
                         ),
                       )),
               const MyDivider(
@@ -228,8 +230,8 @@ class _FriendProfileState extends State<FriendProfile> {
                                             fit: BoxFit.fill),
                                         border: Border.all(color: Colors.black),
                                         borderRadius: const BorderRadius.only(
-                                            topRight: Radius.circular(20),
-                                            topLeft: Radius.circular(20))),
+                                            topRight: Radius.circular(10),
+                                            topLeft: Radius.circular(10))),
                                   ),
                                 ),
                                 Container(
@@ -240,8 +242,8 @@ class _FriendProfileState extends State<FriendProfile> {
                                         color: Colors.white,
                                         border: Border.all(color: Colors.grey),
                                         borderRadius: const BorderRadius.only(
-                                            bottomRight: Radius.circular(20),
-                                            bottomLeft: Radius.circular(20))),
+                                            bottomRight: Radius.circular(10),
+                                            bottomLeft: Radius.circular(10))),
                                     child: Center(
                                         child: MyText(
                                       text: data[0]
@@ -288,7 +290,7 @@ class _FriendProfileState extends State<FriendProfile> {
                 leading: CircleAvatar(
                   backgroundImage: AssetImage(widget.image.toString()),
                 ),
-                title: const MyText(text: 'Write something to Hayat...'),
+                title: MyText(text: 'Write something to ${widget.userName}...'),
               ),
               Row(
                 children: [
