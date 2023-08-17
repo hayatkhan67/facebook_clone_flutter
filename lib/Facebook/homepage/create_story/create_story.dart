@@ -1,14 +1,15 @@
-import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:flutter/material.dart';
+
+import '../../../widget/customText.dart';
 
 class CreateStory extends StatelessWidget {
   const CreateStory({super.key});
 
   @override
   Widget build(BuildContext context) {
-   final screenmd=MediaQuery.of(context).size;
+    final screenmd = MediaQuery.of(context).size;
     return Container(
-      width: screenmd.width*0.3,
+      width: screenmd.width * 0.3,
       decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(color: Colors.grey),
@@ -30,12 +31,12 @@ class CreateStory extends StatelessWidget {
                         image: DecorationImage(
                             image: AssetImage(
                                 'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
-                            fit: BoxFit.cover)),
+                            fit: BoxFit.fitWidth)),
                   ),
                 ),
                 const Expanded(
                     child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  padding: EdgeInsets.symmetric(vertical: 24.0),
                   child: MyText(
                     text: 'Create Story',
                     align: TextAlign.center,
@@ -47,8 +48,8 @@ class CreateStory extends StatelessWidget {
               ],
             ),
             Positioned(
-              top: screenmd.height*0.15,
-              bottom: screenmd.height*0.04,
+              top: screenmd.height * 0.15,
+              bottom: screenmd.height * 0.04,
               child: Container(
                 height: 70,
                 width: 30,

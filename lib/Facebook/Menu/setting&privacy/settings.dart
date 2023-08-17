@@ -1,9 +1,9 @@
-import 'package:bano_qabil_project/widget/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../../../widget/customText.dart';
 import '../../../widget/custom_Divider.dart';
+import '../../../widget/custom_appbar.dart';
 import 'my_bottom_sheet.dart';
 
 class Settings extends StatelessWidget {
@@ -41,6 +41,7 @@ class Settings extends StatelessWidget {
       appBar: const CustomAppBar(
         title: MyText(
           text: 'Setting & privacy',
+          maxline: 1,
           fWeight: FontWeight.bold,
         ),
         centerTitle: true,
@@ -61,22 +62,22 @@ class Settings extends StatelessWidget {
                 onTap: () {
                   showModalBottomSheet(
                     clipBehavior: Clip.antiAliasWithSaveLayer,
-                      shape: const RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(20),
                             topRight: Radius.circular(20))),
-                            useSafeArea: true,
+                    useSafeArea: true,
                     isScrollControlled: true,
                     constraints: BoxConstraints(
-                      minHeight: 100,
-                      maxHeight: MediaQuery.of(context).size.height*.80
-                    ),
+                        minHeight: 100,
+                        maxHeight: MediaQuery.of(context).size.height * .80),
                     context: context,
                     builder: (context) => const MyBottomSheet(),
                   );
                 },
                 child: Card(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
                   color: Colors.white,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -188,7 +189,8 @@ class Settings extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
               child: Card(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
                 color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -252,13 +254,13 @@ class Settings extends StatelessWidget {
             ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-               itemCount: preferencesIcons.length,itemBuilder: (context, index) => 
-            ListTile(
-              minLeadingWidth: 20,
-              leading: Icon(preferencesIcons[index]),
-              title: MyText(text: preferencesName[index]),
+              itemCount: preferencesIcons.length,
+              itemBuilder: (context, index) => ListTile(
+                minLeadingWidth: 20,
+                leading: Icon(preferencesIcons[index]),
+                title: MyText(text: preferencesName[index]),
+              ),
             )
-            ,)
           ],
         ),
       ),

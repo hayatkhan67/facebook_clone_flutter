@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class MyText extends StatelessWidget {
@@ -24,15 +25,17 @@ class MyText extends StatelessWidget {
   final TextOverflow? overflow;
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return AutoSizeText(
       text.toString(),
       textAlign: align,
       textScaleFactor: 1.0,
+      minFontSize: 5,
+      maxFontSize: 30,
       style: TextStyle(
         fontFamily: fontFamily,
         color: color ?? Colors.black,
         fontWeight: fWeight ?? FontWeight.normal,
-        fontSize: size ?? 13,
+        fontSize: size,
       ),
       maxLines: maxline ?? 6,
       overflow: overflow,

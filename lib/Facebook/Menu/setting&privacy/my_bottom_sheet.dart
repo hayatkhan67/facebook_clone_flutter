@@ -1,8 +1,8 @@
-import 'package:bano_qabil_project/widget/custom_Divider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../widget/customText.dart';
+import '../../../widget/custom_Divider.dart';
 
 class MyBottomSheet extends StatefulWidget {
   const MyBottomSheet({super.key});
@@ -43,9 +43,9 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
                       Navigator.pop(context);
                     },
                     icon: const Icon(Icons.close)),
-                const Align(
-                widthFactor: 4.6,
+                const Expanded(
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
                         FontAwesomeIcons.meta,
@@ -58,10 +58,13 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
                       MyText(
                         text: 'Meta',
                         size: 17,
-                      )
+                      ),
+                      SizedBox(
+                        width: 40,
+                      ),
                     ],
                   ),
-                ),
+                )
               ],
             ),
             const Padding(
@@ -77,6 +80,7 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
               text:
                   'Manage your connected experiences and account settings across Meta technologies such as Facebook,Instagram and Meta Horizon',
               fWeight: FontWeight.bold,
+              maxline: 4,
               size: 18,
               align: TextAlign.center,
               color: Colors.grey[600],
@@ -147,25 +151,22 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: accIcons.length,
-                    itemBuilder: (context, index) => Column(
-                      children: [
-                        ListTile(
-                          leading: Icon(
-                            accIcons[index],
-                            size: 26,
-                            color: Colors.black,
-                          ),
-                          title: MyText(
-                            text: accName[index],
-                            fWeight: FontWeight.bold,
-                            size: 16,
-                          ),
-                          trailing: const Icon(Icons.arrow_forward_ios_rounded),
+                    itemBuilder: (context, index) => Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: ListTile(
+                        leading: Icon(
+                          accIcons[index],
+                          size: 26,
+                          color: Colors.black,
                         ),
-                        const MyDivider(
-                          thick: 1,
-                        )
-                      ],
+                        title: MyText(
+                          text: accName[index],
+                          fWeight: FontWeight.bold,
+                          size: 16,
+                        ),
+                        trailing: const Icon(Icons.arrow_forward_ios_rounded),
+                      ),
                     ),
                   )),
             )

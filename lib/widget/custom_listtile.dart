@@ -1,36 +1,55 @@
 import 'package:flutter/material.dart';
 
+class MyListTile extends StatelessWidget {
+  const MyListTile(
+      {super.key,
+      this.leading,
+      this.title,
+      this.subtitle,
+      this.trailing,
+      this.onTap,
+      this.leadingWidth});
 
-class CustomListTile extends StatelessWidget {
-  const CustomListTile({super.key, this.image, this.radius, this.title, this.subtitle, this.onTap, this.leadingWidth, this.tileGap, this.trailing, this.splashColor, this.tileColor, this.padding});
-final String? image;
-final double? radius;
-final Widget? title;
-final Widget? subtitle;
-final Function()? onTap;
-final double? leadingWidth;
-final double? tileGap;
-final Widget? trailing;
-final Color? splashColor;
-final Color? tileColor;
-final EdgeInsetsGeometry? padding;
+  final Widget? leading;
+  final Widget? title;
+  final Widget? subtitle;
+  final Widget? trailing;
+  final Function()? onTap;
+  final double? leadingWidth;
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      minLeadingWidth: leadingWidth,
-      horizontalTitleGap: tileGap,
-      splashColor: splashColor,
-      tileColor: tileColor,
-      trailing: trailing,
-      contentPadding: padding,
-      onTap: onTap,
-          leading:CircleAvatar(
-          backgroundImage: AssetImage(image.toString()),
-          onBackgroundImageError: (exception, stackTrace) => const Icon(Icons.error),
-          radius: radius ?? 25,
-          ),
-          title: title,
-          subtitle:subtitle,
-        );
+    return InkWell(
+      onTap: onTap ?? () {},
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            leading!,
+            SizedBox(
+              width: leadingWidth ?? 10,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [title ?? const SizedBox()],
+                ),
+                Row(
+                  children: [subtitle ?? const SizedBox()],
+                )
+              ],
+            ),
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  trailing ?? const SizedBox(),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

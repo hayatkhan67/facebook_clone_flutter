@@ -1,12 +1,12 @@
-import 'package:bano_qabil_project/Facebook/Chats/chats.dart';
-import 'package:bano_qabil_project/Facebook/Profile/user_Profile.dart';
-import 'package:bano_qabil_project/Facebook/newsfeed/user_newsfeed.dart';
-import 'package:bano_qabil_project/widget/circle_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import '../../widget/circle_icon.dart';
 import '../../widget/customText.dart';
 import '../../widget/fb_drawer.dart';
+import '../Chats/chats.dart';
+import '../Profile/user_Profile.dart';
+import '../newsfeed/user_newsfeed.dart';
 import 'create_story/create_story.dart';
 import 'music.dart';
 

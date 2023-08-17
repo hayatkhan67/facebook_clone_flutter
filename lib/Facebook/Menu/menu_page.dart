@@ -1,13 +1,13 @@
-import 'package:bano_qabil_project/Facebook/Menu/setting_privacy.dart';
 import 'package:bano_qabil_project/Facebook/Menu/setting&privacy/settings.dart';
-import 'package:bano_qabil_project/Facebook/Profile/user_Profile.dart';
-import 'package:bano_qabil_project/Login_page/login_page.dart';
-import 'package:bano_qabil_project/widget/customText.dart';
-import 'package:bano_qabil_project/widget/fb_drawer.dart';
+import 'package:bano_qabil_project/Facebook/Menu/setting_privacy.dart';
 import 'package:flutter/material.dart';
 
+import '../../Login_page/login_page.dart';
 import '../../widget/circle_icon.dart';
+import '../../widget/customText.dart';
 import '../../widget/custom_ElevatedButton.dart';
+import '../../widget/fb_drawer.dart';
+import '../Profile/user_Profile.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});

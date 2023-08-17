@@ -11,12 +11,14 @@ class CustomPostContainer extends StatefulWidget {
       this.postText,
       this.profileImage,
       this.userName,
-      this.textButton});
+      this.textButton,
+      this.circleRadius});
   final String? userName;
   final String? profileImage;
   final String? postText;
   final String? postImage;
   final bool? textButton;
+  final double? circleRadius;
   @override
   State<CustomPostContainer> createState() => _CustomPostContainerState();
 }
@@ -27,29 +29,77 @@ class _CustomPostContainerState extends State<CustomPostContainer> {
     return Container(
       child: Column(
         children: [
-          ListTile(
-            leading: CircleAvatar(
-              backgroundImage: AssetImage(widget.profileImage ??
-                  'assets/facebook/friends/images/photo_2023-07-18_15-42-23.jpg'),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: widget.circleRadius ?? 27,
+                  backgroundImage: AssetImage(
+                    widget.profileImage ??
+                        'assets/facebook/friends/images/photo_2023-07-18_15-42-23.jpg',
+                  ),
+                  onBackgroundImageError: (exception, stackTrace) =>
+                      const Icon(Icons.error),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        MyText(
+                          text: widget.userName ?? 'HKN Playz YT.',
+                          size: 18,
+                          fWeight: FontWeight.w500,
+                        )
+                      ],
+                    ),
+                    const Row(
+                      children: [MyText(text: 'Uploaded on 2023')],
+                    )
+                  ],
+                ),
+                const Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Icon(Icons.more_horiz),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 4.0),
+                        child: Icon(Icons.close),
+                      )
+                    ],
+                  ),
+                )
+              ],
             ),
-            title: MyText(text: widget.userName ?? 'HKN Playz YT.'),
-            subtitle: const MyText(text: 'Uploaded on 2023'),
-            trailing: const SizedBox(
-              height: 40,
-              width: 100,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(Icons.more_horiz),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 4.0),
-                    child: Icon(Icons.close),
-                  )
-                ],
-              ),
-            ),
-          ),
-
+          )
+          // ListTile(
+          //   leading: CircleAvatar(
+          //     backgroundImage: AssetImage(widget.profileImage ??
+          //         'assets/facebook/friends/images/photo_2023-07-18_15-42-23.jpg'),
+          //   ),
+          //   title: MyText(text: widget.userName ?? 'HKN Playz YT.'),
+          //   subtitle: const MyText(text: 'Uploaded on 2023'),
+          //   trailing: const SizedBox(
+          //     height: 40,
+          //     width: 100,
+          //     child: Row(
+          //       mainAxisAlignment: MainAxisAlignment.end,
+          //       children: [
+          //         Icon(Icons.more_horiz),
+          //         Padding(
+          //           padding: EdgeInsets.symmetric(horizontal: 4.0),
+          //           child: Icon(Icons.close),
+          //         )
+          //       ],
+          //     ),
+          //   ),
+          // ),
+          ,
           //post Text
           widget.postText != null
               ? Padding(

@@ -1,11 +1,10 @@
-import 'package:bano_qabil_project/Facebook/Profile/UserModel_Class.dart';
-import 'package:bano_qabil_project/widget/customText.dart';
-import 'package:bano_qabil_project/widget/custom_Divider.dart';
-import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../data/fb_data.dart';
+import '../../widget/customText.dart';
+import '../../widget/custom_Divider.dart';
+import '../../widget/custom_ElevatedButton.dart';
 import '../../widget/custom_post.dart';
 import 'friend_list.dart';
 

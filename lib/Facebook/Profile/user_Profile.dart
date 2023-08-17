@@ -1,9 +1,9 @@
 // ignore_for_file: file_names
 
-import 'package:bano_qabil_project/data/fb_data.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../data/fb_data.dart';
 import '../../widget/customText.dart';
 import '../../widget/custom_Divider.dart';
 import '../../widget/custom_ElevatedButton.dart';

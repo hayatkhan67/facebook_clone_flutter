@@ -1,10 +1,10 @@
 import 'package:bano_qabil_project/Facebook/Watch_videos/tab_bar.dart';
-import 'package:bano_qabil_project/widget/customText.dart';
-import 'package:bano_qabil_project/widget/custom_Divider.dart';
-import 'package:bano_qabil_project/widget/fb_drawer.dart';
 import 'package:flutter/material.dart';
 
+import '../../widget/customText.dart';
+import '../../widget/custom_Divider.dart';
 import '../../widget/custom_post.dart';
+import '../../widget/fb_drawer.dart';
 
 // ignore: must_be_immutable
 class Videos extends StatefulWidget {

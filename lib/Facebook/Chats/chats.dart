@@ -1,7 +1,7 @@
-import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../../widget/circle_icon.dart';
+import '../../widget/customText.dart';
 import '../../widget/custom_listtile.dart';
 import 'chat_model_class.dart';
 import 'chats_home.dart';
@@ -44,13 +44,12 @@ class _ChatsState extends State<Chats> {
                 height: 40,
                 child: TextField(
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide:
-                            const BorderSide(color: Colors.black, width: 3)),
-                    hintText: 'Search',
-                    contentPadding: const EdgeInsets.all(12)
-                  ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide:
+                              const BorderSide(color: Colors.black, width: 3)),
+                      hintText: 'Search',
+                      contentPadding: const EdgeInsets.all(12)),
                 ),
               ),
             ),
@@ -80,8 +79,12 @@ class _ChatsState extends State<Chats> {
                                   ));
                             },
                             child: Container(
-                                height: 80,
-                                width: 80,
+                                constraints: BoxConstraints(
+                                  minHeight: 60,
+                                  minWidth: 60,
+                                  maxHeight: 80,
+                                  maxWidth: 80,
+                                ),
                                 margin:
                                     const EdgeInsets.symmetric(horizontal: 5),
                                 decoration: BoxDecoration(
@@ -131,13 +134,16 @@ class _ChatsState extends State<Chats> {
                 ),
               ),
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
             ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: data.length,
               itemBuilder: (context, index) {
-                return CustomListTile(
+                return MyListTile(
+                  leadingWidth: 15,
                   onTap: () {
                     Navigator.push(
                         context,
@@ -146,7 +152,13 @@ class _ChatsState extends State<Chats> {
                               ChatHomePage(userDetails: data[index]),
                         ));
                   },
-                  image: data[index].userImage.toString(),
+                  leading: CircleAvatar(
+                    backgroundImage:
+                        AssetImage(data[index].userImage.toString()),
+                    radius: 36,
+                    onBackgroundImageError: (exception, stackTrace) =>
+                        const Icon(Icons.error),
+                  ),
                   title: MyText(text: data[index].userName),
                   subtitle: MyText(text: data[index].message),
                 );

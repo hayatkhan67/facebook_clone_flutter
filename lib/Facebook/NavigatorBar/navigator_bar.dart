@@ -1,9 +1,9 @@
-import 'package:bano_qabil_project/Facebook/homepage/homepage.dart';
-import 'package:bano_qabil_project/Facebook/Profile/user_Profile.dart';
 import 'package:flutter/material.dart';
 import '../Notifications/notifications.dart';
 import '../Menu/menu_page.dart';
+import '../Profile/user_Profile.dart';
 import '../Watch_videos/videos.dart';
+import '../homepage/homepage.dart';
 
 class MyNavigatorBar extends StatefulWidget {
   const MyNavigatorBar({super.key});

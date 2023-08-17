@@ -3,8 +3,9 @@ import 'package:bano_qabil_project/Facebook/Menu/setting&privacy/link_history.da
 import 'package:bano_qabil_project/Facebook/Menu/setting&privacy/order_payments.dart';
 import 'package:bano_qabil_project/Facebook/Menu/setting&privacy/recent_ad.dart';
 import 'package:bano_qabil_project/Facebook/Menu/setting&privacy/settings.dart';
-import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:flutter/material.dart';
+
+import '../../widget/customText.dart';
 
 class SeetingsPrivacy extends StatefulWidget {
   const SeetingsPrivacy({super.key});

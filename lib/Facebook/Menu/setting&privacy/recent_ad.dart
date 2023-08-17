@@ -1,9 +1,9 @@
-import 'package:bano_qabil_project/widget/customText.dart';
-import 'package:bano_qabil_project/widget/custom_Divider.dart';
-import 'package:bano_qabil_project/widget/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../../widget/customText.dart';
+import '../../../widget/custom_Divider.dart';
+import '../../../widget/custom_appbar.dart';
 import '../../../widget/custom_post.dart';
 
 class RecentAd extends StatefulWidget {

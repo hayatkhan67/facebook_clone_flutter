@@ -1,10 +1,10 @@
 import 'dart:math';
 
-import 'package:bano_qabil_project/widget/customText.dart';
-import 'package:bano_qabil_project/widget/fb_drawer.dart';
 import 'package:flutter/material.dart';
 
 import '../../resources_list/notifii_friends.dart';
+import '../../widget/customText.dart';
+import '../../widget/fb_drawer.dart';
 import 'bottom_sheet.dart';
 import 'friend_request.dart';
 
@@ -35,11 +35,11 @@ class _NotificationsState extends State<Notifications> {
     }
     return Scaffold(
       appBar: AppBar(
-        leadingWidth: MediaQuery.of(context).size.width * 0.07,
-        title: MyText(
+        leadingWidth: 25,
+        title: const MyText(
           text: 'Notifications',
-          fWeight: FontWeight.w400,
-          size: MediaQuery.of(context).size.width * 0.05,
+          fWeight: FontWeight.w500,
+          size: 18,
         ),
         actions: [
           IconButton(
@@ -53,10 +53,10 @@ class _NotificationsState extends State<Notifications> {
                     builder: (context) => const NotificationSetting());
               },
               icon: const Icon(Icons.settings)),
-          const SizedBox(
-            width: 10,
-          ),
-          const Icon(Icons.search)
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.0),
+            child: Icon(Icons.search),
+          )
         ],
       ),
       drawer: const MyDrawer(),
