@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 
+import '../../data/fb_data.dart';
 import '../../widget/customText.dart';
 import 'UserModel_Class.dart';
 import 'friends_profile.dart';
 
 class FriendList extends StatefulWidget {
-  const FriendList({super.key, this.userName});
+  const FriendList({super.key, this.userName, this.data});
   final String? userName;
+  final FriendlistData? data;
   @override
   State<FriendList> createState() => _FriendListState();
 }
 
 class _FriendListState extends State<FriendList> {
-  var data = friendDetails;
+  var data = fbData;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class _FriendListState extends State<FriendList> {
             },
             icon: const Icon(Icons.arrow_back_ios)),
         title: MyText(
-          text: '${widget.userName ?? "Hayat Khan Niazi"}\'s friends',
+          text: '${widget.userName ?? "Hayat Khan Niazi"}\'s friends List',
           size: 18,
           fWeight: FontWeight.bold,
         ),
@@ -69,17 +71,18 @@ class _FriendListState extends State<FriendList> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => FriendProfile(
-                            image: data[0].freindsImages![index],
-                            userName: data[0].freindsName![index],
+                            image: data[0].friendsImages![index],
+                            userName: data[0].friendsNames![index],
                           ),
                         ));
                   },
                   leading: CircleAvatar(
-                    backgroundImage: AssetImage(data[0].freindsImages![index]),
+                    backgroundImage: AssetImage(data[0].friendsImages![index]),
                     radius: 32,
                   ),
-                  title: MyText(text: data[0].freindsName![index]),
-                  subtitle: const MyText(text: '6 mutual'),
+                  title: MyText(text: data[0].friendsNames![index]),
+                  subtitle:
+                      MyText(text: '${data[0].friendsNames!.length} mutual'),
                 );
               },
             )
@@ -88,4 +91,10 @@ class _FriendListState extends State<FriendList> {
       ),
     );
   }
+}
+
+class FriendlistData {
+  List? userName;
+  List? image;
+  FriendlistData({this.image, this.userName});
 }

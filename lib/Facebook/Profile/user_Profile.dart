@@ -58,6 +58,7 @@ class _UserProfileState extends State<UserProfile> {
 
   @override
   Widget build(BuildContext context) {
+    final w = MediaQuery.of(context).size.width;
     return WillPopScope(
         onWillPop: () async {
           return widget.isBack;
@@ -97,8 +98,9 @@ class _UserProfileState extends State<UserProfile> {
               children: [
                 Stack(clipBehavior: Clip.none, children: [
                   Container(
-                    // height: MediaQuery.of(context).size.height * 0.40,
-                    height: 200,
+                    height: w > 500
+                        ? MediaQuery.of(context).size.height * 0.70
+                        : 200,
                     width: double.infinity,
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(0.4),
@@ -325,9 +327,9 @@ class _UserProfileState extends State<UserProfile> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            MyText(
+                            const MyText(
                               text: 'Details',
-                              size: MediaQuery.of(context).size.height * 0.03,
+                              size: 18,
                               fWeight: FontWeight.bold,
                             ),
                             ...List.generate(
@@ -467,8 +469,12 @@ class _UserProfileState extends State<UserProfile> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) =>
-                                            const FriendList(),
+                                        builder: (context) => FriendList(
+                                            data: FriendlistData(image: [
+                                          data[0].friendsImages!
+                                        ], userName: [
+                                          data[0].friendsNames!
+                                        ])),
                                       ));
                                 },
                                 style: ElevatedButton.styleFrom(

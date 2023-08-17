@@ -74,8 +74,11 @@ class _ChatsState extends State<Chats> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        ChatHomePage(userDetails: data[index]),
+                                    builder: (context) => ChatHomePage(
+                                        chatData: ChatData(
+                                            userName: data[index].userName,
+                                            image: data[index].userImage,
+                                            message: data[index].message)),
                                   ));
                             },
                             child: Container(
@@ -148,8 +151,11 @@ class _ChatsState extends State<Chats> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              ChatHomePage(userDetails: data[index]),
+                          builder: (context) => ChatHomePage(
+                              chatData: ChatData(
+                                  userName: data[index].userName,
+                                  image: data[index].userImage,
+                                  message: data[index].message)),
                         ));
                   },
                   leading: CircleAvatar(

@@ -6,6 +6,7 @@ import '../../widget/customText.dart';
 import '../../widget/custom_Divider.dart';
 import '../../widget/custom_ElevatedButton.dart';
 import '../../widget/custom_post.dart';
+import '../Chats/chats_home.dart';
 import 'friend_list.dart';
 
 class FriendProfile extends StatefulWidget {
@@ -34,6 +35,7 @@ class _FriendProfileState extends State<FriendProfile> {
   ];
   @override
   Widget build(BuildContext context) {
+    final w = MediaQuery.of(context).size.width;
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -58,7 +60,9 @@ class _FriendProfileState extends State<FriendProfile> {
                 clipBehavior: Clip.none,
                 children: [
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.30,
+                    height: w > 500
+                        ? MediaQuery.of(context).size.height * 0.70
+                        : 200,
                     width: double.infinity,
                     decoration: BoxDecoration(
                         color: const Color.fromRGBO(244, 67, 54, 1),
@@ -71,11 +75,11 @@ class _FriendProfileState extends State<FriendProfile> {
                     left: 10,
                     child: CircleAvatar(
                       minRadius: 40,
-                      maxRadius: 95,
+                      maxRadius: 75,
                       backgroundColor: Colors.white,
                       child: CircleAvatar(
                         minRadius: 30,
-                        maxRadius: 91,
+                        maxRadius: 72,
                         backgroundImage: AssetImage(widget.image.toString()),
                         backgroundColor: Colors.black,
                       ),
@@ -124,7 +128,17 @@ class _FriendProfileState extends State<FriendProfile> {
                     ),
                     Expanded(
                       child: CustomElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ChatHomePage(
+                                        chatData: ChatData(
+                                            userName: widget.userName,
+                                            image: widget.image,
+                                            message: 'How are You'),
+                                      )));
+                        },
                         child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../../widget/customText.dart';
 
 class ChatHomePage extends StatefulWidget {
-  const ChatHomePage({super.key, this.userDetails});
+  const ChatHomePage({super.key, required this.chatData});
+  final ChatData chatData;
 
-  final dynamic userDetails;
   @override
   State<ChatHomePage> createState() => _ChatHomePageState();
 }
@@ -33,11 +33,11 @@ class _ChatHomePageState extends State<ChatHomePage> {
         leadingWidth: 20,
         title: ListTile(
           leading: CircleAvatar(
-            backgroundImage: AssetImage(widget.userDetails.userImage),
+            backgroundImage: AssetImage(widget.chatData.image.toString()),
           ),
           title: MyText(
             maxline: 1,
-            text: widget.userDetails.userName,
+            text: widget.chatData.userName.toString(),
             // size: 13,
           ),
           subtitle: const MyText(maxline: 1, text: '1 hour ago', size: 13),
@@ -72,7 +72,7 @@ class _ChatHomePageState extends State<ChatHomePage> {
                       children: [
                         CircleAvatar(
                           backgroundImage:
-                              AssetImage(widget.userDetails.userImage),
+                              AssetImage(widget.chatData.image.toString()),
                           onBackgroundImageError: (exception, stackTrace) =>
                               const Icon(Icons.error),
                         ),
@@ -88,7 +88,9 @@ class _ChatHomePageState extends State<ChatHomePage> {
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              MyText(text: widget.userDetails.message),
+                              MyText(
+                                  text:
+                                      widget.chatData.message ?? 'How are You'),
                             ],
                           ),
                         )
@@ -232,4 +234,11 @@ class _ChatHomePageState extends State<ChatHomePage> {
       ),
     );
   }
+}
+
+class ChatData {
+  String? userName;
+  String? image;
+  String? message;
+  ChatData({required this.userName, required this.image, this.message});
 }
