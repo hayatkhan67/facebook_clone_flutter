@@ -98,9 +98,11 @@ class _UserProfileState extends State<UserProfile> {
               children: [
                 Stack(clipBehavior: Clip.none, children: [
                   Container(
-                    height: w > 500
-                        ? MediaQuery.of(context).size.height * 0.70
-                        : 200,
+                    height: w > 600
+                        ? MediaQuery.of(context).size.height * 0.60
+                        : w > 1200
+                            ? MediaQuery.of(context).size.height * 0.70
+                            : 200,
                     width: double.infinity,
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(0.4),
@@ -199,70 +201,71 @@ class _UserProfileState extends State<UserProfile> {
                     //   ],
                     // ),
 
-                    Padding(
-                      padding: const EdgeInsets.all(12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Expanded(
-                            child: CustomElevatedButton(
-                              onPressed: () {},
-                              color: Colors.blue,
-                              child: const Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.add,
-                                    color: Colors.white,
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  MyText(
-                                    text: 'Add to Story',
-                                    color: Colors.white,
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Expanded(
-                            child: CustomElevatedButton(
-                              color: Colors.grey[200],
-                              onPressed: () {},
-                              child: const Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.edit,
-                                    color: Colors.black,
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  MyText(
-                                      text: 'Edit profile', color: Colors.black)
-                                ],
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          CustomElevatedButton(
-                            onPressed: () {},
-                            color: Colors.grey[200],
-                            sizeHeight: 30,
-                            sizeWidth: 10,
-                            child: const Icon(Icons.more_horiz,
-                                color: Colors.black),
-                          )
-                        ],
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: const EdgeInsets.all(12),
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    //     children: [
+                    //       Expanded(
+                    //         child: ElevatedButton(
+                    //           onPressed: () {},
+                    //           child: const Row(
+                    //             mainAxisAlignment: MainAxisAlignment.center,
+                    //             children: [
+                    //               Icon(
+                    //                 Icons.add,
+                    //                 color: Colors.white,
+                    //               ),
+                    //               SizedBox(
+                    //                 width: 10,
+                    //               ),
+                    //               MyText(
+                    //                 text: 'Add to Story',
+                    //                 color: Colors.white,
+                    //               )
+                    //             ],
+                    //           ),
+                    //         ),
+                    //       ),
+                    //       const SizedBox(
+                    //         width: 10,
+                    //       ),
+                    //       Expanded(
+                    //         child: ElevatedButton(
+                    //           style: ElevatedButton.styleFrom(
+                    //             backgroundColor: Colors.grey[200],
+                    //           ),
+                    //           onPressed: () {},
+                    //           child: const Row(
+                    //             mainAxisAlignment: MainAxisAlignment.center,
+                    //             children: [
+                    //               Icon(
+                    //                 Icons.edit,
+                    //                 color: Colors.black,
+                    //               ),
+                    //               SizedBox(
+                    //                 width: 10,
+                    //               ),
+                    //               MyText(
+                    //                   text: 'Edit profile', color: Colors.black)
+                    //             ],
+                    //           ),
+                    //         ),
+                    //       ),
+                    //       const SizedBox(
+                    //         width: 10,
+                    //       ),
+                    //       ElevatedButton(
+                    //         onPressed: () {},
+                    //         style: ElevatedButton.styleFrom(
+                    //           backgroundColor: Colors.grey[200],
+                    //         ),
+                    //         child: const Icon(Icons.more_horiz,
+                    //             color: Colors.black),
+                    //       )
+                    //     ],
+                    //   ),
+                    // ),
                   ],
                 ),
                 Column(
@@ -335,18 +338,15 @@ class _UserProfileState extends State<UserProfile> {
                             ...List.generate(
                                 detailsIcon.length,
                                 (index) => ListTile(
-                                      leading: Icon(
-                                        detailsIcon[index],
-                                        size:
-                                            MediaQuery.of(context).size.height *
-                                                0.03,
-                                      ),
+                                      leading: Icon(detailsIcon[index], size: 20
+                                          // MediaQuery.of(context).size.height *
+                                          //     0.03,
+                                          ),
                                       title: MyText(
-                                        text: detailsText[index],
-                                        size:
-                                            MediaQuery.of(context).size.height *
-                                                0.02,
-                                      ),
+                                          text: detailsText[index], size: 16
+                                          // MediaQuery.of(context).size.height *
+                                          //     0.02,
+                                          ),
                                     )),
                             ElevatedButton(
                                 onPressed: () {},
@@ -401,9 +401,11 @@ class _UserProfileState extends State<UserProfile> {
                                       crossAxisCount: 3,
                                       crossAxisSpacing: 05,
                                       mainAxisSpacing: 10,
-                                      mainAxisExtent:
-                                          MediaQuery.of(context).size.height *
-                                              0.26),
+                                      mainAxisExtent: w < 600
+                                          ? MediaQuery.of(context).size.height *
+                                              0.26
+                                          : MediaQuery.of(context).size.height *
+                                              0.45),
                               shrinkWrap: true,
                               itemCount: 6,
                               itemBuilder: (context, index) => InkWell(
