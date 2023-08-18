@@ -25,10 +25,11 @@ class MyText extends StatelessWidget {
   final TextOverflow? overflow;
   @override
   Widget build(BuildContext context) {
+    final w = MediaQuery.of(context).size.width;
     return AutoSizeText(
       text.toString(),
       textAlign: align,
-      textScaleFactor: 1.0,
+      textScaleFactor: w > 1100 ? 0.8 : 1.0,
       minFontSize: 10,
       maxFontSize: 30,
       style: TextStyle(
@@ -38,7 +39,7 @@ class MyText extends StatelessWidget {
         fontSize: size,
       ),
       maxLines: maxline ?? 6,
-      overflow: overflow,
+      overflow: overflow ?? TextOverflow.ellipsis,
     );
   }
 }

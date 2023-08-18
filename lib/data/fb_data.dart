@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import '../model class/facebook_model.dart';
 import 'images.dart';
 
@@ -97,4 +100,38 @@ List<User> fbData = [
     ],
   ),
 ];
-// 5B:85:FE:9E:6C:EE:09:34:50:C2:C8:39:52:64:84:00:3E:1E:38:C9
+List desktopIcon = [
+  Icon(
+    MdiIcons.accountSupervisor,
+    color: Colors.blue,
+    size: 23,
+  ),
+  const Icon(
+    Icons.timer_outlined,
+    color: Colors.blue,
+  ),
+  Icon(
+    MdiIcons.accountGroup,
+    color: Colors.blue,
+  ),
+  const Icon(
+    Icons.flag,
+    color: Colors.orange,
+  ),
+  Icon(
+    MdiIcons.television,
+    color: Colors.red,
+  ),
+  const Icon(
+    Icons.newspaper,
+    color: Color.fromARGB(255, 136, 177, 211),
+  ),
+];
+List desktopIconName = [
+  'Friends',
+  'Memories',
+  'Groups',
+  'Pages',
+  "Videos",
+  "Feeds"
+];

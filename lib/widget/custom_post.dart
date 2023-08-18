@@ -26,7 +26,13 @@ class CustomPostContainer extends StatefulWidget {
 class _CustomPostContainerState extends State<CustomPostContainer> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    final bool isDesktop = MediaQuery.of(context).size.width < 1100;
+    return Card(
+      color: Colors.white,
+      shape: isDesktop
+          ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(40))
+          : null,
+      margin: isDesktop ? EdgeInsets.zero : const EdgeInsets.all(10),
       child: Column(
         children: [
           Padding(
@@ -144,7 +150,11 @@ class _CustomPostContainerState extends State<CustomPostContainer> {
             ],
           ),
 
-          const MyDivider()
+          isDesktop
+              ? const MyDivider()
+              : const SizedBox(
+                  height: 10,
+                )
         ],
       ),
     );

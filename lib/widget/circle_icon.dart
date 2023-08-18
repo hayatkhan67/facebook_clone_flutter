@@ -3,25 +3,25 @@ import 'package:flutter/material.dart';
 class CircleIcon extends StatelessWidget {
   const CircleIcon(
       {super.key,
-      required this.icon,
+      this.icon,
       this.size,
       this.onPressed,
       this.color,
-      this.circle = true});
+      this.circle = true,
+      this.image});
   final IconData? icon;
   final double? size;
+  final ImageProvider<Object>? image;
   final Color? color;
   final Function()? onPressed;
   final bool circle;
   @override
   Widget build(BuildContext context) {
     return circle == true
-        ? Container(
-            margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 10),
-            decoration: BoxDecoration(
-                // color: Color.fromARGB(255, 225, 220, 220),
-                color: Colors.grey.shade200,
-                shape: BoxShape.circle),
+        ? CircleAvatar(
+            backgroundImage: image,
+            backgroundColor: Colors.grey[200],
+            radius: 18,
             child: Center(
               child: IconButton(
                 onPressed: onPressed,
@@ -42,3 +42,10 @@ class CircleIcon extends StatelessWidget {
           );
   }
 }
+/*Container(
+            margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 10),
+            decoration: BoxDecoration(
+                // color: Color.fromARGB(255, 225, 220, 220),
+                color: Colors.grey.shade200,
+                shape: BoxShape.circle),
+            child:*/

@@ -10,6 +10,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSize {
     this.actions,
     this.leading,
     this.barHeigth,
+    this.color,
   });
 
   final Widget? title;
@@ -18,10 +19,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSize {
   final double? barHeigth;
   final bool? centerTitle;
   final double? elevation;
+  final Color? color;
   final List<Widget>? actions;
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: color,
       title: title,
       leading: leading ??
           IconButton(

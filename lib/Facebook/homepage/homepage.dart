@@ -81,7 +81,10 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            const CircleIcon(icon: Icons.search),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0),
+              child: CircleIcon(icon: Icons.search),
+            ),
             CircleIcon(
               icon: MdiIcons.facebookMessenger,
               color: Colors.blue,
@@ -92,6 +95,9 @@ class _HomePageState extends State<HomePage> {
                       builder: (context) => const Chats(),
                     ));
               },
+            ),
+            const SizedBox(
+              width: 8,
             )
           ],
         ),
