@@ -6,7 +6,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../data/fb_data.dart';
 import '../../widget/customText.dart';
 import '../../widget/custom_Divider.dart';
-import '../../widget/custom_ElevatedButton.dart';
 import '../../widget/custom_appbar.dart';
 import '../../widget/custom_post.dart';
 import 'friend_list.dart';
@@ -151,121 +150,72 @@ class _UserProfileState extends State<UserProfile> {
                         ],
                       ),
                     ),
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    //   children: [
-                    //     Expanded(
-                    //       child: CustomElevatedButton(
-                    //           onPressed: () {},
-                    //           sizeWidth: double.nan,
-                    //           child: const Row(
-                    //             mainAxisSize: MainAxisSize.min,
-                    //             children: [
-                    //               Icon(Icons.add),
-                    //               MyText(
-                    //                 text: 'Add to Story',
-                    //                 color: Colors.white,
-                    //               )
-                    //             ],
-                    //           )),
-                    //     ),
-                    //     Expanded(
-                    //       child: CustomElevatedButton(
-                    //           onPressed: () {},
-                    //           sizeWidth: double.nan,
-                    //           color: Colors.grey[200],
-                    //           child: const Row(
-                    //             mainAxisSize: MainAxisSize.min,
-                    //             children: [
-                    //               Icon(
-                    //                 Icons.edit,
-                    //                 color: Colors.black,
-                    //               ),
-                    //               MyText(
-                    //                 text: 'Edit Profile',
-                    //                 color: Colors.black,
-                    //               )
-                    //             ],
-                    //           )),
-                    //     ),
-                    //     Flexible(
-                    //       child: CustomElevatedButton(
-                    //           onPressed: () {},
-                    //           sizeWidth: double.nan,
-                    //           color: Colors.grey[200],
-                    //           child: const Icon(
-                    //             Icons.more_horiz,
-                    //             color: Colors.black,
-                    //           )),
-                    //     )
-                    //   ],
-                    // ),
-
-                    // Padding(
-                    //   padding: const EdgeInsets.all(12),
-                    //   child: Row(
-                    //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    //     children: [
-                    //       Expanded(
-                    //         child: ElevatedButton(
-                    //           onPressed: () {},
-                    //           child: const Row(
-                    //             mainAxisAlignment: MainAxisAlignment.center,
-                    //             children: [
-                    //               Icon(
-                    //                 Icons.add,
-                    //                 color: Colors.white,
-                    //               ),
-                    //               SizedBox(
-                    //                 width: 10,
-                    //               ),
-                    //               MyText(
-                    //                 text: 'Add to Story',
-                    //                 color: Colors.white,
-                    //               )
-                    //             ],
-                    //           ),
-                    //         ),
-                    //       ),
-                    //       const SizedBox(
-                    //         width: 10,
-                    //       ),
-                    //       Expanded(
-                    //         child: ElevatedButton(
-                    //           style: ElevatedButton.styleFrom(
-                    //             backgroundColor: Colors.grey[200],
-                    //           ),
-                    //           onPressed: () {},
-                    //           child: const Row(
-                    //             mainAxisAlignment: MainAxisAlignment.center,
-                    //             children: [
-                    //               Icon(
-                    //                 Icons.edit,
-                    //                 color: Colors.black,
-                    //               ),
-                    //               SizedBox(
-                    //                 width: 10,
-                    //               ),
-                    //               MyText(
-                    //                   text: 'Edit profile', color: Colors.black)
-                    //             ],
-                    //           ),
-                    //         ),
-                    //       ),
-                    //       const SizedBox(
-                    //         width: 10,
-                    //       ),
-                    //       ElevatedButton(
-                    //         onPressed: () {},
-                    //         style: ElevatedButton.styleFrom(
-                    //           backgroundColor: Colors.grey[200],
-                    //         ),
-                    //         child: const Icon(Icons.more_horiz,
-                    //             color: Colors.black),
-                    //       )
-                    //     ],
-                    //   ),
-                    // ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                              padding: const EdgeInsets.all(10),
+                              margin: const EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  color: Colors.blue,
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: const Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                  ),
+                                  Expanded(
+                                    child: Center(
+                                      child: MyText(
+                                          text: 'Add to story',
+                                          maxline: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          color: Colors.white),
+                                    ),
+                                  )
+                                ],
+                              )),
+                        ),
+                        Expanded(
+                          child: Container(
+                              padding: const EdgeInsets.all(10),
+                              margin: const EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  color: Colors.grey[200],
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: const Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.edit,
+                                    color: Colors.black,
+                                  ),
+                                  Expanded(
+                                    child: Center(
+                                      child: MyText(
+                                          text: 'Edit profile',
+                                          maxline: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          color: Colors.black),
+                                    ),
+                                  )
+                                ],
+                              )),
+                        ),
+                        Container(
+                            padding: const EdgeInsets.all(10),
+                            margin: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                                color: Colors.grey[200],
+                                borderRadius: BorderRadius.circular(10)),
+                            child: const Icon(
+                              Icons.more_horiz,
+                              color: Colors.black,
+                            ))
+                      ],
+                    )
                   ],
                 ),
                 Column(

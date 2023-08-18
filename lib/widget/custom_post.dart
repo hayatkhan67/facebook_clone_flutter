@@ -76,39 +76,18 @@ class _CustomPostContainerState extends State<CustomPostContainer> {
                 )
               ],
             ),
-          )
-          // ListTile(
-          //   leading: CircleAvatar(
-          //     backgroundImage: AssetImage(widget.profileImage ??
-          //         'assets/facebook/friends/images/photo_2023-07-18_15-42-23.jpg'),
-          //   ),
-          //   title: MyText(text: widget.userName ?? 'HKN Playz YT.'),
-          //   subtitle: const MyText(text: 'Uploaded on 2023'),
-          //   trailing: const SizedBox(
-          //     height: 40,
-          //     width: 100,
-          //     child: Row(
-          //       mainAxisAlignment: MainAxisAlignment.end,
-          //       children: [
-          //         Icon(Icons.more_horiz),
-          //         Padding(
-          //           padding: EdgeInsets.symmetric(horizontal: 4.0),
-          //           child: Icon(Icons.close),
-          //         )
-          //       ],
-          //     ),
-          //   ),
-          // ),
-          ,
+          ),
           //post Text
           widget.postText != null
               ? Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      MyText(
-                        text: widget.postText,
-                        maxline: 6,
+                      Expanded(
+                        child: MyText(
+                          text: widget.postText,
+                          maxline: 6,
+                        ),
                       )
                     ],
                   ),

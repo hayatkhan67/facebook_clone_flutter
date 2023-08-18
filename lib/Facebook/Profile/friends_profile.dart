@@ -67,7 +67,6 @@ class _FriendProfileState extends State<FriendProfile> {
                             : 200,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                        color: const Color.fromRGBO(244, 67, 54, 1),
                         image: DecorationImage(
                             image: AssetImage(data[0].post![0].friendPost![2]),
                             fit: BoxFit.cover)),
@@ -101,15 +100,15 @@ class _FriendProfileState extends State<FriendProfile> {
                   fWeight: FontWeight.bold,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                      child: CustomElevatedButton(
-                        onPressed: () {},
-                        color: Colors.grey.shade200,
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                        padding: const EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: Colors.grey[200],
+                            borderRadius: BorderRadius.circular(10)),
                         child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -117,54 +116,55 @@ class _FriendProfileState extends State<FriendProfile> {
                               Icons.person_add_alt_1,
                               color: Colors.black,
                             ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            MyText(text: 'Friends')
+                            Expanded(
+                              child: Center(
+                                child: MyText(
+                                    text: 'Friend',
+                                    maxline: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    color: Colors.black),
+                              ),
+                            )
                           ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: CustomElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ChatHomePage(
-                                        chatData: ChatData(
-                                            userName: widget.userName,
-                                            image: widget.image,
-                                            message: 'How are You'),
-                                      )));
-                        },
+                        )),
+                  ),
+                  Expanded(
+                    child: Container(
+                        padding: const EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(10)),
                         child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(FontAwesomeIcons.facebookMessenger),
-                            SizedBox(
-                              width: 10,
+                            Icon(
+                              FontAwesomeIcons.facebookMessenger,
+                              color: Colors.white,
                             ),
-                            MyText(text: 'Message', color: Colors.white)
+                            Expanded(
+                              child: Center(
+                                child: MyText(
+                                    text: 'Message',
+                                    maxline: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    color: Colors.white),
+                              ),
+                            )
                           ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    CustomElevatedButton(
-                      onPressed: () {},
-                      sizeHeight: 30,
-                      color: Colors.grey.shade200,
-                      sizeWidth: 10,
-                      child: const Icon(Icons.more_horiz, color: Colors.black),
-                    )
-                  ],
-                ),
+                        )),
+                  ),
+                  Container(
+                      padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.circular(10)),
+                      child: const Icon(
+                        Icons.more_horiz,
+                        color: Colors.black,
+                      ))
+                ],
               ),
               ...List.generate(
                   detailsIcon.length,

@@ -1,6 +1,6 @@
+import 'package:bano_qabil_project/data/fb_data.dart';
 import 'package:flutter/material.dart';
 
-import '../../resources_list/notifii_friends.dart';
 import '../../widget/customText.dart';
 
 class FriendRequestList extends StatefulWidget {
@@ -11,7 +11,7 @@ class FriendRequestList extends StatefulWidget {
 }
 
 class _FriendRequestListState extends State<FriendRequestList> {
-  var myFriendRequests = friendRequest;
+  var myFriendRequests = fbData;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,15 +37,17 @@ class _FriendRequestListState extends State<FriendRequestList> {
       body: ListView(
         children: [
           ...List.generate(
-            myFriendRequests.length,
+            myFriendRequests[0].friendRequest![0].name!.length,
             (index) => ListTile(
               minVerticalPadding: 10,
               horizontalTitleGap: 2,
               leading: CircleAvatar(
                   radius: 32,
-                  backgroundImage: AssetImage(myFriendRequests[index].dp)),
+                  backgroundImage: AssetImage(
+                      myFriendRequests[0].friendRequest![0].image![index])),
               title: MyText(
-                text: '${myFriendRequests[index].name} sent a friend request',
+                text:
+                    '${myFriendRequests[0].friendRequest![0].name![index]} sent a friend request',
                 size: 17.0,
               ),
               subtitle: Column(

@@ -29,7 +29,7 @@ class MyText extends StatelessWidget {
       text.toString(),
       textAlign: align,
       textScaleFactor: 1.0,
-      minFontSize: 5,
+      minFontSize: 10,
       maxFontSize: 30,
       style: TextStyle(
         fontFamily: fontFamily,

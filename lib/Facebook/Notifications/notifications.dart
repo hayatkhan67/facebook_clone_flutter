@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../../resources_list/notifii_friends.dart';
+import '../../data/fb_data.dart';
 import '../../widget/customText.dart';
 import '../../widget/fb_drawer.dart';
 import 'bottom_sheet.dart';
@@ -17,16 +17,15 @@ class Notifications extends StatefulWidget {
 
 class _NotificationsState extends State<Notifications> {
   //adding friends detail like dp name in notifications variable
-  var notifications = friends;
-  var myFreindRequests = friendRequest;
+  var notifications = fbData;
   //added random hours for notification
   List<String> textIndex = [];
 
   @override
   Widget build(BuildContext context) {
     // try random number genrate
-    List randomHours = List.generate(
-        notifications.length, (index) => Random().nextInt(24) + 1);
+    List randomHours = List.generate(notifications[0].friendsNames!.length,
+        (index) => Random().nextInt(24) + 1);
 
     //adding for loop to acces random Hours value 1 by 1
     for (int i = 0; i < randomHours.length; i++) {
@@ -71,14 +70,16 @@ class _NotificationsState extends State<Notifications> {
           ),
           //adding a list of notifications
           ...List.generate(
-              notifications.length,
+              notifications[0].friendsNames!.length,
               (index) => ListTile(
                     leading: CircleAvatar(
                       backgroundColor: Colors.amber,
-                      backgroundImage: AssetImage(notifications[index].dp),
+                      backgroundImage:
+                          AssetImage(notifications[0].friendsImages![index]),
                     ),
                     title: MyText(
-                        text: '${notifications[index].name} added a new post'),
+                        text:
+                            '${notifications[0].friendsNames![index]} added a new post'),
                     subtitle: MyText(text: '${textIndex[index]} h'),
                     trailing: const Icon(Icons.more_horiz_outlined),
                   )),
@@ -120,9 +121,11 @@ class _NotificationsState extends State<Notifications> {
               horizontalTitleGap: 2,
               leading: CircleAvatar(
                   radius: 32,
-                  backgroundImage: AssetImage(myFreindRequests[index].dp)),
+                  backgroundImage: AssetImage(
+                      notifications[0].friendRequest![0].image![index])),
               title: MyText(
-                text: '${myFreindRequests[index].name} sent a friend request',
+                text:
+                    '${notifications[0].friendRequest![0].name![index]} sent a friend request',
                 size: 17.0,
               ),
               subtitle: Column(
