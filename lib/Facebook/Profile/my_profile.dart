@@ -5,6 +5,7 @@ import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
 import 'package:flutter/material.dart';
 
 import '../../widget/customText.dart';
+import '../../widget/custom_post.dart';
 
 class MyProfile extends StatefulWidget {
   const MyProfile({super.key});
@@ -344,42 +345,124 @@ class _MyProfileState extends State<MyProfile> {
                 child: Row(
                   children: [
                     Container(
-                      height: 30,
-                      padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 6, vertical: 6),
+                      padding: const EdgeInsets.all(6),
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20)),
-                      child: Center(
-                        child: TextButton.icon(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.video_collection_rounded,
-                              color: Colors.red,
-                            ),
-                            label: const MyText(text: 'Reel')),
-                      ),
+                      child: const Center(
+                          child: Row(
+                        children: [
+                          Icon(
+                            Icons.video_collection_rounded,
+                            size: 17,
+                            color: Colors.red,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          MyText(
+                            text: 'Reel',
+                            color: Colors.black,
+                          )
+                        ],
+                      )),
                     ),
                     Container(
-                      height: 30,
-                      padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 6, vertical: 6),
+                      padding: const EdgeInsets.all(6),
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20)),
-                      child: Center(
-                        child: TextButton.icon(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.ondemand_video_rounded,
-                              color: Colors.red,
-                            ),
-                            label: const MyText(
-                              text: 'Live',
-                              color: Colors.black,
-                            )),
-                      ),
+                      child: const Center(
+                          child: Row(
+                        children: [
+                          Icon(
+                            Icons.ondemand_video_rounded,
+                            color: Colors.red,
+                            size: 20,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          MyText(
+                            text: 'Live',
+                            color: Colors.black,
+                          )
+                        ],
+                      )),
                     )
                   ],
                 ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 8, 15, 8),
+              child: CustomElevatedButton(
+                onPressed: () {},
+                sizeHeight: 30,
+                color: Colors.grey[300],
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.manage_accounts_outlined,
+                      color: Colors.black,
+                    ),
+                    MyText(
+                      text: 'Manage Post',
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const MyDivider(),
+            Row(
+              children: [
+                Container(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(20)),
+                  child: const Row(
+                    children: [
+                      Icon(Icons.photo),
+                      MyText(
+                        text: 'Photos',
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(20)),
+                  child: const Row(
+                    children: [
+                      Icon(Icons.music_note),
+                      MyText(
+                        text: 'Music',
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: data[0].post![0].userPosts!.length,
+              itemBuilder: (context, index) => CustomPostContainer(
+                userName: data[0].userName,
+                profileImage: data[0].profileImage,
+                postImage: data[0].post![0].userPosts![index],
+                postText: data[0].post![0].userPostsText![index],
               ),
             )
           ],
