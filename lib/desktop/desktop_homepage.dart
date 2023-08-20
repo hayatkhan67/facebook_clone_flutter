@@ -1,4 +1,3 @@
-import 'package:bano_qabil_project/data/fb_data.dart';
 import 'package:bano_qabil_project/data/images.dart';
 import 'package:bano_qabil_project/widget/circle_icon.dart';
 import 'package:bano_qabil_project/widget/customText.dart';
@@ -7,22 +6,29 @@ import 'package:bano_qabil_project/widget/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../../api/shop_api/shopHome.dart';
-import '../Chats/chats.dart';
-import '../Notifications/notifications.dart';
-import '../Profile/user_Profile.dart';
-import '../Watch_videos/videos.dart';
-import '../newsfeed/user_newsfeed.dart';
-import 'create_story/create_story.dart';
-import 'music.dart';
+import '../api/shop_api/shopHome.dart';
+import '../Facebook/Chats/chats.dart';
+import '../Facebook/Menu/setting_privacy.dart';
+import '../Facebook/Notifications/notifications.dart';
+import '../Facebook/Profile/user_Profile.dart';
+import '../Facebook/Watch_videos/videos.dart';
+import '../Facebook/newsfeed/user_newsfeed.dart';
+import '../Facebook/homepage/create_story/create_story.dart';
+import '../Facebook/homepage/music.dart';
+import 'column1.dart';
+import 'column3.dart';
 
-class DesktopHomePage extends StatelessWidget {
+class DesktopHomePage extends StatefulWidget {
   const DesktopHomePage({super.key});
 
   @override
+  State<DesktopHomePage> createState() => _DesktopHomePageState();
+}
+
+class _DesktopHomePageState extends State<DesktopHomePage> {
+  @override
   Widget build(BuildContext context) {
     final screenmd = MediaQuery.of(context).size;
-
     return DefaultTabController(
       length: 5,
       initialIndex: 0,
@@ -90,7 +96,16 @@ class DesktopHomePage extends StatelessWidget {
             ),
             centerTitle: true,
             actions: [
-              const CircleIcon(icon: Icons.grid_4x4),
+              CircleIcon(
+                icon: Icons.settings,
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SeetingsPrivacy(),
+                      ));
+                },
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: CircleIcon(
@@ -103,7 +118,9 @@ class DesktopHomePage extends StatelessWidget {
                           ));
                     }),
               ),
-              CircleIcon(icon: MdiIcons.bell),
+              CircleIcon(
+                icon: MdiIcons.bell,
+              ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: CircleIcon(
@@ -118,30 +135,7 @@ class DesktopHomePage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  Expanded(
-                    child: Column(
-                      children: [
-                        const ListTile(
-                          leading: CircleIcon(
-                            image: AssetImage(hayat),
-                          ),
-                          title: MyText(
-                            text: 'Hayat Khan',
-                            fWeight: FontWeight.bold,
-                          ),
-                        ),
-                        ListView.builder(
-                            itemCount: desktopIcon.length,
-                            scrollDirection: Axis.vertical,
-                            shrinkWrap: true,
-                            itemBuilder: (context, index) => ListTile(
-                                  minLeadingWidth: 30,
-                                  leading: desktopIcon[index],
-                                  title: MyText(text: desktopIconName[index]),
-                                ))
-                      ],
-                    ),
-                  ),
+                  const Column1(),
                   Expanded(
                       flex: 2,
                       child: TabBarView(children: [
@@ -151,34 +145,7 @@ class DesktopHomePage extends StatelessWidget {
                         const Notifications(),
                         const MyHomePage()
                       ])),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const MyText(
-                          text: 'Freinds',
-                          size: 22,
-                          fWeight: FontWeight.bold,
-                        ),
-                        const SizedBox(height: 10),
-                        ListView.builder(
-                          itemCount: fbData[0].friendsNames!.length,
-                          scrollDirection: Axis.vertical,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) => ListTile(
-                            leading: CircleIcon(
-                              image:
-                                  AssetImage(fbData[0].friendsImages![index]),
-                            ),
-                            title: MyText(
-                              text: fbData[0].friendsNames![index],
-                              fWeight: FontWeight.bold,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  )
+                  const Column3()
                 ],
               ),
             ),
@@ -186,7 +153,7 @@ class DesktopHomePage extends StatelessWidget {
     );
   }
 
-  SingleChildScrollView home(BuildContext context, Size screenmd) {
+  Widget home(BuildContext context, Size screenmd) {
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -203,7 +170,7 @@ class DesktopHomePage extends StatelessWidget {
                   const CreateStory(),
                   const SizedBox(width: 3),
                   ...List.generate(
-                    10,
+                    5,
                     (index) => Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 1),
                       child: Container(

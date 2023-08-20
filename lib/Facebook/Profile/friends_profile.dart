@@ -6,7 +6,6 @@ import '../../widget/customText.dart';
 import '../../widget/custom_Divider.dart';
 import '../../widget/custom_ElevatedButton.dart';
 import '../../widget/custom_post.dart';
-import '../Chats/chats_home.dart';
 import 'friend_list.dart';
 
 class FriendProfile extends StatefulWidget {

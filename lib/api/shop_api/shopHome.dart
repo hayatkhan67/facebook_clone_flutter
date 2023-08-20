@@ -1,4 +1,6 @@
 import 'dart:convert';
+// ignore_for_file: file_names
+
 import 'dart:developer';
 
 import 'package:bano_qabil_project/api/shop_api/shop.dart';

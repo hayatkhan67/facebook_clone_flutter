@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../../widget/circle_icon.dart';
 import '../../widget/customText.dart';
-import '../../widget/fb_drawer.dart';
 import '../Chats/chats.dart';
 import '../Profile/user_Profile.dart';
 import '../newsfeed/user_newsfeed.dart';
@@ -41,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                 child: PopupMenuButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
-                  position: PopupMenuPosition.under,
+                  // position: PopupMenuPosition.under,
                   icon: const Icon(
                     Icons.add,
                     color: Colors.black,
@@ -101,7 +100,6 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-        drawer: const MyDrawer(),
         body: SingleChildScrollView(
           child: Column(
             children: [

@@ -1,7 +1,6 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../data/fb_data.dart';
 import '../../widget/customText.dart';
@@ -26,33 +25,6 @@ class _UserProfileState extends State<UserProfile> {
   List name = [
     'Posts',
     'Reels',
-  ];
-  List test = const [
-    Center(
-      child: Text(
-        '0',
-        style: TextStyle(fontSize: 42),
-      ),
-    ),
-    Center(
-      child: Text(
-        '1',
-        style: TextStyle(fontSize: 42),
-      ),
-    )
-  ];
-
-  List detailsIcon = [
-    Icons.home,
-    Icons.location_on_sharp,
-    FontAwesomeIcons.heart,
-    Icons.more_horiz_outlined
-  ];
-  List detailsText = [
-    'Lives in Karachi,Pakistan',
-    'from Mianwali',
-    'Single',
-    'See Your About Info'
   ];
 
   @override
@@ -99,9 +71,7 @@ class _UserProfileState extends State<UserProfile> {
                   Container(
                     height: w > 600
                         ? MediaQuery.of(context).size.height * 0.60
-                        : w > 1200
-                            ? MediaQuery.of(context).size.height * 0.70
-                            : 200,
+                        : 200,
                     width: double.infinity,
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(0.4),
@@ -286,14 +256,15 @@ class _UserProfileState extends State<UserProfile> {
                               fWeight: FontWeight.bold,
                             ),
                             ...List.generate(
-                                detailsIcon.length,
+                                idDetailIcon.length,
                                 (index) => ListTile(
-                                      leading: Icon(detailsIcon[index], size: 20
+                                      leading: Icon(idDetailIcon[index],
+                                          size: 20
                                           // MediaQuery.of(context).size.height *
                                           //     0.03,
                                           ),
                                       title: MyText(
-                                          text: detailsText[index], size: 16
+                                          text: idDetailInfo[index], size: 16
                                           // MediaQuery.of(context).size.height *
                                           //     0.02,
                                           ),

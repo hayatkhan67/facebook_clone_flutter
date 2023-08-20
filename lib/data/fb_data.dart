@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../model class/facebook_model.dart';
@@ -134,4 +135,17 @@ List desktopIconName = [
   'Pages',
   "Videos",
   "Feeds"
+];
+
+List idDetailIcon = [
+  Icons.home,
+  Icons.location_on_sharp,
+  FontAwesomeIcons.heart,
+  Icons.more_horiz_outlined
+];
+List idDetailInfo = [
+  'Lives in Karachi,Pakistan',
+  'from Mianwali',
+  'Single',
+  'See Your About Info'
 ];

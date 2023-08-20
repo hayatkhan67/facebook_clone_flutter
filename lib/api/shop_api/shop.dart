@@ -6,6 +6,7 @@ import '../../widget/myrich_text.dart';
 class Shop extends StatefulWidget {
   const Shop({super.key, this.data});
 
+  // ignore: prefer_typing_uninitialized_variables
   final data;
   @override
   State<Shop> createState() => _ShopState();

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../../data/fb_data.dart';
 import '../../widget/customText.dart';
-import '../../widget/fb_drawer.dart';
 import 'bottom_sheet.dart';
 import 'friend_request.dart';
 
@@ -37,7 +36,7 @@ class _NotificationsState extends State<Notifications> {
         leadingWidth: 25,
         title: const MyText(
           text: 'Notifications',
-          fWeight: FontWeight.w500,
+          fWeight: FontWeight.bold,
           size: 18,
         ),
         actions: [
@@ -58,7 +57,6 @@ class _NotificationsState extends State<Notifications> {
           )
         ],
       ),
-      drawer: const MyDrawer(),
       body: ListView(
         children: [
           const Padding(

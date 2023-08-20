@@ -82,7 +82,7 @@ class _ChatsState extends State<Chats> {
                                   ));
                             },
                             child: Container(
-                                constraints: BoxConstraints(
+                                constraints: const BoxConstraints(
                                   minHeight: 60,
                                   minWidth: 60,
                                   maxHeight: 80,

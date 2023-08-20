@@ -3,7 +3,7 @@ import '../Notifications/notifications.dart';
 import '../Menu/menu_page.dart';
 import '../Profile/user_Profile.dart';
 import '../Watch_videos/videos.dart';
-import '../homepage/desktop_homepage.dart';
+import '../../desktop/desktop_homepage.dart';
 import '../homepage/homepage.dart';
 
 class MyNavigatorBar extends StatefulWidget {

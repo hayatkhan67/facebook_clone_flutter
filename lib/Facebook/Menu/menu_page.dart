@@ -83,7 +83,6 @@ class _MenuState extends State<Menu> {
           ),
         ],
       ),
-      drawer: const MyDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
