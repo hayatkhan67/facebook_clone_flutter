@@ -1,10 +1,11 @@
+import 'package:bano_qabil_project/Facebook/Profile/my_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../../widget/circle_icon.dart';
 import '../../widget/customText.dart';
+import '../../widget/custom_appbar.dart';
 import '../Chats/chats.dart';
-import '../Profile/user_Profile.dart';
 import '../newsfeed/user_newsfeed.dart';
 import 'create_story/create_story.dart';
 import 'music.dart';
@@ -24,14 +25,15 @@ class _HomePageState extends State<HomePage> {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        appBar: AppBar(
+        appBar: CustomAppBar(
           title: const MyText(
             text: 'facebook',
             size: 19,
             color: Colors.blue,
             fWeight: FontWeight.bold,
           ),
-          leadingWidth: 30,
+          leading: const SizedBox(),
+          leadingWidth: 1,
           actions: [
             CircleAvatar(
               radius: 20,
@@ -109,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => UserProfile(isBack: true),
+                          builder: (context) => const MyProfile(isBack: true),
                         ));
                   },
                   child: const CircleAvatar(

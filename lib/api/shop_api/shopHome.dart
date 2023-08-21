@@ -6,6 +6,7 @@ import 'dart:developer';
 import 'package:bano_qabil_project/api/shop_api/shop.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import '../../widget/custom_appbar.dart';
 import 'model_phone.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -44,12 +45,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
+      appBar: const CustomAppBar(
+        title: Text(
           'HKN SHOP',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        actions: const [
+        actions: [
           Padding(
             padding: EdgeInsets.all(8.0),
             child: Icon(
@@ -59,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
         centerTitle: true,
-        backgroundColor: Colors.blueGrey,
+        color: Colors.blueGrey,
       ),
       body: SingleChildScrollView(
         child: Column(

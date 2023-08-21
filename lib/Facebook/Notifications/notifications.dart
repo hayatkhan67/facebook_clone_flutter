@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../data/fb_data.dart';
 import '../../widget/customText.dart';
+import '../../widget/custom_appbar.dart';
 import 'bottom_sheet.dart';
 import 'friend_request.dart';
 
@@ -32,8 +33,9 @@ class _NotificationsState extends State<Notifications> {
       textIndex.add(now);
     }
     return Scaffold(
-      appBar: AppBar(
-        leadingWidth: 25,
+      appBar: CustomAppBar(
+        leading: const SizedBox(),
+        leadingWidth: 1,
         title: const MyText(
           text: 'Notifications',
           fWeight: FontWeight.bold,

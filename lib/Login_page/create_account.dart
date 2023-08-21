@@ -1,6 +1,7 @@
 import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
 import 'package:flutter/material.dart';
+import '../widget/custom_appbar.dart';
 import 'forget_paasword.dart';
 
 class CreateAccount extends StatelessWidget {
@@ -9,13 +10,7 @@ class CreateAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back_ios)),
-      ),
+      appBar: const CustomAppBar(),
       body: Column(
         children: [
           Expanded(

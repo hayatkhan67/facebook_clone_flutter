@@ -1,13 +1,13 @@
 import 'package:bano_qabil_project/Facebook/Menu/setting&privacy/settings.dart';
 import 'package:bano_qabil_project/Facebook/Menu/setting_privacy.dart';
+import 'package:bano_qabil_project/Facebook/Profile/my_profile.dart';
 import 'package:flutter/material.dart';
 
 import '../../Login_page/login_page.dart';
 import '../../widget/circle_icon.dart';
 import '../../widget/customText.dart';
 import '../../widget/custom_ElevatedButton.dart';
-import '../../widget/fb_drawer.dart';
-import '../Profile/user_Profile.dart';
+import '../../widget/custom_appbar.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -57,14 +57,15 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: CustomAppBar(
+        leading: const SizedBox(),
         title: const Text('Menu',
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
                 fontSize: 30)),
         centerTitle: false,
-        leadingWidth: 25,
+        leadingWidth: 1,
         elevation: 0,
         actions: [
           CircleIcon(
@@ -78,8 +79,11 @@ class _MenuState extends State<Menu> {
             icon: Icons.settings,
             color: Colors.black,
           ),
-          const CircleIcon(
-            icon: Icons.search,
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.0),
+            child: CircleIcon(
+              icon: Icons.search,
+            ),
           ),
         ],
       ),
@@ -91,7 +95,7 @@ class _MenuState extends State<Menu> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => UserProfile(isBack: true),
+                      builder: (context) => const MyProfile(isBack: true),
                     ));
               },
               leading: const CircleAvatar(

@@ -1,3 +1,4 @@
+import 'package:bano_qabil_project/Facebook/Profile/my_profile.dart';
 import 'package:bano_qabil_project/data/images.dart';
 import 'package:bano_qabil_project/widget/circle_icon.dart';
 import 'package:bano_qabil_project/widget/customText.dart';
@@ -10,7 +11,6 @@ import '../api/shop_api/shopHome.dart';
 import '../Facebook/Chats/chats.dart';
 import '../Facebook/Menu/setting_privacy.dart';
 import '../Facebook/Notifications/notifications.dart';
-import '../Facebook/Profile/user_Profile.dart';
 import '../Facebook/Watch_videos/videos.dart';
 import '../Facebook/newsfeed/user_newsfeed.dart';
 import '../Facebook/homepage/create_story/create_story.dart';
@@ -141,7 +141,7 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                       child: TabBarView(children: [
                         home(context, screenmd),
                         const Videos(),
-                        UserProfile(isBack: false),
+                        const MyProfile(isBack: false),
                         const Notifications(),
                         const MyHomePage()
                       ])),

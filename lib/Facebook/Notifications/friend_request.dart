@@ -2,6 +2,7 @@ import 'package:bano_qabil_project/data/fb_data.dart';
 import 'package:flutter/material.dart';
 
 import '../../widget/customText.dart';
+import '../../widget/custom_appbar.dart';
 
 class FriendRequestList extends StatefulWidget {
   const FriendRequestList({super.key});
@@ -15,19 +16,14 @@ class _FriendRequestListState extends State<FriendRequestList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back_ios)),
-        title: const MyText(
+      appBar: const CustomAppBar(
+        title: MyText(
           text: 'Friends',
           fWeight: FontWeight.bold,
           size: 18.0,
         ),
         centerTitle: true,
-        actions: const [
+        actions: [
           Padding(
             padding: EdgeInsets.all(8.0),
             child: Icon(Icons.search),

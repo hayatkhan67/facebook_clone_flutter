@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../widget/customText.dart';
+import '../../../widget/custom_appbar.dart';
 
 class LinkHistory extends StatelessWidget {
   const LinkHistory({super.key});
@@ -8,15 +9,8 @@ class LinkHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(Icons.arrow_back_ios),
-          tooltip: 'Back',
-        ),
-        title: const MyText(
+      appBar: const CustomAppBar(
+        title: MyText(
           text: 'Link History',
           fWeight: FontWeight.w500,
           size: 17.0,

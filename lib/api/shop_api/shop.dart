@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../widget/customText.dart';
+import '../../widget/custom_appbar.dart';
 import '../../widget/myrich_text.dart';
 
 class Shop extends StatefulWidget {
@@ -20,12 +21,7 @@ class _ShopState extends State<Shop> {
     var data = widget.data;
     return Scaffold(
       // backgroundColor: Colors.blue[100],
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back_ios)),
+      appBar: CustomAppBar(
         title: MyText(
           text: data.title!,
           size: 18,

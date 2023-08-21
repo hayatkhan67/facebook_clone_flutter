@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../widget/customText.dart';
 import '../../../widget/custom_ElevatedButton.dart';
+import '../../../widget/custom_appbar.dart';
 
 class DeviceRequest extends StatelessWidget {
   const DeviceRequest({super.key});
@@ -9,14 +10,7 @@ class DeviceRequest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(Icons.arrow_back_ios),
-          tooltip: 'Back',
-        ),
+      appBar: CustomAppBar(
         title: const MyText(
           text: 'Device login requests',
           fWeight: FontWeight.w500,
@@ -24,7 +18,9 @@ class DeviceRequest extends StatelessWidget {
         ),
         centerTitle: true,
         elevation: 1.0,
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.dark_mode))],
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.dark_mode))
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 20.0, left: 10.0, right: 10.0),
@@ -61,7 +57,7 @@ class DeviceRequest extends StatelessWidget {
                   MyText(text: 'Only use a code from a source that you trust'),
             ),
             CustomElevatedButton(
-              onPressed: (){},
+              onPressed: () {},
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
               child: const MyText(text: 'Approve'),

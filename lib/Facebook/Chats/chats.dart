@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../../widget/circle_icon.dart';
 import '../../widget/customText.dart';
+import '../../widget/custom_appbar.dart';
 import '../../widget/custom_listtile.dart';
 import 'chat_model_class.dart';
 import 'chats_home.dart';
@@ -19,12 +20,7 @@ class _ChatsState extends State<Chats> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back_ios)),
+      appBar: CustomAppBar(
         title: const MyText(text: 'Chat'),
         centerTitle: true,
         actions: [

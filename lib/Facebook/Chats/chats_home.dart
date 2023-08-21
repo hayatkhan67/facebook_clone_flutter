@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../widget/customText.dart';
+import '../../widget/custom_appbar.dart';
 
 class ChatHomePage extends StatefulWidget {
   const ChatHomePage({super.key, required this.chatData});
@@ -24,12 +25,7 @@ class _ChatHomePageState extends State<ChatHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back_ios)),
+      appBar: CustomAppBar(
         leadingWidth: 20,
         title: ListTile(
           leading: CircleAvatar(
