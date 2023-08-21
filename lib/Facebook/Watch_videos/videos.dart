@@ -5,6 +5,7 @@ import 'package:bano_qabil_project/widget/circle_icon.dart';
 import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:bano_qabil_project/widget/custom_Divider.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:video_player/video_player.dart';
 import 'package:http/http.dart' as http;
 import 'modelVideo.dart';
@@ -37,29 +38,23 @@ class _VideosState extends State<Videos> {
     return data;
   }
 
-  int currentIndex = 0;
-  List videoList = [
-    'https://mega-drive-1.megamirrorleech.workers.dev/0:/IMG_0575.MP4',
-    'https://mega-drive-1.megamirrorleech.workers.dev/0:/./',
-    'https://mega-drive-1.megamirrorleech.workers.dev/0:/%5BTW4AL%5D_Naruto_143_Hindi_Dub_1080p_BluRay_ESub.mkv'
-  ];
+  // int currentIndex = 0;
 
   late VideoPlayerController _controller;
   late Future<void> _initializeController;
 
-  late var myVideos;
-  @override
-  void initState() {
-    // _controller=VideoPlayerController.contentUri(Uri.parse(myVideos));
-    // _initializeController=_controller.initialize().then((value) {
-    //   setState(() {
-    //     // _controller.play();
-
-    //   });
-    // });
-    // fetchData();
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   _controller = await VideoPlayerController.contentUri(
+  //       Uri.parse(data[0].videoUrl.toString()));
+  //   _initializeController = _controller.initialize().then((value) {
+  //     setState(() {
+  //       // _controller.play();
+  //     });
+  //   });
+  //   fetchData();
+  //   super.initState();
+  // }
 
   @override
   void dispose() {
@@ -125,19 +120,18 @@ class _VideosState extends State<Videos> {
     );
   }
 
-  FutureBuilder post() {
+  Widget post() {
     return FutureBuilder(
         future: fetchData(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
                 shrinkWrap: true,
-                itemCount: snapshot.data.length,
+                itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
-                  print(data[0].videoUrl);
-
-                  // _controller=VideoPlayerController.networkUrl(data[index].videoUrl.toString());
-                  // _initializeController=_controller.initialize();
+                  _controller = VideoPlayerController.networkUrl(
+                      Uri.parse(snapshot.data![index].videoUrl.toString()));
+                  _initializeController = _controller.initialize();
                   return Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -158,7 +152,8 @@ class _VideosState extends State<Videos> {
                                       CircleAvatar(
                                         radius: 27,
                                         backgroundImage: NetworkImage(
-                                          snapshot.data[index].profile,
+                                          snapshot.data![index].profile
+                                              .toString(),
                                         ),
                                         onBackgroundImageError:
                                             (exception, stackTrace) =>
@@ -174,7 +169,8 @@ class _VideosState extends State<Videos> {
                                           Row(
                                             children: [
                                               MyText(
-                                                text: snapshot.data[index].name,
+                                                text:
+                                                    snapshot.data![index].name,
                                                 size: 18,
                                                 fWeight: FontWeight.w500,
                                               )
@@ -189,37 +185,46 @@ class _VideosState extends State<Videos> {
                                       ),
                                     ],
                                   )),
-                              const Row(
-                                children: [MyText(text: 'Naruto')],
+                              Row(
+                                children: [
+                                  Expanded(
+                                      child: MyText(
+                                          text:
+                                              snapshot.data![index].videoTitle))
+                                ],
                               ),
-//                   FutureBuilder(
-//                     future:_initializeController,
-//                     builder: (context, snapshot) {
-//             if(snapshot.connectionState==ConnectionState.done){
-//             return InkWell(
-//             onTap: () {
-//               if(_controller.value.isPlaying){
-//                 _controller.pause();
-//               }else{
-//                 _controller.play();
-
-//               }
-//             },
-//   // ignore: avoid_unnecessary_containers
-//             child: Container(
-//               child: AspectRatio(
-//                 aspectRatio: _controller.value.aspectRatio,
-//                 child: VideoPlayer(_controller)),
-//             ),
-//   );
-// }else{
-//   return Container(
-//             height: 200,width: double.infinity,color: Colors.black,child: const Center(
-//               child: CircularProgressIndicator(),
-//             ),
-//   );
-// }
-//                     } ),
+                              FutureBuilder(
+                                  future: _initializeController,
+                                  builder: (context, snapshot) {
+                                    if (snapshot.connectionState ==
+                                        ConnectionState.done) {
+                                      return InkWell(
+                                        onTap: () {
+                                          if (_controller.value.isPlaying) {
+                                            _controller.pause();
+                                          } else {
+                                            _controller.play();
+                                          }
+                                        },
+                                        // ignore: avoid_unnecessary_containers
+                                        child: Container(
+                                          child: AspectRatio(
+                                              aspectRatio:
+                                                  _controller.value.aspectRatio,
+                                              child: VideoPlayer(_controller)),
+                                        ),
+                                      );
+                                    } else {
+                                      return Container(
+                                        height: 200,
+                                        width: double.infinity,
+                                        color: Colors.black,
+                                        child: const Center(
+                                          child: CircularProgressIndicator(),
+                                        ),
+                                      );
+                                    }
+                                  }),
                               const Row(
                                 children: [
                                   Icon(
@@ -232,7 +237,27 @@ class _VideosState extends State<Videos> {
                                   Expanded(child: MyText(text: 'Likes 100')),
                                   MyText(text: 'comments 20\t share 10')
                                 ],
-                              )
+                              ),
+                              MyDivider(
+                                thick: 2.0,
+                                color: Colors.grey[200],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  button(
+                                      icon: Icons.thumb_up_sharp,
+                                      color: Colors.blue,
+                                      name: 'Like'),
+                                  button(
+                                      icon: MdiIcons.commentOutline,
+                                      name: 'comments'),
+                                  button(
+                                      icon: MdiIcons.shareOutline,
+                                      name: 'share')
+                                ],
+                              ),
                             ]))
                       ]);
                 });
@@ -243,4 +268,37 @@ class _VideosState extends State<Videos> {
           }
         });
   }
+}
+
+Widget button({IconData? icon, Color? color, String? name}) {
+  return Expanded(
+    child: Container(
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 6),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.grey[200],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const SizedBox(
+            width: 20,
+          ),
+          Icon(
+            icon,
+            color: color,
+          ),
+          const SizedBox(
+            width: 5,
+          ),
+          Expanded(
+              child: MyText(
+            text: name,
+            overflow: TextOverflow.ellipsis,
+            maxline: 1,
+          ))
+        ],
+      ),
+    ),
+  );
 }

@@ -566,3 +566,228 @@
 //         ));
 //   }
 // }
+/*import 'package:flutter/material.dart';
+
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _formkey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
+        // backgroundColor: const Color(0xff1877f2).withOpacity(0.2),
+        body: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Form(
+            key: _formkey,
+            child: Column(
+              children: [
+                TextFormField(
+                  decoration: InputDecoration(
+                      hintText: 'Mobile number or email address',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey[200],
+                      labelText: 'Mobile number or email address'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        hintText: 'Password',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        labelText: 'password'),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+*/
+/*import 'package:bano_qabil_project/Login_page/sign_up.dart';
+import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../widget/customText.dart';
+
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _formkey = GlobalKey<FormState>();
+  TextEditingController userNumber = TextEditingController();
+  TextEditingController userPassword = TextEditingController();
+  bool eyeChanger = false;
+  @override
+  Widget build(BuildContext context) {
+    final mdsize = MediaQuery.of(context).size;
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
+        backgroundColor: const Color.fromARGB(255, 183, 212, 255),
+        body: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Form(
+                    key: _formkey,
+                    child: Column(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 80),
+                          child: Image(
+                            image: AssetImage(
+                                "assets/facebook/loginpage/Facebook-logo.png"),
+                            height: 80,
+                          ),
+                        ),
+                        TextFormField(
+                          controller: userNumber,
+                          decoration: InputDecoration(
+                              prefixIcon: const Icon(Icons.person),
+                              suffixIcon: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      userNumber.clear();
+                                    });
+                                  },
+                                  icon: const Icon(Icons.close)),
+                              hintText: 'Mobile number or email address',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              filled: true,
+                              fillColor: Colors.grey[50],
+                              labelText: 'Mobile number or email address'),
+                        ),
+                        Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: TextFormField(
+                                obscureText: eyeChanger,
+                                controller: userPassword,
+                                decoration: InputDecoration(
+                                  fillColor: Colors.grey.shade50,
+                                  filled: true,
+                                  hintText: 'Password',
+                                  labelText: 'Password',
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  suffixIcon: IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        eyeChanger = !eyeChanger;
+                                      });
+                                    },
+                                    icon: eyeChanger == true
+                                        ? const Icon(Icons.remove_red_eye)
+                                        : const Icon(
+                                            Icons.remove_red_eye_outlined),
+                                  ),
+                                  prefixIcon: const Icon(Icons.key),
+                                ))),
+                        CustomElevatedButton(
+                          onPressed: () {},
+                          color: const Color.fromARGB(255, 6, 126, 223),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          child: const Center(
+                              child: MyText(
+                            text: ' Log in',
+                            color: Colors.white,
+                          )),
+                        ),
+                        Flexible(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              TextButton(
+                                  onPressed: () {},
+                                  child: const MyText(
+                                      text: 'Forgotton Password?')),
+                              Column(
+                                children: [
+                                  CustomElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const SignUp(),
+                                          ));
+                                    },
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20),
+                                        side: const BorderSide(
+                                            color: Colors.blue, width: 1.5)),
+                                    color: const Color.fromARGB(
+                                        255, 203, 229, 251),
+                                    elevation: 0.0,
+                                    child: const MyText(
+                                      text: "Create New Account",
+                                      color: Colors.blue,
+                                    ),
+                                  ),
+                                  const Padding(
+                                    padding: EdgeInsets.all(5.0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(FontAwesomeIcons.meta),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        MyText(
+                                          text: 'Meta',
+                                          size: 16,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+*/

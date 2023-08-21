@@ -4,11 +4,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../../widget/circle_icon.dart';
 import '../../widget/customText.dart';
-import '../../widget/custom_appbar.dart';
 import '../Chats/chats.dart';
 import '../newsfeed/user_newsfeed.dart';
 import 'create_story/create_story.dart';
 import 'music.dart';
+import 'mydrawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -25,15 +25,14 @@ class _HomePageState extends State<HomePage> {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        appBar: CustomAppBar(
+        appBar: AppBar(
           title: const MyText(
             text: 'facebook',
             size: 19,
             color: Colors.blue,
             fWeight: FontWeight.bold,
           ),
-          leading: const SizedBox(),
-          leadingWidth: 1,
+          leadingWidth: 27,
           actions: [
             CircleAvatar(
               radius: 20,
@@ -102,6 +101,7 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
+        drawer: const MyDrawer(),
         body: SingleChildScrollView(
           child: Column(
             children: [

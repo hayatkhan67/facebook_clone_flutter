@@ -2,6 +2,8 @@ import 'package:bano_qabil_project/splash%20screen&onboarding/splash_screen.dart
 import 'package:flutter/material.dart';
 import 'dart:io';
 
+import 'Facebook/Watch_videos/videos.dart';
+
 void main() {
   HttpOverrides.global = MyHttpOverrides();
 
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
               color: Colors.white,
               iconTheme: IconThemeData(color: Colors.black)),
         ),
-        home: const SplashScreen());
+        home: const Videos());
   }
 }
 

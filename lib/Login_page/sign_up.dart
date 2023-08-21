@@ -1,7 +1,6 @@
 import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../widget/custom_appbar.dart';
 import 'create_account.dart';
@@ -12,7 +11,7 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final w = MediaQuery.of(context).size.width;
+    final isDesktop = MediaQuery.of(context).size.width > 600;
     return Scaffold(
       appBar: const CustomAppBar(),
       body: Column(
@@ -26,32 +25,64 @@ class SignUp extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        MyText(text: 'Join Facebook', size: w < 600 ? 18 : 43),
+                        MyText(
+                            text: 'Join Facebook', size: isDesktop ? 18 : 43),
                       ],
                     ),
-
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: SizedBox(
-                            height: w < 600
-                                ? 200
-                                : MediaQuery.of(context).size.height * 0.50,
-                            width: double.infinity,
-                            child: SvgPicture.asset(
-                              'assets/svg/ddc-facebook-audience-insights-p-500.svg',
-                              fit: BoxFit.cover,
-                            )),
-                      ),
+                      padding: const EdgeInsets.all(12.0),
+                      child: isDesktop
+                          ? Row(
+                              children: [
+                                Container(
+                                  height: 300,
+                                  width:
+                                      MediaQuery.of(context).size.width * .45,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      image: const DecorationImage(
+                                        image: AssetImage(
+                                          'assets/facebook/loginpage/62b03a20c7e36272df213ddc_Facebook Audience Insights-p-500.png',
+                                        ),
+                                        fit: BoxFit.cover,
+                                      )),
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Expanded(
+                                  child: MyText(
+                                    text:
+                                        "Create an account to connect with friends,family and communities of people who share your interests",
+                                    fWeight: FontWeight.w500,
+                                    size: 40,
+                                    maxline: 3,
+                                    align: TextAlign.start,
+                                  ),
+                                ),
+                              ],
+                            )
+                          : Container(
+                              height: 200,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  image: const DecorationImage(
+                                    image: AssetImage(
+                                      'assets/facebook/loginpage/62b03a20c7e36272df213ddc_Facebook Audience Insights-p-500.png',
+                                    ),
+                                    fit: BoxFit.cover,
+                                  )),
+                            ),
                     ),
-
-                    const MyText(
-                      text:
-                          "Create an account to connect with friends,family and communities of people who share your interests",
-                      fWeight: FontWeight.w500,
-                      align: TextAlign.center,
-                    ),
+                    isDesktop
+                        ? const SizedBox()
+                        : const MyText(
+                            text:
+                                "Create an account to connect with friends,family and communities of people who share your interests",
+                            fWeight: FontWeight.w500,
+                            align: TextAlign.center,
+                          ),
                     const SizedBox(
                       height: 10,
                     ),
@@ -73,7 +104,6 @@ class SignUp extends StatelessWidget {
                         fWeight: FontWeight.w500,
                       ),
                     ),
-                    // const Expanded(child: SizedBox()),
                   ],
                 ),
               ),

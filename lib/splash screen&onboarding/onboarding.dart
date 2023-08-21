@@ -1,7 +1,7 @@
 import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 import '../Login_page/login_page.dart';
 import 'onboarding_modelclass.dart';
 
@@ -45,18 +45,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     MyText(
                       text: data[index].title.toString(),
                       align: TextAlign.center,
-                      fontFamily: "Montserrat",
                       fWeight: FontWeight.bold,
                       //  align: TextAlign.center,
                       size: 20.0,
                     ),
-                    const SizedBox(height: 20,),
-                  Expanded(
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Expanded(
                       child: AspectRatio(
-                        aspectRatio:16/9,
-                        child: SvgPicture.asset(data[index].svg.toString(),fit: BoxFit.contain,),
-                          // image: AssetImage(data[index].image.toString()),
-                         
+                        aspectRatio: 16 / 9,
+                        child: Lottie.asset(
+                          data[index].lottie.toString(),
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -69,15 +71,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         size: 20.0,
                         align: TextAlign.center,
                         fWeight: FontWeight.w600,
-                        fontFamily: "Montserrat",
-                      
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-          
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
@@ -111,13 +110,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   }
                 },
                 sizeHeight: 45.0,
-                
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
                 elevation: 0.0,
                 color: Colors.blueAccent,
                 child: MyText(
-                  fontFamily: "Montserrat",
                   text: currentPage == 2 ? 'Continue' : 'Next',
                   // text: 'Next $currentPage',
                   // size: 10.0,
