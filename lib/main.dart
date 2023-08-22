@@ -37,11 +37,3 @@ class MyHttpOverrides extends HttpOverrides {
           (X509Certificate cert, String host, int port) => true;
   }
 }
-
-// pending tasks
-// profile tab bar 
-// chat navigation //complete 
-// friends banner and post pending
-// issue 1 overflow onboarding text
-// 2 chat screen stack response
-// 3 notification text
