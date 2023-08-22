@@ -10,7 +10,8 @@ import '../../widget/custom_appbar.dart';
 import 'model_phone.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  const MyHomePage({super.key, required this.isBack});
+  final bool isBack;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -45,12 +46,16 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-        title: Text(
+      appBar: CustomAppBar(
+        leading: widget.isBack == true
+            ? IconButton(
+                onPressed: () {}, icon: const Icon(Icons.arrow_back_ios))
+            : const SizedBox(),
+        title: const Text(
           'HKN SHOP',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        actions: [
+        actions: const [
           Padding(
             padding: EdgeInsets.all(8.0),
             child: Icon(

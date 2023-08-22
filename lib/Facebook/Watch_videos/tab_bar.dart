@@ -8,8 +8,6 @@ class MyTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints(
-          minHeight: 20, maxHeight: 40, minWidth: 50, maxWidth: 150),
       decoration: BoxDecoration(
           color: Colors.blue.shade50, borderRadius: BorderRadius.circular(20)),
       child: Column(

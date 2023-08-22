@@ -14,11 +14,11 @@ class VideoData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['profile'] = this.profile;
-    data['videoTitle'] = this.videoTitle;
-    data['videoUrl'] = this.videoUrl;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['profile'] = profile;
+    data['videoTitle'] = videoTitle;
+    data['videoUrl'] = videoUrl;
     return data;
   }
 }

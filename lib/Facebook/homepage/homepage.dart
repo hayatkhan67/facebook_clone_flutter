@@ -1,6 +1,6 @@
 import 'package:bano_qabil_project/Facebook/Profile/my_profile.dart';
+import 'package:bano_qabil_project/Facebook/Watch_videos/chewievideo.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../../widget/circle_icon.dart';
 import '../../widget/customText.dart';
@@ -34,52 +34,16 @@ class _HomePageState extends State<HomePage> {
           ),
           leadingWidth: 27,
           actions: [
-            CircleAvatar(
-              radius: 20,
-              backgroundColor: Colors.grey[200],
-              child: Center(
-                child: PopupMenuButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  // position: PopupMenuPosition.under,
-                  icon: const Icon(
-                    Icons.add,
-                    color: Colors.black,
-                  ),
-                  itemBuilder: (context) {
-                    return [
-                      PopupMenuItem(
-                          child: TextButton.icon(
-                              onPressed: () {},
-                              icon: const Icon(FontAwesomeIcons.penToSquare),
-                              label: const MyText(
-                                text: 'Post',
-                              ))),
-                      PopupMenuItem(
-                          child: TextButton.icon(
-                              onPressed: () {},
-                              icon: const Icon(FontAwesomeIcons.book),
-                              label: const MyText(
-                                text: 'Story',
-                              ))),
-                      PopupMenuItem(
-                          child: TextButton.icon(
-                              onPressed: () {},
-                              icon: const Icon(Icons.video_collection_rounded),
-                              label: const MyText(
-                                text: 'Reel',
-                              ))),
-                      PopupMenuItem(
-                          child: TextButton.icon(
-                              onPressed: () {},
-                              icon: const Icon(Icons.videocam_outlined),
-                              label: const MyText(
-                                text: 'Live',
-                              ))),
-                    ];
-                  },
-                ),
-              ),
+            CircleIcon(
+              icon: Icons.add,
+              color: Colors.blue,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Videos(),
+                    ));
+              },
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.0),

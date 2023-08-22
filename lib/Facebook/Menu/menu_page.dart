@@ -200,12 +200,29 @@ class _MenuState extends State<Menu> {
               padding: const EdgeInsets.all(8.0),
               child: CustomElevatedButton(
                 onPressed: () {
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const LoginPage(),
-                      ),
-                      (route) => false);
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: const MyText(text: 'Are you sure'),
+                      actions: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const LoginPage(),
+                                  ),
+                                  (route) => false);
+                            },
+                            child: const MyText(text: 'Yes')),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const MyText(text: 'No'))
+                      ],
+                    ),
+                  );
                 },
                 color: Colors.grey.shade400,
                 sizeHeight: 30.0,

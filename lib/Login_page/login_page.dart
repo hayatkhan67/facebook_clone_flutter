@@ -112,6 +112,9 @@ class _LoginPageState extends State<LoginPage> {
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Enter Password';
+                            }
+                            if (value.length < 8) {
+                              return 'Atleast 8 word';
                             } else {
                               return null;
                             }

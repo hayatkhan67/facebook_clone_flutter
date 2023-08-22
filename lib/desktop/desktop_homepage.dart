@@ -7,11 +7,11 @@ import 'package:bano_qabil_project/widget/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../Facebook/Watch_videos/chewievideo.dart';
 import '../api/shop_api/shopHome.dart';
 import '../Facebook/Chats/chats.dart';
 import '../Facebook/Menu/setting_privacy.dart';
 import '../Facebook/Notifications/notifications.dart';
-import '../Facebook/Watch_videos/videos.dart';
 import '../Facebook/newsfeed/user_newsfeed.dart';
 import '../Facebook/homepage/create_story/create_story.dart';
 import '../Facebook/homepage/music.dart';
@@ -143,7 +143,9 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                         const Videos(),
                         const MyProfile(isBack: false),
                         const Notifications(),
-                        const MyHomePage()
+                        const MyHomePage(
+                          isBack: false,
+                        )
                       ])),
                   const Column3()
                 ],

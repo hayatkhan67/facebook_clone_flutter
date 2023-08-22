@@ -15,7 +15,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Timer(const Duration(seconds: 6), () {
+    Timer(const Duration(seconds: 100), () {
       Navigator.push(
           context,
           MaterialPageRoute(
@@ -33,12 +33,13 @@ class _SplashScreenState extends State<SplashScreen> {
         body: Column(
           children: [
             Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Lottie.asset('assets/lottie/animation_llksal25.json'),
-                  ],
-                ),
+              child: Column(
+                children: [
+                  const Spacer(),
+                  Lottie.asset('assets/lottie/animation_llksal25.json',
+                      height: 200, fit: BoxFit.cover),
+                  const Spacer(),
+                ],
               ),
             ),
             const MyText(

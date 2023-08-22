@@ -2,7 +2,7 @@ import 'package:bano_qabil_project/Facebook/Profile/my_profile.dart';
 import 'package:flutter/material.dart';
 import '../Notifications/notifications.dart';
 import '../Menu/menu_page.dart';
-import '../Watch_videos/videos.dart';
+import '../Watch_videos/chewievideo.dart';
 import '../../desktop/desktop_homepage.dart';
 import '../homepage/homepage.dart';
 

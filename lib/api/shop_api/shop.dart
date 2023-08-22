@@ -5,7 +5,10 @@ import '../../widget/custom_appbar.dart';
 import '../../widget/myrich_text.dart';
 
 class Shop extends StatefulWidget {
-  const Shop({super.key, this.data});
+  const Shop({
+    super.key,
+    this.data,
+  });
 
   // ignore: prefer_typing_uninitialized_variables
   final data;

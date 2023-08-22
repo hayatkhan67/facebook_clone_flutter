@@ -16,7 +16,7 @@ class MyDrawer extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const MyHomePage(),
+                    builder: (context) => const MyHomePage(isBack: true),
                   ));
             },
             leading: const Icon(Icons.shopping_cart),
