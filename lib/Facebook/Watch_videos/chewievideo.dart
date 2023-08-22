@@ -43,22 +43,6 @@ class _VideosState extends State<Videos> {
 
   late VideoPlayerController videoPlayerController;
   ChewieController? chewieController;
-  List allVideos = [];
-  var myIndex = 0;
-  @override
-  void initState() {
-    super.initState();
-    videoPlayerController =
-        VideoPlayerController.networkUrl(Uri.parse(allVideos[myIndex]));
-    player();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    chewieController!.dispose();
-    videoPlayerController.dispose();
-  }
 
   player() {
     chewieController = ChewieController(
@@ -123,8 +107,9 @@ class _VideosState extends State<Videos> {
                         shrinkWrap: true,
                         itemCount: data.length,
                         itemBuilder: (context, index) {
-                          allVideos.add(VideoPlayerController.networkUrl(
-                              Uri.parse(data[index].videoUrl!)));
+                          videoPlayerController =
+                              VideoPlayerController.networkUrl(
+                                  Uri.parse(data[index].videoUrl!));
                           player();
                           return CustomVideoContainer(
                               profileImage: data[index].profile,
@@ -140,5 +125,11 @@ class _VideosState extends State<Videos> {
             ],
           ),
         ));
+  }
+
+  @override
+  void dispose() {
+    chewieController!.dispose();
+    super.dispose();
   }
 }

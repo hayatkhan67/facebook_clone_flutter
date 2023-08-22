@@ -24,7 +24,7 @@ class CustomVideoContainer extends StatefulWidget {
 class _CustomVideoContainerState extends State<CustomVideoContainer> {
   @override
   Widget build(BuildContext context) {
-    final bool isDesktop = MediaQuery.of(context).size.width < 1100;
+    final bool isDesktop = MediaQuery.of(context).size.width > 1100;
     return Card(
       color: Colors.white,
       shape: isDesktop
