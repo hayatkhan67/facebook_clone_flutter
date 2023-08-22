@@ -1,8 +1,8 @@
 import 'package:bano_qabil_project/Facebook/Profile/my_profile.dart';
 import 'package:flutter/material.dart';
+import '../../api/shop_api/shopHome.dart';
 import '../Notifications/notifications.dart';
 import '../Menu/menu_page.dart';
-import '../Watch_videos/chewievideo.dart';
 import '../../desktop/desktop_homepage.dart';
 import '../homepage/homepage.dart';
 
@@ -16,7 +16,7 @@ class MyNavigatorBar extends StatefulWidget {
 class _MyNavigatorBarState extends State<MyNavigatorBar> {
   List facebookNavigation = [
     const HomePage(),
-    const Videos(),
+    const MyHomePage(isBack: false),
     const MyProfile(isBack: false),
     const Notifications(),
     const Menu()
@@ -45,8 +45,8 @@ class _MyNavigatorBarState extends State<MyNavigatorBar> {
                     NavigationDestination(
                         icon: Icon(Icons.home_outlined), label: 'Home'),
                     NavigationDestination(
-                        icon: Icon(Icons.personal_video_outlined),
-                        label: 'Videos'),
+                        icon: Icon(Icons.shopping_cart_outlined),
+                        label: 'MarketPlace'),
                     NavigationDestination(
                         icon: Icon(Icons.person_2_outlined), label: 'Profile'),
                     NavigationDestination(

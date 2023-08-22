@@ -15,6 +15,7 @@ class CustomVideoContainer extends StatefulWidget {
   final String? userName;
   final String? profileImage;
   final String? postText;
+  // ignore: prefer_typing_uninitialized_variables
   final controller;
   final double? circleRadius;
   @override

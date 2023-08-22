@@ -7,10 +7,9 @@ import 'package:bano_qabil_project/widget/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../Facebook/Watch_videos/chewievideo.dart';
+import '../Facebook/Menu/menu_page.dart';
 import '../api/shop_api/shopHome.dart';
 import '../Facebook/Chats/chats.dart';
-import '../Facebook/Menu/setting_privacy.dart';
 import '../Facebook/Notifications/notifications.dart';
 import '../Facebook/newsfeed/user_newsfeed.dart';
 import '../Facebook/homepage/create_story/create_story.dart';
@@ -63,29 +62,26 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                 ],
               ),
             ),
-            title: SizedBox(
+            title: const SizedBox(
               width: 400,
               child: Row(
                 children: [
                   Expanded(
                     child: TabBar(indicatorColor: Colors.amber, tabs: [
-                      const Tab(
+                      Tab(
                           icon: Icon(
                         Icons.home_outlined,
                         color: Colors.black,
                       )),
                       Tab(
-                        icon: Icon(MdiIcons.television, color: Colors.black),
-                      ),
-                      const Tab(
                         icon:
                             Icon(Icons.person_2_outlined, color: Colors.black),
                       ),
-                      const Tab(
+                      Tab(
                         icon: Icon(Icons.notifications_outlined,
                             color: Colors.black),
                       ),
-                      const Tab(
+                      Tab(
                         icon: Icon(Icons.shopping_cart_outlined,
                             color: Colors.black),
                       ),
@@ -102,7 +98,7 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const SeetingsPrivacy(),
+                        builder: (context) => const Menu(),
                       ));
                 },
               ),
@@ -140,7 +136,6 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                       flex: 2,
                       child: TabBarView(children: [
                         home(context, screenmd),
-                        const Videos(),
                         const MyProfile(isBack: false),
                         const Notifications(),
                         const MyHomePage(

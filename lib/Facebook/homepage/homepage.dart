@@ -8,7 +8,6 @@ import '../Chats/chats.dart';
 import '../newsfeed/user_newsfeed.dart';
 import 'create_story/create_story.dart';
 import 'music.dart';
-import 'mydrawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -32,10 +31,11 @@ class _HomePageState extends State<HomePage> {
             color: Colors.blue,
             fWeight: FontWeight.bold,
           ),
-          leadingWidth: 27,
+          leading: const SizedBox(),
+          leadingWidth: 5,
           actions: [
             CircleIcon(
-              icon: Icons.add,
+              icon: Icons.personal_video_outlined,
               color: Colors.blue,
               onPressed: () {
                 Navigator.push(
@@ -65,7 +65,6 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-        drawer: const MyDrawer(),
         body: SingleChildScrollView(
           child: Column(
             children: [
