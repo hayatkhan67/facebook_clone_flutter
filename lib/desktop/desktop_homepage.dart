@@ -1,19 +1,21 @@
-import 'package:bano_qabil_project/Facebook/Profile/my_profile.dart';
+import 'package:bano_qabil_project/Mobile/Profile/my_profile.dart';
 import 'package:bano_qabil_project/data/images.dart';
 import 'package:bano_qabil_project/widget/circle_icon.dart';
 import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:bano_qabil_project/widget/custom_Divider.dart';
 import 'package:bano_qabil_project/widget/custom_appbar.dart';
+import 'package:bano_qabil_project/widget/navigator_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../Facebook/Menu/menu_page.dart';
+import '../Mobile/Menu/menu_page.dart';
+import '../Mobile/Watch_videos/chewievideo.dart';
 import '../api/shop_api/shopHome.dart';
-import '../Facebook/Chats/chats.dart';
-import '../Facebook/Notifications/notifications.dart';
-import '../Facebook/newsfeed/user_newsfeed.dart';
-import '../Facebook/homepage/create_story/create_story.dart';
-import '../Facebook/homepage/music.dart';
+import '../Mobile/Chats/chats.dart';
+import '../Mobile/Notifications/notifications.dart';
+import '../Mobile/newsfeed/user_newsfeed.dart';
+import '../Mobile/homepage/create_story/create_story.dart';
+import '../Mobile/homepage/music.dart';
 import 'column1.dart';
 import 'column3.dart';
 
@@ -115,7 +117,10 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                     }),
               ),
               CircleIcon(
-                icon: MdiIcons.bell,
+                icon: Icons.personal_video_outlined,
+                onPressed: () {
+                  myNavigator(context, const Videos());
+                },
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
@@ -171,7 +176,7 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                     (index) => Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 1),
                       child: Container(
-                        width: screenmd.width < 1100
+                        width: screenmd.width < 800
                             ? MediaQuery.of(context).size.width * 0.3
                             : MediaQuery.of(context).size.width * 0.1,
                         decoration: BoxDecoration(
