@@ -46,7 +46,6 @@ class _MenuState extends State<Menu> {
       Icons.newspaper,
       color: Color.fromARGB(255, 136, 177, 211),
     ),
-    // Icon(Icons.group,color: Colors.blue,),
   ];
   List shortcutText = const [
     'Videos on watch',
@@ -56,8 +55,6 @@ class _MenuState extends State<Menu> {
     'Reels',
     'Feeds'
   ];
-
-  ExpansionTileController tilesController = ExpansionTileController();
 
   @override
   Widget build(BuildContext context) {
@@ -167,10 +164,9 @@ class _MenuState extends State<Menu> {
               height: 1,
               color: Colors.grey,
             ),
-            ExpansionTile(
-              controller: tilesController,
-              leading: const Icon(Icons.question_mark_outlined),
-              title: const MyText(text: 'Help & Support'),
+            const ExpansionTile(
+              leading: Icon(Icons.question_mark_outlined),
+              title: MyText(text: 'Help & Support'),
             ),
             const Divider(
               thickness: 0.8,

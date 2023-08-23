@@ -14,7 +14,7 @@ List<OnBoardingDetails> onboardingDetails = [
   ),
   OnBoardingDetails(
     title: 'Share Your Stories and Interests',
-    lottie: 'assets/lottie/animation_llktn0jf.json',
+    lottie: 'assets/lottie/video.json',
     detail: 'Watch Videos and Reels\n Enjoy your Time with Facebook',
   ),
   OnBoardingDetails(

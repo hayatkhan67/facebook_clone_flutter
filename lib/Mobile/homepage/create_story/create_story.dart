@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../../../widget/customText.dart';
 
-class CreateStory extends StatelessWidget {
+class CreateStory extends StatefulWidget {
   const CreateStory({super.key});
 
+  @override
+  State<CreateStory> createState() => _CreateStoryState();
+}
+
+class _CreateStoryState extends State<CreateStory> {
   @override
   Widget build(BuildContext context) {
     final screenmd = MediaQuery.of(context).size;
@@ -29,7 +34,6 @@ class CreateStory extends StatelessWidget {
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(10),
                             topRight: Radius.circular(10)),
-                        color: Colors.pink,
                         image: DecorationImage(
                             image: AssetImage(
                                 'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),

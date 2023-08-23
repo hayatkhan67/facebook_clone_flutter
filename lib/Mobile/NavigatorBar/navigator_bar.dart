@@ -1,4 +1,5 @@
 import 'package:bano_qabil_project/Mobile/Profile/my_profile.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../api/shop_api/shopHome.dart';
 import '../Notifications/notifications.dart';
@@ -34,6 +35,9 @@ class _MyNavigatorBarState extends State<MyNavigatorBar> {
           ? const DesktopHomePage()
           : Scaffold(
               bottomNavigationBar: NavigationBar(
+                  labelBehavior:
+                      NavigationDestinationLabelBehavior.onlyShowSelected,
+                  animationDuration: const Duration(seconds: 1),
                   height: 60,
                   selectedIndex: currentIndex,
                   onDestinationSelected: (value) {
@@ -43,15 +47,15 @@ class _MyNavigatorBarState extends State<MyNavigatorBar> {
                   },
                   destinations: const [
                     NavigationDestination(
-                        icon: Icon(Icons.home_outlined), label: 'Home'),
+                        icon: Icon(CupertinoIcons.home), label: 'Home'),
                     NavigationDestination(
-                        icon: Icon(Icons.shopping_cart_outlined),
-                        label: 'MarketPlace'),
+                        icon: Icon(CupertinoIcons.shopping_cart),
+                        label: 'Shop'),
                     NavigationDestination(
-                        icon: Icon(Icons.person_2_outlined), label: 'Profile'),
+                        icon: Icon(CupertinoIcons.person_crop_circle),
+                        label: 'Profile'),
                     NavigationDestination(
-                        icon: Icon(Icons.notifications_outlined),
-                        label: 'Notification'),
+                        icon: Icon(CupertinoIcons.bell), label: 'Notification'),
                     NavigationDestination(
                         icon: Icon(Icons.menu), label: 'Menu'),
                   ]),

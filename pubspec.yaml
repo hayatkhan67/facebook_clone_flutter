@@ -38,12 +38,12 @@ dependencies:
   font_awesome_flutter: ^10.5.0
   material_design_icons_flutter: ^7.0.7296
   http: ^1.1.0
-  flutter_svg: ^2.0.7
   auto_size_text: ^3.0.0
   lottie: ^2.6.0
   video_player:
   chewie:
   image_picker: ^1.0.2
+  cached_network_image: ^3.2.3
 
 dev_dependencies:
   flutter_test:

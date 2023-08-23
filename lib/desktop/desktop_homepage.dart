@@ -16,8 +16,10 @@ import '../Mobile/Notifications/notifications.dart';
 import '../Mobile/newsfeed/user_newsfeed.dart';
 import '../Mobile/homepage/create_story/create_story.dart';
 import '../Mobile/homepage/music.dart';
+import '../data/fb_data.dart';
 import 'column1.dart';
 import 'column3.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class DesktopHomePage extends StatefulWidget {
   const DesktopHomePage({super.key});
@@ -172,7 +174,7 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                   const CreateStory(),
                   const SizedBox(width: 3),
                   ...List.generate(
-                    5,
+                    fbData[0].friendsImages!.length,
                     (index) => Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 1),
                       child: Container(
@@ -186,23 +188,22 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                           height: MediaQuery.of(context).size.height * 1,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(
-                                  image: AssetImage(
-                                      'assets/facebook/friends/images/photo_2023-07-18_15-42-23.jpg'),
+                              image: DecorationImage(
+                                  image:
+                                      CachedNetworkImageProvider(story[index]),
                                   fit: BoxFit.fill)),
-                          child: const Stack(
+                          child: Stack(
                             children: [
                               Positioned(
                                   left: 0.09,
                                   child: Padding(
-                                    padding: EdgeInsets.all(6.0),
+                                    padding: const EdgeInsets.all(6.0),
                                     child: CircleAvatar(
                                       radius: 19,
-                                      backgroundColor: Colors.blue,
                                       child: CircleAvatar(
                                         radius: 16,
                                         backgroundImage: AssetImage(
-                                            'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
+                                            fbData[0].friendsImages![index]),
                                       ),
                                     ),
                                   )),
@@ -211,9 +212,10 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                                 left: 8.0,
                                 right: 8.0,
                                 child: Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 10),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10),
                                   child: MyText(
-                                    text: 'Hayat Khan Niazi',
+                                    text: fbData[0].friendsNames![index],
                                     align: TextAlign.center,
                                     size: 10,
                                     fWeight: FontWeight.bold,
