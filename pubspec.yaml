@@ -43,6 +43,7 @@ dependencies:
   lottie: ^2.6.0
   video_player:
   chewie:
+  image_picker: ^1.0.2
 
 dev_dependencies:
   flutter_test:
@@ -74,8 +75,6 @@ flutter:
   - assets/facebook/homepage/
   - assets/facebook/friends/images/
   - assets/facebook/myPost/
-  - assets/facebook/onboarding/
-  - assets/svg/
   - assets/shop_api/
   - assets/lottie/
 

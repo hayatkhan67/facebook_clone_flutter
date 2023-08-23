@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../widget/customText.dart';
 import '../../widget/custom_appbar.dart';
 import '../../widget/custom_post.dart';
+import '../../widget/navigator_widget.dart';
 import 'friend_list.dart';
 import 'myfriend_profile.dart';
 
@@ -269,14 +270,13 @@ class _MyProfileState extends State<MyProfile> {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => MyFriend(
-                                    friendData: FriendData(
-                                        image: data[0].friendsImages![index],
-                                        name: data[0].friendsNames![index])),
-                              ));
+                          myNavigator(
+                            context,
+                            MyFriend(
+                                friendData: FriendData(
+                                    image: data[0].friendsImages![index],
+                                    name: data[0].friendsNames![index])),
+                          );
                         },
                         child: Column(
                           children: [

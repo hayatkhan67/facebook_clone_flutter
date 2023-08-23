@@ -1,6 +1,8 @@
-import 'package:bano_qabil_project/Facebook/Menu/setting&privacy/settings.dart';
-import 'package:bano_qabil_project/Facebook/Menu/setting_privacy.dart';
-import 'package:bano_qabil_project/Facebook/Profile/my_profile.dart';
+import 'package:bano_qabil_project/Mobile/Menu/setting&privacy/settings.dart';
+import 'package:bano_qabil_project/Mobile/Menu/setting_privacy.dart';
+import 'package:bano_qabil_project/Mobile/Profile/my_profile.dart';
+import 'package:bano_qabil_project/data/images.dart';
+import 'package:bano_qabil_project/widget/navigator_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../Login_page/login_page.dart';
@@ -54,10 +56,15 @@ class _MenuState extends State<Menu> {
     'Reels',
     'Feeds'
   ];
+
+  ExpansionTileController tilesController = ExpansionTileController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffdfe2e4),
       appBar: CustomAppBar(
+        color: const Color(0xffdfe2e4),
         leading: const SizedBox(),
         title: const Text('Menu',
             style: TextStyle(
@@ -90,20 +97,24 @@ class _MenuState extends State<Menu> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ListTile(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const MyProfile(isBack: true),
-                    ));
-              },
-              leading: const CircleAvatar(
-                backgroundImage: AssetImage(
-                    'assets/facebook/homepage/photo_2023-07-07_14-37-37.jpg'),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                color: Colors.white,
+                child: ListTile(
+                  onTap: () {
+                    myNavigator(
+                      context,
+                      const MyProfile(isBack: true),
+                    );
+                  },
+                  leading: const CircleAvatar(
+                    backgroundImage: AssetImage(hayat),
+                  ),
+                  title: const Text('Hayat Khan'),
+                  subtitle: const Text('see your profile'),
+                ),
               ),
-              title: const Text('Hayat Khan'),
-              subtitle: const Text('see your profile'),
             ),
             const Divider(
               thickness: 0.8,
@@ -116,7 +127,7 @@ class _MenuState extends State<Menu> {
                 children: [
                   Text(
                     'All shortcuts',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
                   ),
                 ],
               ),
@@ -135,7 +146,7 @@ class _MenuState extends State<Menu> {
                 itemBuilder: (context, index) => Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.grey.shade300),
+                      color: Colors.white),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
@@ -143,10 +154,6 @@ class _MenuState extends State<Menu> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         shortcutIcons[index],
-                        // Icon(
-                        //   Icons.videocam_outlined,
-                        //   color: Colors.blue,
-                        // ),
                         Text(shortcutText[index])
                       ],
                     ),
@@ -160,13 +167,9 @@ class _MenuState extends State<Menu> {
               height: 1,
               color: Colors.grey,
             ),
-            ListTile(
-              onTap: () {},
-              leading: CircleAvatar(
-                backgroundColor: Colors.grey.shade200,
-                child: const Icon(Icons.question_mark_outlined,
-                    color: Colors.black),
-              ),
+            ExpansionTile(
+              controller: tilesController,
+              leading: const Icon(Icons.question_mark_outlined),
               title: const MyText(text: 'Help & Support'),
             ),
             const Divider(
@@ -174,23 +177,7 @@ class _MenuState extends State<Menu> {
               height: 1,
               color: Colors.grey,
             ),
-            ListTile(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SeetingsPrivacy(),
-                    ));
-              },
-              leading: CircleAvatar(
-                backgroundColor: Colors.grey.shade200,
-                child: const Icon(
-                  Icons.settings,
-                  color: Colors.black,
-                ),
-              ),
-              title: const MyText(text: 'Settings & Privacy'),
-            ),
+            const SettingPrivacy(),
             const Divider(
               thickness: 0.8,
               height: 1,
@@ -224,8 +211,9 @@ class _MenuState extends State<Menu> {
                     ),
                   );
                 },
-                color: Colors.grey.shade400,
+                color: Colors.white,
                 sizeHeight: 30.0,
+                elevation: 1,
                 child: const MyText(
                   text: 'Log out',
                   fWeight: FontWeight.w500,

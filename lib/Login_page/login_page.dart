@@ -1,10 +1,12 @@
-import 'package:bano_qabil_project/Facebook/NavigatorBar/navigator_bar.dart';
+import 'package:bano_qabil_project/Mobile/NavigatorBar/navigator_bar.dart';
 import 'package:bano_qabil_project/Login_page/forget_paasword.dart';
 import 'package:bano_qabil_project/Login_page/sign_up.dart';
 import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../widget/navigator_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -127,11 +129,10 @@ class _LoginPageState extends State<LoginPage> {
                     CustomElevatedButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const MyNavigatorBar(),
-                              ));
+                          myNavigator(
+                            context,
+                            const MyNavigatorBar(),
+                          );
                         }
                       },
                       color: const Color.fromARGB(255, 6, 126, 223),
@@ -166,11 +167,10 @@ class _LoginPageState extends State<LoginPage> {
                     Column(children: [
                       CustomElevatedButton(
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SignUp(),
-                              ));
+                          myNavigator(
+                            context,
+                            const SignUp(),
+                          );
                         },
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),

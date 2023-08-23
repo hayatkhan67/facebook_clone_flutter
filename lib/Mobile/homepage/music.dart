@@ -8,7 +8,7 @@ class Music extends StatelessWidget {
     final w = MediaQuery.of(context).size.width;
 
     return Container(
-      width: w < 1100
+      width: w < 800
           ? MediaQuery.of(context).size.width * 0.3
           : MediaQuery.of(context).size.width * 0.1,
       decoration: BoxDecoration(

@@ -1,11 +1,34 @@
+import 'dart:io';
+
 import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
 import 'package:flutter/material.dart';
 import '../widget/custom_appbar.dart';
+import '../widget/navigator_widget.dart';
 import 'forget_paasword.dart';
+import 'package:image_picker/image_picker.dart';
 
-class CreateAccount extends StatelessWidget {
+class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
+
+  @override
+  State<CreateAccount> createState() => _CreateAccountState();
+}
+
+class _CreateAccountState extends State<CreateAccount> {
+  File? image;
+
+  final picker = ImagePicker();
+
+  Future imagePic() async {
+    final picFile = await picker.pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      if (picFile != null) {
+        image = File(picFile.path);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +59,28 @@ class CreateAccount extends StatelessWidget {
                     ),
                     const SizedBox(
                       height: 20,
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 5, 0, 15),
+                        child: InkWell(
+                          onTap: imagePic,
+                          child: image == null
+                              ? CircleAvatar(
+                                  radius: 54,
+                                  backgroundColor: Colors.grey[300],
+                                  child: const Center(
+                                    child: Icon(Icons.camera_alt),
+                                  ),
+                                )
+                              : CircleAvatar(
+                                  radius: 54,
+                                  backgroundImage: FileImage(image!),
+                                  backgroundColor: Colors.grey[300],
+                                ),
+                        ),
+                      ),
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.max,
@@ -87,11 +132,10 @@ class CreateAccount extends StatelessWidget {
               Expanded(
                 child: TextButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ForgetPassword(),
-                          ));
+                      myNavigator(
+                        context,
+                        const ForgetPassword(),
+                      );
                     },
                     child: const MyText(
                       text: 'Already have an account?',

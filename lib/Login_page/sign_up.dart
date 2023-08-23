@@ -3,6 +3,7 @@ import 'package:bano_qabil_project/widget/custom_ElevatedButton.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/custom_appbar.dart';
+import '../widget/navigator_widget.dart';
 import 'create_account.dart';
 import 'forget_paasword.dart';
 
@@ -114,11 +115,10 @@ class SignUp extends StatelessWidget {
             children: [
               TextButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ForgetPassword(),
-                        ));
+                    myNavigator(
+                      context,
+                      const ForgetPassword(),
+                    );
                   },
                   child: const MyText(
                     text: 'Already have an account?',

@@ -4,6 +4,7 @@ import '../../widget/circle_icon.dart';
 import '../../widget/customText.dart';
 import '../../widget/custom_appbar.dart';
 import '../../widget/custom_listtile.dart';
+import '../../widget/navigator_widget.dart';
 import 'chat_model_class.dart';
 import 'chats_home.dart';
 
@@ -67,15 +68,14 @@ class _ChatsState extends State<Chats> {
                         children: [
                           InkWell(
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ChatHomePage(
-                                        chatData: ChatData(
-                                            userName: data[index].userName,
-                                            image: data[index].userImage,
-                                            message: data[index].message)),
-                                  ));
+                              myNavigator(
+                                context,
+                                ChatHomePage(
+                                    chatData: ChatData(
+                                        userName: data[index].userName,
+                                        image: data[index].userImage,
+                                        message: data[index].message)),
+                              );
                             },
                             child: Container(
                                 constraints: const BoxConstraints(

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:bano_qabil_project/Facebook/Watch_videos/tab_bar.dart';
+import 'package:bano_qabil_project/Mobile/Watch_videos/tab_bar.dart';
 import 'package:bano_qabil_project/widget/customText.dart';
 import 'package:bano_qabil_project/widget/video_post.dart';
 import 'package:flutter/material.dart';

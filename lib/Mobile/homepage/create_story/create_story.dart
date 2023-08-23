@@ -9,7 +9,7 @@ class CreateStory extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenmd = MediaQuery.of(context).size;
     return Container(
-      width: screenmd.width < 1100
+      width: screenmd.width < 800
           ? MediaQuery.of(context).size.width * 0.3
           : MediaQuery.of(context).size.width * 0.1,
       decoration: BoxDecoration(

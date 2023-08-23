@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../Mobile/Menu/setting&privacy/device_request.dart';
+import '../Mobile/Menu/setting&privacy/link_history.dart';
+import '../Mobile/Menu/setting&privacy/order_payments.dart';
+import '../Mobile/Menu/setting&privacy/recent_ad.dart';
+import '../Mobile/Menu/setting&privacy/settings.dart';
 import '../model class/facebook_model.dart';
 import 'images.dart';
 
@@ -148,4 +153,26 @@ List idDetailInfo = [
   'from Mianwali',
   'Single',
   'See Your About Info'
+];
+
+List menuButtonIcons = [
+  Icons.account_circle,
+  Icons.link,
+  Icons.remove_from_queue,
+  Icons.ad_units_outlined,
+  Icons.payment
+];
+List menuButtonNames = [
+  'Settings',
+  'Link history',
+  'Device request',
+  'Recent ad activity',
+  'Orders and payments'
+];
+List menuButtondestinations = [
+  Settings(),
+  const LinkHistory(),
+  const DeviceRequest(),
+  const RecentAd(),
+  const OrderPayment(),
 ];

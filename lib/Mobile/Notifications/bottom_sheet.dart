@@ -12,10 +12,13 @@ class NotificationSetting extends StatefulWidget {
 class _NotificationSettingState extends State<NotificationSetting> {
   @override
   Widget build(BuildContext context) {
-    return  TextButton.icon(onPressed: (){}, icon:  const Icon(
-               Icons.mail_outline_rounded,
-               size: 14,
-             ), label: const MyText(text: 'Mark all as read'),
+    return TextButton.icon(
+      onPressed: () {},
+      icon: const Icon(
+        Icons.mail_outline_rounded,
+        size: 14,
+      ),
+      label: const MyText(text: 'Mark all as read'),
     );
   }
 }

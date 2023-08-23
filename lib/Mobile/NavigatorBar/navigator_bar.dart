@@ -1,4 +1,4 @@
-import 'package:bano_qabil_project/Facebook/Profile/my_profile.dart';
+import 'package:bano_qabil_project/Mobile/Profile/my_profile.dart';
 import 'package:flutter/material.dart';
 import '../../api/shop_api/shopHome.dart';
 import '../Notifications/notifications.dart';
@@ -30,7 +30,7 @@ class _MyNavigatorBarState extends State<MyNavigatorBar> {
       onWillPop: () async {
         return false;
       },
-      child: w > 1100
+      child: w > 800
           ? const DesktopHomePage()
           : Scaffold(
               bottomNavigationBar: NavigationBar(

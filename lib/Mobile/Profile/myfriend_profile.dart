@@ -8,6 +8,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import '../../widget/customText.dart';
 import '../../widget/custom_appbar.dart';
 import '../../widget/custom_post.dart';
+import '../../widget/navigator_widget.dart';
 import '../Chats/chats_home.dart';
 import 'friend_list.dart';
 
@@ -262,14 +263,13 @@ class _MyFriendState extends State<MyFriend> {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => MyFriend(
-                                    friendData: FriendData(
-                                        image: data[0].friendsImages![index],
-                                        name: data[0].friendsNames![index])),
-                              ));
+                          myNavigator(
+                            context,
+                            MyFriend(
+                                friendData: FriendData(
+                                    image: data[0].friendsImages![index],
+                                    name: data[0].friendsNames![index])),
+                          );
                         },
                         child: Column(
                           children: [
