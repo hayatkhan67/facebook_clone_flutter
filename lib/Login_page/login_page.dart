@@ -29,13 +29,14 @@ class _LoginPageState extends State<LoginPage> {
         return false;
       },
       child: Scaffold(
+        backgroundColor: const Color.fromARGB(255, 235, 235, 235),
         //add single child scroll view for overfollow problem
         body: SingleChildScrollView(
           //add Container first for full screen custom color
           child: Container(
             height: MediaQuery.of(context).size.height * 1,
             width: double.infinity,
-            color: const Color(0xff1877f2).withOpacity(0.2),
+            //  color: const Color(0xff1877f2).withOpacity(0.2),
             // color: Colors.blue.withOpacity(0.2),#1877f2
             child: Padding(
               padding: const EdgeInsets.all(8.0),
