@@ -1,5 +1,1 @@
-# bano_qabil_project
-
-Facebook App Projectt.
-
-## Getting Started
+# Facebool clone in flutter 
